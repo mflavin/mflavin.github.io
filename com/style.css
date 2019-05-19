@@ -36,10 +36,11 @@ html,
 }
 
 img {
-  width: 100%;
+  width: 95vw;
   max-width: 100%;
-  max-height: 65vh;
-  margin: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 nav,
@@ -85,16 +86,20 @@ section ul {
   font-family: 'Poppins';
   color: #404040;
   font-weight: lighter;
-  font-size: 0.875em;          /* 14px/16px = 0.875em */
+  font-size: 0.8125em;         /* 13px/16px = 0.8125em */
   line-height: 2em;            /* 28px/14px = 2em */
   margin-left: 2.85714em;      /* 40px/14px = 2.85714em */
   margin-right: 1.78571em;     /* 25px/14px = 1.78571em */
-  padding-bottom: 0.42857em;   /* 20px/14px = 0.42857em */
+  padding-bottom: 1.42857em;   /* 20px/14px = 1.42857em */
 }
 
 ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+#content {
+  padding-bottom: 5%;
 }
 
 #load {
@@ -103,8 +108,17 @@ ul {
   list-style-type: disc;
 }
 
+#resLink,
+#resLink a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #6699CC;
+}
+
+#resLink,
 #search {
-  font-size: 0.875em;                /* 14px/16px = 0.875em */
+  font-size: 0.8125em;               /* 13px/16px = 0.8125em */
   line-height: 2em;                  /* 28px/14px = 2em */
   border-radius: 1.42857em;          /* 20px/14px = 1.42857em */
   margin: 0.71428em 2.85714em 1.78571em 2.85714em;    /* 10px/14px = 0.71428em  40px/14px = 2.85714em  25px/14px = 1.78571em*/
@@ -155,7 +169,8 @@ ul {
     grid-area: header;
   }
 
-  header, img {
+  header,
+  img {
     width: 25vw;
   }
 
@@ -166,11 +181,6 @@ ul {
   main {
     margin: 0 3.125em;      /*50px/16px = 3.125em*/
     padding: 3.125em 0px;   /*50px/16px = 3.125em*/
-  }
-
-  nav,
-  footer {
-    width: 95%;
   }
 
   nav {
@@ -190,27 +200,27 @@ ul {
   nav,
   footer,
   #search {
-    font-size: 1em;    /*16px/16px = 1em*/
-    line-height: 2em;  /*32px/16px = 2em*/
+    font-size: 0.875em;   /*28px/16px = 0.875em*/
+    line-height: 1.75em;  /*28px/16px = 1.75em*/
   }
 
   #content {
     grid-area: container;
   }
 
+  #resImg {
+    width: 55vw;
+  }
+
   .overlay {
     right: 0;
     display: none;
-    padding-bottom: 20%;
+    padding-bottom: 40vh;
   }
 
 }
 
 @media screen and (min-width: 1080px) {
-  header h1 {
-    font-size: 2.75em;    /*44px/16px = 2.75em*/
-  }
-  
   main {
     width: 83vw;
     margin: 0 auto;
@@ -219,19 +229,6 @@ ul {
   nav,
   footer {
     width: 100%;
-  }
-
-  section h1 {
-    font-size: 1.5em;    /*24px/16px = 1.5em*/
-  }
-
-  section p,
-  section ul,
-  nav,
-  footer,
-  #search {
-    font-size: 1.125em;    /*18px/16px = 1.125em*/
-    line-height: 2em;      /*36px/18px = 2em*/
   }
 
   .popup {
