@@ -23,6 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore react app that is hosted on github pages, but has different repo
-/tttgame
-/almitch
 /first-react-app
+/almitch
