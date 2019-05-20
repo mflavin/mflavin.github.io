@@ -235,6 +235,12 @@ ul {
     width: 100%;
   }
 
+  section p,
+  section ul {
+    font-size: 1em;         /* 16px/16px = 1em */
+    line-height: 2em;       /* 28px/14px = 2em */
+  }
+
   .popup {
     margin: 35% 15%;
   }
