@@ -1,4 +1,4 @@
-(function() {
+document.addEventListener("DOMContentLoaded", function(){
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
     // Get the DOM nodes for our UI.
@@ -42,4 +42,4 @@
       navigator.serviceWorker.controller.postMessage(message.value);
     });
   }
-})();
+});
