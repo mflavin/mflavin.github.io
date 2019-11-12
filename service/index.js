@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function(){
     status.textContent = 'supported';
 
     navigator.serviceWorker.register('./service-worker.js');
+    navigator.serviceWorker.onmessage = function (evt) {
+      console.log(evt);
+      console.log('onmessage?');
+    }
 
     // Listen for any messages from the service worker.
     navigator.serviceWorker.addEventListener('message', function(event) {
