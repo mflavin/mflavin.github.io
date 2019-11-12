@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
       console.log('isAsset, ', isAsset);
       console.log('lastETag, ', lastETag);
       console.log('nunu ,',isNew);
+      localStorage.currentETag = message.eTag;
     }
 
     // Listen for any messages from the service worker.
