@@ -15,6 +15,22 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.onmessage = function (evt) {
       console.log(evt);
       console.log('onmessage?');
+      var message = JSON.parse(evt.data);
+
+      var isRefresh = message.type === 'refresh';
+      var isAsset = message.url.includes('asset');
+      var lastETag = localStorage.currentETag;
+
+      // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
+      // the hash of the resource so it is a very effective way of check for fresh
+      // content.
+      var isNew =  lastETag !== message.eTag;
+
+      console.log('message, ', message);
+      console.log('isRefresh, ', isRefresh);
+      console.log('isAsset, ', isAsset);
+      console.log('lastETag, ', lastETag);
+      console.log('nunu ,',isNew);
     }
 
     // Listen for any messages from the service worker.
