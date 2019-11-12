@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
+  var CACHE = 'cache-update-and-refresh';
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
     // Get the DOM nodes for our UI.
