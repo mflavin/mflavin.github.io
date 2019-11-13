@@ -16,6 +16,7 @@ self.addEventListener('message', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
+  console.log('fetch event, ',event);
   event.respondWith(
     caches.match(event.request)
       .then(function (response) {
