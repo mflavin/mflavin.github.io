@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
       // the hash of the resource so it is a very effective way of check for fresh
       // content.
+      console.log('lastETag !== message.eTag; ==> ', lastETag, message.eTag;);
       var isNew =  lastETag !== message.eTag;
 
       console.log('===============');
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function(){
         // cache and it could be retrieved from the service worker, keeping track
         // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
+        console.log('new ETAG, ', localStorage.currentETag);
       }
     };
 
