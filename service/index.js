@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var message = JSON.parse(evt.data);
 
       var isRefresh = message.type === 'refresh';
+      var isAsset = message.url.includes('asset');
       var lastETag = localStorage.currentETag;
 
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // console.log('nunu ,',isNew);
       // console.log('===============');
 
-      if (isRefresh && isNew) {
+      if (isRefresh && isAsset && isNew) {
         // Escape the first time (when there is no ETag yet)
         if (lastETag) {
           console.log('\n\n New Content Here! \n\n');
