@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     navigator.serviceWorker.register('./service-worker.js', reg => {
       function listenForWaitingServiceWorker(reg, callback) {
+        console.log('a...');
         function awaitStateChange() {
           reg.installing.addEventListener('statechange', function() {
             if (this.state === 'installed') callback(reg);
@@ -34,12 +35,14 @@ document.addEventListener("DOMContentLoaded", function(){
       var refreshing;
       navigator.serviceWorker.addEventListener('controllerchange',
         function() {
+          console.log('a...');
           if (refreshing) return;
           refreshing = true;
           window.location.reload();
         }
       );
       function promptUserToRefresh(reg) {
+        console.log('a...');
         // this is just an example
         // don't use window.confirm in real life; it's terrible
         if (window.confirm("New version available! OK to refresh?")) {
