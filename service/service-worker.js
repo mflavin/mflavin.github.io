@@ -4,7 +4,7 @@ self.addEventListener('message', function(event) {
   if (event.data.action === 'skipWaiting') {
     console.log('skipping');
     self.skipWaiting();
-    window.location.reload();
+    update(event);
   }
 
   console.log('worker message gotten :D', event);
