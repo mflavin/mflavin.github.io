@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
   document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
-    // navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
-    window.location.reload();
+    navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
+    // window.location.reload();
   });
 
 
-  var CACHE = 'cache-update-and-refresh';
+  var cacheName = 'cache-update-and-refresh';
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
     console.log('serviceWorker');
@@ -86,6 +86,13 @@ document.addEventListener("DOMContentLoaded", function(){
       }
       // Send the message to the service worker.
       navigator.serviceWorker.controller.postMessage(message.value);
+    });
+    
+    let refreshing;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
     });
   }
 });

@@ -2,6 +2,11 @@
 self.addEventListener('message', function(event) {
 
   console.log('worker message gotten :D', event);
+  
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
+
   // Get all the connected clients and forward the message along.
   var promise = self.clients.matchAll()
   .then(function(clientList) {
@@ -50,21 +55,17 @@ self.addEventListener('activate', function(event) {
 
 // // // Testing Here // // //
 
-var CACHE = 'cache-update-and-refresh';
+var cacheName = 'cache-update-and-refresh';
 
 // On install, cache some resource.
 self.addEventListener('install', function(evt) {
   console.log('The service worker is being installed.');
-
-  // Open a cache and use `addAll()` with an array of assets to add all of them
-  // to the cache. Ask the service worker to keep installing until the
-  // returning promise resolves.
-  evt.waitUntil(caches.open(CACHE).then(function (cache) {
-    cache.addAll([
-      './index.html',
-      './asset'
-    ]);
-  }));
+  event.waitUntil(
+    caches.open(cacheName)
+      .then(cache => cache.addAll([
+        './index.html'
+      ]))
+  );
 });
 
 // On fetch, use cache but update the entry with the latest contents
