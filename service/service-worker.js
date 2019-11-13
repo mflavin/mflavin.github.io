@@ -106,8 +106,9 @@ function update(request) {
 
 // Sends a message to the clients.
 function refresh(response) {
+  console.log(response, 'console.log(response);');
   console.log('===REFRESH===');
-  console.log(response);
+  console.log(response, 'console.log(response);');
   return self.clients.matchAll().then(function (clients) {
     clients.forEach(function (client) {
       // Encode which resource has been updated. By including the
