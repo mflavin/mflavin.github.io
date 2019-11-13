@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
       // the hash of the resource so it is a very effective way of check for fresh
       // content.
-      console.log('lastETag !== message.eTag; ==> ', lastETag, message.eTag;);
+      console.log('lastETag !== message.eTag; ==> ', lastETag + '' + message.eTag);
       var isNew =  lastETag !== message.eTag;
 
       console.log('===============');
