@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
+
+  let newWorker;
+
   document.getElementById('alertA').addEventListener('click', function() {
     console.log('reload');
     location.reload();
@@ -17,8 +20,10 @@ document.addEventListener("DOMContentLoaded", function(){
     // Give an indicator that service workers are supported.
     status.textContent = 'supported';
 
-    navigator.serviceWorker.register('./service-worker.js');
-
+    navigator.serviceWorker.register('./service-worker.js').then(reg => {
+      console.log('apple');
+      newWorker = reg.installing;
+    });
 
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
@@ -54,14 +59,6 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log('new ETAG, ', localStorage.currentETag + '\n\n');
       }
     };
-
-    navigator.serviceWorker.controller.onupdatefound = function() {
-      console.log('ham, onupdatefound, ung');
-    }
-
-    navigator.serviceWorker.controller.installing.onstatechange = function() {
-      console.log('ham, onstatechange, ung');
-    }
 
     // Listen for any messages from the service worker.
     navigator.serviceWorker.addEventListener('message', function(event) {
