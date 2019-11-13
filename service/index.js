@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   document.getElementById('alertA').addEventListener('click', function() {
     console.log('reload');
-    location.reload();
+    navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
   });
 
 
@@ -20,10 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Give an indicator that service workers are supported.
     status.textContent = 'supported';
 
-    navigator.serviceWorker.register('./service-worker.js').then(reg => {
-      console.log('apple');
-      newWorker = reg.installing;
-    });
+    navigator.serviceWorker.register('./service-worker.js');
 
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
