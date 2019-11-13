@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 
-  var cacheName = 'cache-update-and-refresh';
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
     console.log('serviceWorker');
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.register('./service-worker.js');
 
     navigator.serviceWorker.onmessage = function (evt) {
-      console.log('onmessage');
       document.getElementById('alert').classList.remove('show');
       var message = JSON.parse(evt.data);
 
@@ -87,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // Send the message to the service worker.
       navigator.serviceWorker.controller.postMessage(message.value);
     });
-    
+
     let refreshing;
     navigator.serviceWorker.addEventListener('controllerchange', function () {
       if (refreshing) return;
