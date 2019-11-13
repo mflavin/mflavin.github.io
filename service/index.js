@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
   document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
-    navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
+    // navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
     window.location.reload();
   });
 
