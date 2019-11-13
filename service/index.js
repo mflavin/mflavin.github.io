@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Give an indicator that service workers are supported.
     status.textContent = 'supported';
 
-    navigator.serviceWorker.register('./service-worker.js', reg => {
+    navigator.serviceWorker.register('./service-worker.js').then((reg) => {
       function listenForWaitingServiceWorker(reg, callback) {
         console.log('a...');
         function awaitStateChange() {
