@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
           console.log('\n\n New Content Here! \n\n');
           // Inform the user about the update
           document.getElementById('alert').classList.add('show');
+          document.getElementById('alert2').classList.add('show');
         }
         // For teaching purposes, although this information is in the offline
         // cache and it could be retrieved from the service worker, keeping track
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.currentETag = message.eTag;
       } else {
         document.getElementById('alert').classList.remove('show');
+        document.getElementById('alert2').classList.remove('show');
       }
     };
 
