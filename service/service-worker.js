@@ -93,7 +93,7 @@ self.addEventListener('fetch', function(evt) {
 // but it does with `undefined` as value.
 function fromCache(request) {
   console.log('===CACHE===');
-  return caches.open(CACHE).then(function (cache) {
+  return caches.open(cacheName).then(function (cache) {
     return cache.match(request);
   });
 }
@@ -103,7 +103,7 @@ function fromCache(request) {
 // storing the new response data.
 function update(request) {
   console.log('===UPDATE===', request);
-  return caches.open(CACHE).then(function (cache) {
+  return caches.open(cacheName).then(function (cache) {
     return fetch(request).then(function (response) {
       return cache.put(request, response.clone()).then(function () {
         console.log(response);
