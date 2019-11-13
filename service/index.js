@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById('alertA').addEventListener('click', function() {
+    console.log('reload');
+    location.reload();
+  });
+  document.getElementById('alert2A').addEventListener('click', function() {
+    console.log('reload');
+    location.reload();
+  });
+
+
   var CACHE = 'cache-update-and-refresh';
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
