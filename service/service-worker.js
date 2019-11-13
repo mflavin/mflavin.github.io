@@ -41,7 +41,7 @@ var CACHE = 'cache-update-and-refresh';
 // On install, cache some resource.
 self.addEventListener('install', function(evt) {
   console.log('The service worker is being installed.');
-  // 
+  //
   // // Open a cache and use `addAll()` with an array of assets to add all of them
   // // to the cache. Ask the service worker to keep installing until the
   // // returning promise resolves.
@@ -52,22 +52,22 @@ self.addEventListener('install', function(evt) {
   // }));
 });
 
-// // On fetch, use cache but update the entry with the latest contents
-// // from the server.
-// self.addEventListener('fetch', function(evt) {
-//   console.log('The service worker is serving the asset.');
-//   // You can use `respondWith()` to answer ASAP...
-//   evt.respondWith(fromCache(evt.request));
-//   // ...and `waitUntil()` to prevent the worker to be killed until
-//   // the cache is updated.
-//   evt.waitUntil(
-//     update(evt.request)
-//     // Finally, send a message to the client to inform it about the
-//     // resource is up to date.
-//     .then(refresh)
-//   );
-// });
-//
+// On fetch, use cache but update the entry with the latest contents
+// from the server.
+self.addEventListener('fetch', function(evt) {
+  console.log('The service worker is serving the asset.');
+  // You can use `respondWith()` to answer ASAP...
+  evt.respondWith(fromCache(evt.request));
+  // ...and `waitUntil()` to prevent the worker to be killed until
+  // the cache is updated.
+  evt.waitUntil(
+    update(evt.request)
+    // Finally, send a message to the client to inform it about the
+    // resource is up to date.
+    .then(refresh)
+  );
+});
+
 // // Open the cache where the assets were stored and search for the requested
 // // resource. Notice that in case of no matching, the promise still resolves
 // // but it does with `undefined` as value.
