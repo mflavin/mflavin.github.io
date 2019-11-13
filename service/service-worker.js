@@ -32,35 +32,7 @@ self.addEventListener('message', function(event) {
 // A more complete example of this given in the immediate-claim recipe.
 self.addEventListener('activate', function(event) {
   console.log('worker active :D');
-  event.waitUntil(() => {
-    self.clients.claim();
-
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          // Return true if you want to remove this cache,
-          // but remember that caches are shared across
-          // the whole origin
-        }).map(function(cacheName) {
-          return caches.delete(cacheName);
-        })
-      );
-    });
-  });
-  // event.waitUntil(self.clients.claim());
-  // event.waitUntil(
-  //   caches.keys().then(function(cacheNames) {
-  //     return Promise.all(
-  //       cacheNames.filter(function(cacheName) {
-  //         // Return true if you want to remove this cache,
-  //         // but remember that caches are shared across
-  //         // the whole origin
-  //       }).map(function(cacheName) {
-  //         return caches.delete(cacheName);
-  //       })
-  //     );
-  //   })
-  // )
+  event.waitUntil(self.clients.claim());
 });
 
 // // // Testing Here // // //
@@ -116,10 +88,11 @@ function fromCache(request) {
 // Update consists in opening the cache, performing a network request and
 // storing the new response data.
 function update(request) {
-  console.log('===UPDATE===');
+  console.log('===UPDATE===', request);
   return caches.open(CACHE).then(function (cache) {
     return fetch(request).then(function (response) {
       return cache.put(request, response.clone()).then(function () {
+        console.log(response);
         return response;
       });
     });
