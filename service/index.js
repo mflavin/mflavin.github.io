@@ -55,6 +55,14 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     };
 
+    navigator.serviceWorker.controller.onupdatefound = function() {
+      console.log('ham, onupdatefound, ung');
+    }
+
+    navigator.serviceWorker.controller.installing.onstatechange = function() {
+      console.log('ham, onstatechange, ung');
+    }
+
     // Listen for any messages from the service worker.
     navigator.serviceWorker.addEventListener('message', function(event) {
       // console.log('index.js message gotten');
