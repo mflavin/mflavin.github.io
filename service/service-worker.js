@@ -65,7 +65,11 @@ self.addEventListener('fetch', function(evt) {
     update(evt.request)
     // Finally, send a message to the client to inform it about the
     // resource is up to date.
-    .then(refresh)
+    .then(
+      setTimeout(function () {
+        refresh
+      }, 400);
+    )
   );
 });
 
@@ -95,7 +99,7 @@ function update(request) {
 
 // Sends a message to the clients.
 function refresh(response) {
-  console.log('===REFRESH===');
+  console.log('===REFRESH===', response);
   return self.clients.matchAll().then(function (clients) {
     clients.forEach(function (client) {
       // Encode which resource has been updated. By including the
