@@ -33,12 +33,12 @@ document.addEventListener("DOMContentLoaded", function(){
       console.log('lastETag !== message.eTag; ==> ', lastETag + '' + message.eTag);
       var isNew =  lastETag !== message.eTag;
 
-      console.log('===============');
-      console.log('message, ', message);
-      console.log('isRefresh, ', isRefresh);
-      console.log('lastETag, ', lastETag);
-      console.log('nunu ,',isNew);
-      console.log('===============');
+      // console.log('===============');
+      // console.log('message, ', message);
+      // console.log('isRefresh, ', isRefresh);
+      // console.log('lastETag, ', lastETag);
+      // console.log('nunu ,',isNew);
+      // console.log('===============');
 
       if (isRefresh && isNew) {
         // Escape the first time (when there is no ETag yet)
@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", function(){
         // cache and it could be retrieved from the service worker, keeping track
         // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
-        console.log('new ETAG, ', localStorage.currentETag);
+        console.log('new ETAG, ', localStorage.currentETag + '\n\n');
       }
     };
 
     // Listen for any messages from the service worker.
     navigator.serviceWorker.addEventListener('message', function(event) {
-      console.log('index.js message gotten');
+      // console.log('index.js message gotten');
       // A message has been received, now show the message on the page.
       var clientId = event.data.client;
       var node;
