@@ -34,24 +34,24 @@ self.addEventListener('activate', function(event) {
   event.waitUntil(self.clients.claim());
 });
 
-// // // // Testing Here // // //
-//
-// var CACHE = 'cache-update-and-refresh';
-//
-// // On install, cache some resource.
-// self.addEventListener('install', function(evt) {
-//   console.log('The service worker is being installed.');
-//
-//   // Open a cache and use `addAll()` with an array of assets to add all of them
-//   // to the cache. Ask the service worker to keep installing until the
-//   // returning promise resolves.
-//   evt.waitUntil(caches.open(CACHE).then(function (cache) {
-//     cache.addAll([
-//       './index.html',
-//     ]);
-//   }));
-// });
-//
+// // // Testing Here // // //
+
+var CACHE = 'cache-update-and-refresh';
+
+// On install, cache some resource.
+self.addEventListener('install', function(evt) {
+  console.log('The service worker is being installed.');
+  // 
+  // // Open a cache and use `addAll()` with an array of assets to add all of them
+  // // to the cache. Ask the service worker to keep installing until the
+  // // returning promise resolves.
+  // evt.waitUntil(caches.open(CACHE).then(function (cache) {
+  //   cache.addAll([
+  //     './index.html',
+  //   ]);
+  // }));
+});
+
 // // On fetch, use cache but update the entry with the latest contents
 // // from the server.
 // self.addEventListener('fetch', function(evt) {
