@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Give an indicator that service workers are supported.
     status.textContent = 'supported';
 
-    navigator.serviceWorker.register('./service-worker.js');
+    navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'none' });
     navigator.serviceWorker.onmessage = function (evt) {
       var message = JSON.parse(evt.data);
 
