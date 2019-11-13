@@ -76,8 +76,8 @@ self.addEventListener('fetch', (event) => {
       return caches.match(event.request);
     }
   }());
-  evt.waitUntil(
-    update(evt.request)
+  event.waitUntil(
+    update(event.request)
     // Finally, send a message to the client to inform it about the
     // resource is up to date.
     .then(refresh)
