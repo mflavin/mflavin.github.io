@@ -60,32 +60,23 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     };
 
-      let refreshing;
-      // The event listener that is fired when the service worker updates
-      // Here we reload the page
-     navigator.serviceWorker.addEventListener('controllerchange', function () {
-       if (refreshing) return;
-       window.location.reload();
-       refreshing = true;
-     });
-
     // Listen for any messages from the service worker.
-    navigator.serviceWorker.addEventListener('message', function(event) {
-      // console.log('index.js message gotten');
-      // A message has been received, now show the message on the page.
-      var clientId = event.data.client;
-      var node;
-      // A message from this client hasn't been received before, so we need to
-      // setup a place to show its messages.
-      if (!inbox[clientId]) {
-        node = document.createElement('div');
-        received.appendChild(node);
-        inbox[clientId] = node;
-      }
-      // Show the message.
-      node = inbox[clientId];
-      node.textContent = 'Client ' + clientId + ' says: ' + event.data.message;
-    });
+    // navigator.serviceWorker.addEventListener('message', function(event) {
+    //   // console.log('index.js message gotten');
+    //   // A message has been received, now show the message on the page.
+    //   var clientId = event.data.client;
+    //   var node;
+    //   // A message from this client hasn't been received before, so we need to
+    //   // setup a place to show its messages.
+    //   if (!inbox[clientId]) {
+    //     node = document.createElement('div');
+    //     received.appendChild(node);
+    //     inbox[clientId] = node;
+    //   }
+    //   // Show the message.
+    //   node = inbox[clientId];
+    //   node.textContent = 'Client ' + clientId + ' says: ' + event.data.message;
+    // });
 
     message.addEventListener('input', function() {
       console.log('index.js input gotten');
