@@ -49,6 +49,7 @@ self.addEventListener('install', function(evt) {
   evt.waitUntil(caches.open(CACHE).then(function (cache) {
     cache.addAll([
       './index.html',
+      './asset'
     ]);
   }));
 });
