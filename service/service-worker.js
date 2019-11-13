@@ -2,7 +2,7 @@
 self.addEventListener('message', function(event) {
 
   console.log('worker message gotten :D', event);
-  
+
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
   }
@@ -60,7 +60,7 @@ var cacheName = 'cache-update-and-refresh';
 // On install, cache some resource.
 self.addEventListener('install', function(evt) {
   console.log('The service worker is being installed.');
-  event.waitUntil(
+  evt.waitUntil(
     caches.open(cacheName)
       .then(cache => cache.addAll([
         './index.html'
