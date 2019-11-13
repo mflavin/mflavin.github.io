@@ -23,14 +23,17 @@ document.addEventListener("DOMContentLoaded", function(){
       // content.
       var isNew =  lastETag !== message.eTag;
 
+      console.log('===============');
       console.log('message, ', message);
       console.log('isRefresh, ', isRefresh);
       console.log('lastETag, ', lastETag);
       console.log('nunu ,',isNew);
+      console.log('===============');
 
       if (isRefresh && isNew) {
         // Escape the first time (when there is no ETag yet)
         if (lastETag) {
+          console.log('\n\n New Content Here! \n\n');
           // Inform the user about the update
           document.getElementById('alert').classList.add('show');
         }
@@ -38,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function(){
         // cache and it could be retrieved from the service worker, keeping track
         // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
+      } else {
+        document.getElementById('alert').classList.remove('show');
       }
     };
 
