@@ -32,6 +32,19 @@
   <h1>Header One!</h1>
 
   <ins>New Delete Cache..</ins>
+  <code>
+    event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (!expectedCaches.includes(key)) {
+          return caches.delete(key);
+        }
+      })
+    )).then(() => {
+      console.log('V2 now ready to handle fetches!');
+    })
+  );
+  </code>
 
 <div>
   Service Worker Status: <span id="status">not supported</span>
