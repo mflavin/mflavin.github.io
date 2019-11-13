@@ -58,7 +58,7 @@ self.addEventListener('install', function(evt) {
 self.addEventListener('fetch', function(evt) {
   console.log('The service worker is serving the asset.');
   // You can use `respondWith()` to answer ASAP...
-  evt.respondWith(fromCache(evt.request));
+  // evt.respondWith(fromCache(evt.request));
   // ...and `waitUntil()` to prevent the worker to be killed until
   // the cache is updated.
   evt.waitUntil(
