@@ -37,8 +37,6 @@ self.addEventListener('message', function(event) {
 // A more complete example of this given in the immediate-claim recipe.
 self.addEventListener('activate', function(event) {
   console.log('worker active :D');
-  localStorage.removeItem('currentETag');
-  console.log('remove key...');
   event.waitUntil(self.clients.claim());
 
   event.waitUntil(

@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
+  localStorage.removeItem('currentETag');
+  console.log('remove key...');
   document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
     // navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
