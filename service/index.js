@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // console.log('nunu ,',isNew);
       // console.log('===============');
 
-      if (isRefresh && isAsset && isNew) {
+      if (isRefresh && isNew) {
         // Escape the first time (when there is no ETag yet)
         if (lastETag) {
           console.log('\n\n New Content Here! \n\n');
