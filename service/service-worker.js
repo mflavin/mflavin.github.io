@@ -1,14 +1,6 @@
 // Listen for messages from clients.
 self.addEventListener('message', function(event) {
 
-  if (event.data.action === 'skipWaiting') {
-    console.log('skipping');
-    self.skipWaiting();
-    fromCache(event);
-    update(event);
-    refresh(event);
-  }
-
   console.log('worker message gotten :D', event);
   // Get all the connected clients and forward the message along.
   var promise = self.clients.matchAll()

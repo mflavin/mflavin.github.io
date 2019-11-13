@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", function(){
   let newWorker;
 
   document.getElementById('alertA').addEventListener('click', function() {
-    console.log('reload');
-    navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
+    // console.log('reload');
+    // navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
     window.location.reload();
   });
 
 
-  // var CACHE = 'cache-update-and-refresh';
+  var CACHE = 'cache-update-and-refresh';
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
     // Get the DOM nodes for our UI.
@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function(){
     status.textContent = 'supported';
 
     navigator.serviceWorker.register('./service-worker.js');
+
+    navigator.serviceWorker.ready.then(function() {location.reload();});
 
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
