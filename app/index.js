@@ -37,6 +37,28 @@ if ('serviceWorker' in navigator) {
   //   });
   // });
 
+  navigator.serviceWorker.onmessage = function (evt) {
+    console.log('onmessage');
+    var message = JSON.parse(evt.data);
+    console.log('message, ', message);
+
+    var isRefresh = message.type === 'refresh';
+    var lastETag = localStorage.currentETag;
+
+    console.log('lastETag !== message.eTag; ==> ', lastETag + '' + message.eTag);
+    var isNew =  lastETag !== message.eTag;
+
+    if (isRefresh && isNew) {
+      // Escape the first time (when there is no ETag yet)
+      if (lastETag) {
+        console.log('\n\n New Content Here! \n\n');
+        // Inform the user about the update
+      }
+      localStorage.currentETag = message.eTag;
+      console.log('new ETAG, ', localStorage.currentETag + '\n\n');
+    }
+  };
+
   let refreshing;
   navigator.serviceWorker.addEventListener('controllerchange', function () {
     if (refreshing) return;
