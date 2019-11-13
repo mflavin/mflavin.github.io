@@ -24,14 +24,19 @@ document.addEventListener("DOMContentLoaded", function(){
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
       // the hash of the resource so it is a very effective way of check for fresh
       // content.
-      var isNew =  lastETag !== message.eTag;
+      var isNew = lastETag !== message.eTag;
 
       console.log('message, ', message);
       console.log('isRefresh, ', isRefresh);
       console.log('isAsset, ', isAsset);
       console.log('lastETag, ', lastETag);
       console.log('nunu ,',isNew);
-      localStorage.currentETag = message.eTag;
+      // TODO: eTag changes with new code build
+      // Don't always save it here, only save it when isNew?
+      // Refer to serviceWorker-Cookbook example with refresh
+      if (isNew) {
+        localStorage.currentETag = message.eTag;
+      }
     }
 
     // Listen for any messages from the service worker.
