@@ -72,6 +72,7 @@ self.addEventListener('fetch', function(evt) {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
+  console.log('===CACHE===');
   return caches.open(CACHE).then(function (cache) {
     return cache.match(request);
   });
@@ -81,6 +82,7 @@ function fromCache(request) {
 // Update consists in opening the cache, performing a network request and
 // storing the new response data.
 function update(request) {
+  console.log('===UPDATE===');
   return caches.open(CACHE).then(function (cache) {
     return fetch(request).then(function (response) {
       return cache.put(request, response.clone()).then(function () {
@@ -92,6 +94,7 @@ function update(request) {
 
 // Sends a message to the clients.
 function refresh(response) {
+  console.log('===REFRESH===');
   return self.clients.matchAll().then(function (clients) {
     clients.forEach(function (client) {
       // Encode which resource has been updated. By including the
