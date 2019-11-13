@@ -33,6 +33,18 @@ self.addEventListener('message', function(event) {
 self.addEventListener('activate', function(event) {
   console.log('worker active :D');
   event.waitUntil(self.clients.claim());
+
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (!expectedCaches.includes(key)) {
+          return caches.delete(key);
+        }
+      })
+    )).then(() => {
+      console.log('V2 now ready to handle fetches!');
+    })
+  );
 });
 
 // // // Testing Here // // //
