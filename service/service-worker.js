@@ -41,6 +41,9 @@ var CACHE = 'cache-update-and-refresh';
 // On install, cache some resource.
 self.addEventListener('install', function(evt) {
   console.log('The service worker is being installed.');
+
+  self.skipWaiting();
+  
   // Open a cache and use `addAll()` with an array of assets to add all of them
   // to the cache. Ask the service worker to keep installing until the
   // returning promise resolves.

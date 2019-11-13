@@ -17,41 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Give an indicator that service workers are supported.
     status.textContent = 'supported';
 
-    navigator.serviceWorker.register('./service-worker.js').then((reg) => {
-      function listenForWaitingServiceWorker(reg, callback) {
-        console.log('a...');
-        function awaitStateChange() {
-          reg.installing.addEventListener('statechange', function() {
-            if (this.state === 'installed') callback(reg);
-          });
-        }
-        if (!reg) return;
-        if (reg.waiting) return callback(reg);
-        if (reg.installing) awaitStateChange();
-        reg.addEventListener('updatefound', awaitStateChange);
-      }
-
-      // reload once when the new Service Worker starts activating
-      var refreshing;
-      navigator.serviceWorker.addEventListener('controllerchange',
-        function() {
-          console.log('a...');
-          if (refreshing) return;
-          refreshing = true;
-          window.location.reload();
-        }
-      );
-      function promptUserToRefresh(reg) {
-        console.log('a...');
-        // this is just an example
-        // don't use window.confirm in real life; it's terrible
-        if (window.confirm("New version available! OK to refresh?")) {
-          reg.waiting.postMessage('skipWaiting');
-        }
-      }
-      listenForWaitingServiceWorker(reg, promptUserToRefresh);
-    });
-
+    navigator.serviceWorker.register('./service-worker.js');
 
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
