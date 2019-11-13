@@ -60,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     };
 
+      let refreshing;
+      // The event listener that is fired when the service worker updates
+      // Here we reload the page
+     navigator.serviceWorker.addEventListener('controllerchange', function () {
+       if (refreshing) return;
+       window.location.reload();
+       refreshing = true;
+     });
+
     // Listen for any messages from the service worker.
     navigator.serviceWorker.addEventListener('message', function(event) {
       // console.log('index.js message gotten');
