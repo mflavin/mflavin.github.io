@@ -68,7 +68,9 @@ self.addEventListener('fetch', function(evt) {
     // .then(refresh)
     .then((e) => {
       console.log('e, ,', e);
-      refresh();
+      setTimeout(function () {
+        refresh(e);
+      }, 300);
     })
   );
 });
