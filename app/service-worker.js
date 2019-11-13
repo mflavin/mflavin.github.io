@@ -17,11 +17,12 @@ self.addEventListener('message', function (event) {
 
 self.addEventListener('fetch', function (event) {
   console.log('fetch event, ',event);
-  console.log(event.request.headers.get('ETag'));
   event.respondWith(
     caches.match(event.request)
       .then(function (response) {
         if (response) {
+          console.log("response.headers.get('ETag')");
+          console.log(response.headers.get('ETag'));
           return response;
         }
         return fetch(event.request);
