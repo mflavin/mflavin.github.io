@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
   var CACHE = 'cache-update-and-refresh';
   // Only setup the demo if service workers are supported.
   if (navigator.serviceWorker) {
+    console.log('serviceWorker');
     // Get the DOM nodes for our UI.
     var message = document.getElementById('message');
     var received = document.getElementById('received');
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.register('./service-worker.js');
 
     navigator.serviceWorker.onmessage = function (evt) {
+      console.log('onmessage');
       document.getElementById('alert').classList.remove('show');
       var message = JSON.parse(evt.data);
 
