@@ -47,11 +47,11 @@ self.addEventListener('install', function(evt) {
   // Open a cache and use `addAll()` with an array of assets to add all of them
   // to the cache. Ask the service worker to keep installing until the
   // returning promise resolves.
-  evt.waitUntil(caches.open(CACHE).then(function (cache) {
-    cache.addAll([
-      './index.html',
-    ]);
-  }));
+  // evt.waitUntil(caches.open(CACHE).then(function (cache) {
+  //   cache.addAll([
+  //     './index.html',
+  //   ]);
+  // }));
 });
 
 // On fetch, use cache but update the entry with the latest contents
