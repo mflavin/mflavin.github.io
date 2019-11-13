@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     navigator.serviceWorker.register('./service-worker.js');
 
-    navigator.serviceWorker.ready.then(function() {location.reload();});
+    navigator.serviceWorker.ready.then(reload);
+
+    function reload() {
+      console.log('reload page...');
+      location.reload();
+    }
 
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
