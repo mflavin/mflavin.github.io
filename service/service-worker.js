@@ -66,11 +66,10 @@ self.addEventListener('fetch', function(evt) {
     // Finally, send a message to the client to inform it about the
     // resource is up to date.
     // .then(refresh)
-    .then((e) => {
-      console.log('e, ,', e);
-      refresh(e);
-      refresh(e);
-    })
+    // .then((e) => {
+    //   console.log('e, ,', e);
+    //   refresh(e);
+    // })
   );
 });
 
