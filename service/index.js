@@ -13,31 +13,33 @@ document.addEventListener("DOMContentLoaded", function(){
 
     navigator.serviceWorker.register('./service-worker.js');
     navigator.serviceWorker.onmessage = function (evt) {
-      console.log(evt);
-      console.log('onmessage?');
       var message = JSON.parse(evt.data);
 
       var isRefresh = message.type === 'refresh';
-      var isAsset = message.url.includes('asset');
       var lastETag = localStorage.currentETag;
 
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
       // the hash of the resource so it is a very effective way of check for fresh
       // content.
-      var isNew = lastETag !== message.eTag;
+      var isNew =  lastETag !== message.eTag;
 
       console.log('message, ', message);
       console.log('isRefresh, ', isRefresh);
-      console.log('isAsset, ', isAsset);
       console.log('lastETag, ', lastETag);
       console.log('nunu ,',isNew);
-      // TODO: eTag changes with new code build
-      // Don't always save it here, only save it when isNew?
-      // Refer to serviceWorker-Cookbook example with refresh
-      if (isNew) {
+
+      if (isRefresh && isNew) {
+        // Escape the first time (when there is no ETag yet)
+        if (lastETag) {
+          // Inform the user about the update
+          document.getElementById('alert').classList.add('show');
+        }
+        // For teaching purposes, although this information is in the offline
+        // cache and it could be retrieved from the service worker, keeping track
+        // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
       }
-    }
+    };
 
     // Listen for any messages from the service worker.
     navigator.serviceWorker.addEventListener('message', function(event) {

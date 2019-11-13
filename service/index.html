@@ -10,11 +10,24 @@
       font-size: 1rem;
       white-space: pre-wrap;
     }
+    #alert {
+      display: none;
+    }
+    .show {
+      display: block !important;
+      background-color: smokewhite;
+      font-size: 16pt;
+      line-height: 24pt;
+    }
   </style>
 </head>
 <body>
+  <div id="alert">
+    This is an alert to indicate that there is new content...
+  </div>
 
   <h1>Test</h1>
+  <a href="/service/page2.html">Page 2</a>
 
 <div>
   Service Worker Status: <span id="status">not supported</span>
