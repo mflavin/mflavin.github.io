@@ -3,10 +3,6 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log('reload');
     location.reload();
   });
-  document.getElementById('alert2A').addEventListener('click', function() {
-    console.log('reload');
-    location.reload();
-  });
 
 
   var CACHE = 'cache-update-and-refresh';
@@ -24,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'none' });
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
-      document.getElementById('alert2').classList.remove('show');
       var message = JSON.parse(evt.data);
 
       var isRefresh = message.type === 'refresh';
@@ -48,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function(){
           console.log('\n\n New Content Here! \n\n');
           // Inform the user about the update
           document.getElementById('alert').classList.add('show');
-          document.getElementById('alert2').classList.add('show');
         }
         // For teaching purposes, although this information is in the offline
         // cache and it could be retrieved from the service worker, keeping track
