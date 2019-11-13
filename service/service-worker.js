@@ -54,34 +54,23 @@ self.addEventListener('install', function(evt) {
 
 // On fetch, use cache but update the entry with the latest contents
 // from the server.
-// self.addEventListener('fetch', function(evt) {
-//   console.log('The service worker is serving the asset.');
-//   // You can use `respondWith()` to answer ASAP...
-//   evt.respondWith(fromCache(evt.request));
-//   // ...and `waitUntil()` to prevent the worker to be killed until
-//   // the cache is updated.
-//   evt.waitUntil(
-//     update(evt.request)
-//     // Finally, send a message to the client to inform it about the
-//     // resource is up to date.
-//     .then(refresh)
-//   );
-// });
-
-self.addEventListener('fetch', (event) => {
-  event.respondWith(async function() {
-    try {
-      return await fetch(event.request);
-    } catch (err) {
-      return caches.match(event.request);
-    }
-  }());
-  event.waitUntil(
-    update(event.request)
+self.addEventListener('fetch', function(evt) {
+  console.log('The service worker is serving the asset.');
+  // You can use `respondWith()` to answer ASAP...
+  evt.respondWith(fromCache(evt.request));
+  // ...and `waitUntil()` to prevent the worker to be killed until
+  // the cache is updated.
+  evt.waitUntil(
+    update(evt.request)
     // Finally, send a message to the client to inform it about the
     // resource is up to date.
     .then(refresh)
   );
+});
+
+self.addEventListener('message', messageEvent => {
+  console.log('ung');
+  if (messageEvent.data === 'skipWaiting') return skipWaiting();
 });
 
 // Open the cache where the assets were stored and search for the requested
