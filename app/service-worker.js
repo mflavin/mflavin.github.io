@@ -17,6 +17,7 @@ self.addEventListener('message', function (event) {
 
 self.addEventListener('fetch', function (event) {
   console.log('fetch event, ',event);
+  console.log(event.request.headers.get('ETag'));
   event.respondWith(
     caches.match(event.request)
       .then(function (response) {
