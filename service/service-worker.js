@@ -73,7 +73,7 @@ self.addEventListener('fetch', function(evt) {
       });
 
       promise1.then(function(value) {
-        refresh()
+        refresh;
       });
 
     })
@@ -107,6 +107,7 @@ function update(request) {
 // Sends a message to the clients.
 function refresh(response) {
   console.log('===REFRESH===');
+  console.log(response);
   return self.clients.matchAll().then(function (clients) {
     clients.forEach(function (client) {
       // Encode which resource has been updated. By including the
