@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-  document.getElementById('alertA').addEventListener('click', function() {
+  document.getElementById('alertA').addEventListener('click', function(evt) {
     // console.log('reload');
     // navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
     // window.location.reload();
