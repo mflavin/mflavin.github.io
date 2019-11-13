@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'none' });
     navigator.serviceWorker.onmessage = function (evt) {
+      document.getElementById('alert').classList.remove('show');
+      document.getElementById('alert2').classList.remove('show');
       var message = JSON.parse(evt.data);
 
       var isRefresh = message.type === 'refresh';
@@ -42,9 +44,6 @@ document.addEventListener("DOMContentLoaded", function(){
         // cache and it could be retrieved from the service worker, keeping track
         // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
-      } else {
-        document.getElementById('alert').classList.remove('show');
-        document.getElementById('alert2').classList.remove('show');
       }
     };
 
