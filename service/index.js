@@ -1,30 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
-  document.getElementById('alertA').addEventListener('click', function(evt) {
+  document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
     // navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
-    // window.location.reload();
-    // Avoid navigation.
-    evt.preventDefault();
-    // Open the proper cache.
-    caches.open(CACHE)
-    // Get the updated response.
-    .then(function (cache) {
-      console.log('cache,.. ', cache);
-      console.log(cache.match('fb41'));
-      return cache.match('fb41');
-    })
-    // Extract the body as a blob.
-    .then(function (response) {
-      console.log('response, ', response);
-      console.log(response.blob());
-      return response.blob();
-    })
-    // Update the image content.
-    .then(function (bodyBlob) {
-      console.log('bodyBlob, ',bodyBlob);
-      var url = URL.createObjectURL(bodyBlob);
-      console.log(url);
-    });
+    window.location.reload();
   });
 
 
