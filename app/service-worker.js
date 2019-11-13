@@ -1,5 +1,9 @@
 var cacheName = 'secondVersion';
 
+self.addEventListener('activate', function(event) {
+  console.log('worker active :D');
+});
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName)
