@@ -66,9 +66,16 @@ self.addEventListener('fetch', function(evt) {
     // Finally, send a message to the client to inform it about the
     // resource is up to date.
     .then(() => {
-      setTimeout(function () {
+      var promise1 = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+          resolve('foo');
+        }, 500);
+      });
+
+      promise1.then(function(value) {
         refresh()
-      }, 500);
+      });
+
     })
   );
 });
