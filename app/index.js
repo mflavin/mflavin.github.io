@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById('reload').addEventListener('click', function() {
+    window.location.reload();
+  });
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('./service-worker.js', { scope: './' })
