@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", function(){
       // content.
       var isNew =  lastETag !== message.eTag;
       var isFresh =  lastTime < Date.parse(message.lmd);
-      console.log('isNew, ', isNew);
-      console.log('lastETag, ' , lastETag);
-      console.log('message.eTag, ' , message.eTag);
-      console.log('\n\n');
-      console.log('isFresh, ', isFresh);
-      console.log('lastTime, ', lastTime);
-      console.log('Date.parse(message.lmd), ', Date.parse(message.lmd));
+      console.log('localStorage');
+      console.table([{Tag: lastETag}, {lmd: lastTime},]);
+      console.log('\n');
+      console.log('Message');
+      console.table([{Tag: message.eTag}, {lmd: Date.parse(message.lmd)},]);
+      console.log('\n');
+
       if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
         if (lastETag) {
