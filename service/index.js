@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
       console.log('isNew, ', isNew);
       console.log('lastETag, ' , lastETag);
       console.log('message.eTag, ' , message.eTag);
-      console.log('\n\n);
+      console.log('\n\n');
       console.log('isFresh, ', isFresh);
       console.log('lastTime, ', lastTime);
       console.log('Date.parse(message.lmd), ', Date.parse(message.lmd));
