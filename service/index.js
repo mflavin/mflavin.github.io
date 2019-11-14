@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
         // cache and it could be retrieved from the service worker, keeping track
         // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
-        localStorage.currentTagTime = message.lmd;
+        localStorage.currentTagTime = Date.parse(message.lmd);
         console.log('new ETAG, ', localStorage.currentETag + '\n\n');
       }
     };
