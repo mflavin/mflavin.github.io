@@ -1,4 +1,4 @@
-var cacheName = 'cache-update-and-refresh';;
+var cacheName = 'cache-update-and-refresh';
 var cacheFiles = [
     './',
     // list all the assests you want to list
@@ -24,9 +24,9 @@ self.addEventListener('activate', (event) => {
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cache) => {
-                    if (cache !== cacheName) {     //cacheName = 'cache-v1'
+                    // if (cache !== cacheName) {     //cacheName = 'cache-v1'
                         return caches.delete(cache); //Deleting the cache
-                    }
+                    // }
                 })
             );
         })
