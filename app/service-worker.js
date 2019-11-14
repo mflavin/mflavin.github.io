@@ -45,6 +45,7 @@ self.addEventListener('fetch', function (event) {
         .then(function (response) {
           caches.open(cacheName).then(function (cache) {
             caches.match(event.request).then(function (cacheresponse) {
+              console.log('event.request, ',event.request);
               console.log('cacheresponse, ',cacheresponse );
               console.log((cacheresponse.headers.get("ETag" || ''));
                 if ((cacheresponse.headers.get("ETag" || '')) !== response.headers.get("ETag")) {
