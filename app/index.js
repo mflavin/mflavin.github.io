@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.addEventListener('message', function (event) {
         console.log("Got reply from service worker: " + event.data);
 
-        var message = JSON.parse(evt.data);
+        var message = JSON.parse(event.data);
         var lastETag = localStorage.currentETag;
 
         console.log('message.eTag, ', message.eTag);
