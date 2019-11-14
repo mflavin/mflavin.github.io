@@ -46,9 +46,6 @@ var cacheName = 'cache-update-and-refresh';
 
 // On install, cache some resource.
 self.addEventListener('install', function(evt) {
-  localStorage.removeItem('currentETag');
-  console.log('remove key...');
-  console.log('The service worker is being installed.');
   evt.waitUntil(
     caches.open(cacheName)
       .then(cache => cache.addAll([
