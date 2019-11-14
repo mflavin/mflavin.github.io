@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var isNew =  lastETag !== message.eTag;
       var isFresh =  lastTime < Date.parse(message.lmd);
       console.log('localStorage');
-      console.table([{Tag: lastETag, lmd: lastTime});
+      console.table([{Tag: lastETag, lmd: lastTime}]);
       console.log('\n');
       console.log('Message');
       console.table([{Tag: message.eTag, lmd: Date.parse(message.lmd)}]);
