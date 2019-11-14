@@ -12,6 +12,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.addEventListener('message', function (event) {
         document.getElementById("snackbar").classList.add('show');
         console.log("Got reply from service worker: " + event.data);
+        console.log('event, ', event);
     });
 }
 
