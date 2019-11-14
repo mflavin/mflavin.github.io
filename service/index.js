@@ -83,7 +83,9 @@ document.addEventListener("DOMContentLoaded", function(){
       console.table([{url: message.url, Tag: message.eTag, lmd: Date.parse(message.lmd)}]);
       console.log('\n');
 
-      console.log('Did the worker get updated??? We will have to see if this shows up...');
+      console.log('abc');
+      console.log('123');
+      console.log('!@#');
 
       if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
