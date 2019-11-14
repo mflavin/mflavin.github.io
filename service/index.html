@@ -30,7 +30,7 @@
   <h1 style="color: darkorange">Ham</h1>
   <h1 style="color: orange">ZABE</h1>
   <p style="font-size: 4px">Get is "Orange Zabe" æ hehe æææææ</p>
-  <p style="color: maroon">Testing only with one item cached...</p>
+  <p id="testText">Only HTML cache #2</p>
 
 <div>
   Service Worker Status: <span id="status">not supported</span>
@@ -43,5 +43,8 @@ Open <a href="./index.html" target="_blank">another window with this page</a> an
 <textarea id="message" style="width: 100%" rows="10"></textarea>
 
 <script src="./index.js"></script>
+<script src="" charset="utf-8">
+  document.getElementById('testText').style.color = "#"+((1<<24)*Math.random()|0).toString(16);
+</script>
 </body>
 </html>
