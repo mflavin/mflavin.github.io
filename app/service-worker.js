@@ -47,7 +47,7 @@ self.addEventListener('fetch', function (event) {
             caches.match(event.request).then(function (cacheresponse) {
               console.log('event.request, ',event.request);
               console.log('cacheresponse, ',cacheresponse );
-              console.log((cacheresponse.headers.get("ETag" || ''));
+              console.log(cacheresponse.headers.get("ETag" || ''));
                 if ((cacheresponse.headers.get("ETag" || '')) !== response.headers.get("ETag")) {
                   console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
                   cache.put(event.request, response.clone()).then(function () {
