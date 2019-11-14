@@ -1,4 +1,5 @@
 if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
     navigator.serviceWorker
         .register('./service-worker.js', { scope: './' })
         .then(function (registration) {
@@ -12,5 +13,5 @@ if ('serviceWorker' in navigator) {
         document.getElementById("snackbar").classList.add('show');
         console.log("Got reply from service worker: " + event.data);
     });
-
+  });
 }
