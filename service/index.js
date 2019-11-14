@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function(){
       var message = JSON.parse(evt.data);
       console.log('message, ',message);
 
-      console.log(message.lmd < Date.now());
-      console.log(message.lmd > Date.now());
-      console.log(message.lmd === Date.now());
+      console.log(Date.parse(message.lmd) < Date.now());
+      console.log(Date.parse(message.lmd) > Date.now());
+      console.log(Date.parse(message.lmd) === Date.now());
 
       var isRefresh = message.type === 'refresh';
       var lastETag = localStorage.currentETag;
