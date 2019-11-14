@@ -25,10 +25,6 @@ document.addEventListener("DOMContentLoaded", function(){
       var message = JSON.parse(evt.data);
       console.log('message, ',message);
 
-      console.log(Date.parse(message.lmd) < Date.now());
-      console.log(Date.parse(message.lmd) > Date.now());
-      console.log(Date.parse(message.lmd) === Date.now());
-
       var isRefresh = message.type === 'refresh';
       var lastETag = localStorage.currentETag;
       var lastTime = localStorage.currentTagTime;
@@ -39,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function(){
       console.log('lastETag !== message.eTag; ==> ', lastETag + '' + message.eTag);
       var isNew =  lastETag !== message.eTag;
       var isFresh =  lastTime < Date.parse(message.lmd);
+
+      console.log('lastTime, ', lastTime);
+      console.log('Date.parse(message.lmd), ', Date.parse(message.lmd));
 
       // console.log('===============');
       // console.log('message, ', message);
