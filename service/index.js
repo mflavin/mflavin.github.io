@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.register('./service-worker.js');
 
 
-    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+    navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function(err) {
       // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
     });
-    
+
 
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
