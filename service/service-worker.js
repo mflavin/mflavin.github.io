@@ -54,7 +54,7 @@ self.addEventListener('install', function(evt) {
     caches.open(cacheName)
       .then(cache => cache.addAll([
         './index.html',
-        // './index.js'
+        './index.js'
       ]))
   );
 });
