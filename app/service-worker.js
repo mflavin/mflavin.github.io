@@ -42,7 +42,7 @@ self.addEventListener('fetch', function (event) {
     );
     event.waitUntil(
       update(event.request)
-        .then(refresh(event.request, response))
+        .then(refresh)
         //   function (response) {
         //   caches.open(cacheName).then(function (cache) {
         //     caches.match(event.request).then(function (cacheresponse) {
@@ -77,7 +77,7 @@ function update(request) {
 }
 
 
-function refresh(req, response) {
+function refresh(response) {
     return self.clients.matchAll().then(function (clients) {
         clients.forEach(function (client) {
             var message = {
