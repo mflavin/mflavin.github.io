@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
-  document.getElementById('alertA').addEventListener('click', function() {
-    // console.log('reload');
-    // navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
-    window.location.reload();
-  });
+  // document.getElementById('alertA').addEventListener('click', function() {
+  //   // console.log('reload');
+  //   // navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
+  //   window.location.reload();
+  // });
 
 
   // Only setup the demo if service workers are supported.
@@ -21,6 +21,13 @@ document.addEventListener("DOMContentLoaded", function(){
     // navigator.serviceWorker.register('./service-worker.js');
 
     navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+      document.getElementById('alertA').addEventListener('click', function() {
+        // console.log('reload');
+        // navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
+        reg.update();
+        window.location.reload();
+        reg.update();
+      });
       console.log('reg');
       // updatefound is fired if service-worker.js changes.
       reg.onupdatefound = function() {
