@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function(){
       console.table([{Tag: message.eTag}, {lmd: Date.parse(message.lmd)},]);
       console.log('\n');
 
+      console.log('hopefully the new cache now means this will be seen...');
+
       if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
         if (lastETag) {
