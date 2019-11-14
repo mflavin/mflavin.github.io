@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(){
       console.table([{Tag: message.eTag, lmd: Date.parse(message.lmd)}]);
       console.log('\n');
 
-      console.log('unga bunga');
+      console.log('Testing change in the index.js');
 
       if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
