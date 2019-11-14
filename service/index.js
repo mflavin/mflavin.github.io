@@ -31,12 +31,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
       var isRefresh = message.type === 'refresh';
       var lastETag = localStorage.currentETag;
+      var lastTime = localStorage.currentTagTime;
 
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
       // the hash of the resource so it is a very effective way of check for fresh
       // content.
       console.log('lastETag !== message.eTag; ==> ', lastETag + '' + message.eTag);
       var isNew =  lastETag !== message.eTag;
+      var isFresh =  lastTime < Date.parse(message.lmd);
 
       // console.log('===============');
       // console.log('message, ', message);
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // console.log('nunu ,',isNew);
       // console.log('===============');
 
-      if (isRefresh && isNew) {
+      if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
         if (lastETag) {
           console.log('\n\n New Content Here! \n\n');
