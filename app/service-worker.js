@@ -42,7 +42,7 @@ self.addEventListener('fetch', function (event) {
     );
     event.waitUntil(
       update(event.request)
-        .then(refresh(event.request, response);
+        .then(refresh(event.request, response))
         //   function (response) {
         //   caches.open(cacheName).then(function (cache) {
         //     caches.match(event.request).then(function (cacheresponse) {
@@ -58,7 +58,7 @@ self.addEventListener('fetch', function (event) {
         //     });
         //   });
         // }
-      )
+      // )
     )
 });
 
