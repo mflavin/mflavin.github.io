@@ -25,7 +25,7 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cache) => {
                     if (cache !== cacheName) {     //cacheName = 'cache-v1'
-                        return caches.delete(cache).then(update(event.request)); //Deleting the cache
+                        return caches.delete(cache); //Deleting the cache
                     }
                 })
             );
@@ -45,14 +45,13 @@ self.addEventListener('fetch', function (event) {
         .then(function (response) {
           caches.open(cacheName).then(function (cache) {
             caches.match(event.request).then(function (cacheresponse) {
-              if (cacheresponse) {
+              console.log('cacheresponse, ',cacheresponse );
                 if (cacheresponse.headers.get("ETag") !== response.headers.get("ETag")) {
                   console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
                   cache.put(event.request, response.clone()).then(function () {
                       refresh(event.request, response);
                   });
                 }
-              }
             });
           });
         })
