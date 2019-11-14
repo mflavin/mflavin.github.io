@@ -54,8 +54,11 @@ self.addEventListener('activate', function(event) {
 
   var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
 
+  console.log('event, ', event);
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
+      console.log('caches, ', caches);
+      console.log('cacheNames, ',cacheNames);
       return Promise.all(
         cacheNames.map(function(cacheName) {
           if (cacheWhitelist.indexOf(cacheName) === -1) {
