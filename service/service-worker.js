@@ -3,14 +3,6 @@ self.addEventListener('message', function(event) {
 
   console.log('worker message gotten :D', event);
 
-  if (event.data.action === 'clearCache') {
-    console.log('clear old Caches');
-    caches.keys().then(function(names) {
-    for (let name of names)
-      caches.delete(name);
-    });
-  }
-
   // Get all the connected clients and forward the message along.
   var promise = self.clients.matchAll()
   .then(function(clientList) {
@@ -53,8 +45,8 @@ self.addEventListener('install', function(evt) {
   evt.waitUntil(
     caches.open(cacheName)
       .then(cache => cache.addAll([
-        './index.html',
-        './index.js'
+        './index.html'
+        // './index.js'
       ]))
   );
 });
