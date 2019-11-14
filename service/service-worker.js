@@ -45,8 +45,8 @@ self.addEventListener('install', function(evt) {
   evt.waitUntil(
     caches.open(cacheName)
       .then(cache => cache.addAll([
-        './index.html'
-        // './index.js'
+        // './index.html'
+        './index.js'
       ]))
   );
 });
