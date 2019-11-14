@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
       console.table([{Tag: lastETag, lmd: lastTime}]);
       console.log('\n');
       console.log('Message');
-      console.table([{Tag: message.eTag, lmd: Date.parse(message.lmd)}]);
+      console.table([{url: message.url, Tag: message.eTag, lmd: Date.parse(message.lmd)}]);
       console.log('\n');
 
       console.log('Testing change in the index.js');
