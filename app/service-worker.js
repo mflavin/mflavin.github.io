@@ -18,6 +18,7 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   console.log(event, 'event');
+  console.log('event.request.headers', event.request.headers);
   console.log(event.request.headers.get('ETag'), 'event.request.headers.get(ETag)');
   event.respondWith(
     caches.match(event.request)
