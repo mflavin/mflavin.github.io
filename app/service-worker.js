@@ -35,24 +35,26 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        caches.match(event.request).then(function (response) {
-            return response || fetch(event.request);
-        })
+      caches.match(event.request).then(function (response) {
+        return response || fetch(event.request);
+      })
     );
     event.waitUntil(
-        update(event.request)
-            .then(function (response) {
-                caches.open(cacheName).then(function (cache) {
-                    caches.match(event.request).then(function (cacheresponse) {
-                            if (cacheresponse.headers.get("ETag") !== response.headers.get("ETag")) {
-                                console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
-                                cache.put(event.request, response.clone()).then(function () {
-                                    refresh(event.request, response);
-                                });
-                            }
-                    });
-                });
-            })
+      update(event.request)
+        .then(function (response) {
+          caches.open(cacheName).then(function (cache) {
+            caches.match(event.request).then(function (cacheresponse) {
+              if (cacheresponse.headers) {
+                if (cacheresponse.headers.get("ETag") !== response.headers.get("ETag")) {
+                  console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
+                  cache.put(event.request, response.clone()).then(function () {
+                      refresh(event.request, response);
+                  });
+                }
+              }
+            });
+          });
+        })
     )
 });
 
