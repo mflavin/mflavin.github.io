@@ -116,7 +116,8 @@ function refresh(response) {
         // Notice not all servers return the ETag header. If this is not
         // provided you should use other cache headers or rely on your own
         // means to check if the content has changed.
-        eTag: response.headers.get('ETag')
+        eTag: response.headers.get('ETag'),
+        lmd: response.headers.get('Last-Modified')
       };
       // Tell the client about the update.
       client.postMessage(JSON.stringify(message));

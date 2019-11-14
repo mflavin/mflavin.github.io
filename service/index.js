@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
       var message = JSON.parse(evt.data);
+      console.log('message, ',message);
 
       var isRefresh = message.type === 'refresh';
-      var isAsset = message.url.includes('asset');
       var lastETag = localStorage.currentETag;
 
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
