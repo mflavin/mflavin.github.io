@@ -23,28 +23,17 @@ document.addEventListener("DOMContentLoaded", function(){
     navigator.serviceWorker.onmessage = function (evt) {
       document.getElementById('alert').classList.remove('show');
       var message = JSON.parse(evt.data);
-      console.log('message, ',message);
 
       var isRefresh = message.type === 'refresh';
       var lastETag = localStorage.currentETag;
-      var lastTime = localStorage.currentTagTime;
+      var lastTime = localStorage.currentTagTime || 0;
 
       // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
       // the hash of the resource so it is a very effective way of check for fresh
       // content.
-      console.log('lastETag !== message.eTag; ==> ', lastETag + '' + message.eTag);
       var isNew =  lastETag !== message.eTag;
       var isFresh =  lastTime < Date.parse(message.lmd);
 
-      console.log('lastTime, ', lastTime);
-      console.log('Date.parse(message.lmd), ', Date.parse(message.lmd));
-
-      // console.log('===============');
-      // console.log('message, ', message);
-      // console.log('isRefresh, ', isRefresh);
-      // console.log('lastETag, ', lastETag);
-      // console.log('nunu ,',isNew);
-      // console.log('===============');
 
       if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
@@ -58,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function(){
         // of the header in the `localStorage` keeps the implementation simple.
         localStorage.currentETag = message.eTag;
         localStorage.currentTagTime = Date.parse(message.lmd);
-        console.log('new ETAG, ', localStorage.currentETag + '\n\n');
       }
     };
 
