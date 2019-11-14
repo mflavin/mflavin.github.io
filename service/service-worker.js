@@ -1,44 +1,48 @@
-// // Listen for messages from clients.
-// self.addEventListener('message', function(event) {
-//
-//   console.log('worker message gotten :D', event);
-//
-//   if (event.data.action === 'skipWaiting') {
-//     self.skipWaiting();
-//   }
-//
-//   // Get all the connected clients and forward the message along.
-//   var promise = self.clients.matchAll()
-//   .then(function(clientList) {
-//     // event.source.id contains the ID of the sender of the message.
-//     var senderID = event.source.id;
-//
-//     clientList.forEach(function(client) {
-//       // Skip sending the message to the client that sent it.
-//       if (client.id === senderID) {
-//         return;
-//       }
-//       client.postMessage({
-//         client: senderID,
-//         message: event.data
-//       });
-//     });
-//   });
-//
-//   // If event.waitUntil is defined, use it to extend the
-//   // lifetime of the Service Worker.
-//   if (event.waitUntil) {
-//     event.waitUntil(promise);
-//   }
-// });
-//
-// // Immediately claim any new clients. This is not needed to send messages, but
-// // makes for a better demo experience since the user does not need to refresh.
-// // A more complete example of this given in the immediate-claim recipe.
-// self.addEventListener('activate', function(event) {
-//   console.log('worker active :D');
-//   event.waitUntil(self.clients.claim());
-// });
+// Listen for messages from clients.
+self.addEventListener('message', function(event) {
+
+  console.log('worker message gotten :D', event);
+
+  if (event.data.action === 'clearCache') {
+    console.log('clear old Caches');
+    caches.keys().then(function(names) {
+    for (let name of names)
+      caches.delete(name);
+    });
+  }
+
+  // Get all the connected clients and forward the message along.
+  var promise = self.clients.matchAll()
+  .then(function(clientList) {
+    // event.source.id contains the ID of the sender of the message.
+    var senderID = event.source.id;
+
+    clientList.forEach(function(client) {
+      // Skip sending the message to the client that sent it.
+      if (client.id === senderID) {
+        return;
+      }
+      client.postMessage({
+        client: senderID,
+        message: event.data
+      });
+    });
+  });
+
+  // If event.waitUntil is defined, use it to extend the
+  // lifetime of the Service Worker.
+  if (event.waitUntil) {
+    event.waitUntil(promise);
+  }
+});
+
+// Immediately claim any new clients. This is not needed to send messages, but
+// makes for a better demo experience since the user does not need to refresh.
+// A more complete example of this given in the immediate-claim recipe.
+self.addEventListener('activate', function(event) {
+  console.log('worker active :D');
+  event.waitUntil(self.clients.claim());
+});
 
 // // // Testing Here // // //
 
