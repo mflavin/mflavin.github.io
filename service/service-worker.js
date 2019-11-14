@@ -33,7 +33,21 @@ self.addEventListener('message', function(event) {
 // A more complete example of this given in the immediate-claim recipe.
 self.addEventListener('activate', function(event) {
   console.log('worker active :D');
-  event.waitUntil(self.clients.claim());
+  // event.waitUntil(self.clients.claim());
+
+  var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
 
 // // // Testing Here // // //
