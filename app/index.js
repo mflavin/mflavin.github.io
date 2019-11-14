@@ -10,9 +10,27 @@ if ('serviceWorker' in navigator) {
         })
 
     navigator.serviceWorker.addEventListener('message', function (event) {
-        document.getElementById("snackbar").classList.add('show');
         console.log("Got reply from service worker: " + event.data);
-        console.log('event, ', event);
+
+        var message = JSON.parse(evt.data);
+        var lastETag = localStorage.currentETag;
+
+        console.log('message.eTag, ', message.eTag);
+
+        var isNew =  lastETag !== message.eTag;
+
+        if (isNew) {
+          // Escape the first time (when there is no ETag yet)
+          if (lastETag) {
+            console.log('\n\n New Content Here! \n\n');
+            // Inform the user about the update
+            document.getElementById('snackbar').classList.add('show');
+          }
+          // For teaching purposes, although this information is in the offline
+          // cache and it could be retrieved from the service worker, keeping track
+          // of the header in the `localStorage` keeps the implementation simple.
+          localStorage.currentETag = message.eTag;
+        }
     });
 }
 
