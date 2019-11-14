@@ -42,21 +42,37 @@ self.addEventListener('fetch', function (event) {
     );
     event.waitUntil(
       update(event.request)
-        .then(function (response) {
-          caches.open(cacheName).then(function (cache) {
-            caches.match(event.request).then(function (cacheresponse) {
-              console.log('cacheresponse, ',cacheresponse );
-                if (cacheresponse.headers.get("ETag") !== response.headers.get("ETag")) {
-                  console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
-                  cache.put(event.request, response.clone()).then(function () {
-                      refresh(event.request, response);
-                  });
-                }
-            });
-          });
-        })
+        .then(test
+        //   function (response) {
+        //   caches.open(cacheName).then(function (cache) {
+        //     caches.match(event.request).then(function (cacheresponse) {
+        //       console.log('cacheresponse, ',cacheresponse );
+        //         if (cacheresponse.headers.get("ETag") !== response.headers.get("ETag")) {
+        //           console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
+        //           cache.put(event.request, response.clone()).then(function () {
+        //               refresh(event.request, response);
+        //           });
+        //         }
+        //     });
+        //   });
+        // }
+      )
     )
 });
+
+function test(response) {
+  caches.open(cacheName).then(function (cache) {
+    caches.match(event.request).then(function (cacheresponse) {
+      console.log('cacheresponse, ',cacheresponse );
+        if (cacheresponse.headers.get("ETag") !== response.headers.get("ETag")) {
+          console.log('[ServiceWorker]' + response.url + ' - Cache' + cacheresponse.headers.get("ETag") + "- real" + response.headers.get("ETag"));
+          cache.put(event.request, response.clone()).then(function () {
+              refresh(event.request, response);
+          });
+        }
+    });
+  });
+}
 
 function fromCache(request) {
     return caches.open(cacheName).then(function (cache) {
