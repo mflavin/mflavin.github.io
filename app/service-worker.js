@@ -25,7 +25,7 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cache) => {
                     if (cache !== cacheName) {     //cacheName = 'cache-v1'
-                        return caches.delete(cache); //Deleting the cache
+                        return caches.delete(cache).then(update(event.request)); //Deleting the cache
                     }
                 })
             );
