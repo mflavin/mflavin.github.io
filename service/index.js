@@ -50,9 +50,7 @@ document.addEventListener("DOMContentLoaded", function(){
       console.table([{url: message.url, Tag: message.eTag, lmd: Date.parse(message.lmd)}]);
       console.log('\n');
 
-      console.log('abc');
-      console.log('123');
-      console.log('!@#');
+      console.log('Index only change...');
 
       if (isFresh && isNew) {
         // Escape the first time (when there is no ETag yet)
