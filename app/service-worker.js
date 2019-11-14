@@ -34,6 +34,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', function (event) {
+    console.log('Navigation Changes?');
     event.respondWith(
       caches.match(event.request).then(function (response) {
         return response || fetch(event.request);
