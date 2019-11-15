@@ -11,7 +11,7 @@ var URLS = [                            // Add URL you want to cache in this lis
 self.addEventListener('fetch', function (event) {
   console.log('fetch...');
   event.respondWith(
-    fetch(() => {
+    fetch(event.request).then(() => {
       return self.clients.matchAll().then(function (clients) {
         clients.forEach(function (client) {
           // Encode which resource has been updated. By including the
@@ -29,7 +29,6 @@ self.addEventListener('fetch', function (event) {
           // Tell the client about the update.
           client.postMessage(JSON.stringify(message));
         });
-        return event.request;
       });
     }).catch(() => {
       console.log('caught fetch..');
