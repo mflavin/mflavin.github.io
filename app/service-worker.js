@@ -32,19 +32,9 @@ self.addEventListener('install', function (e) {
 self.addEventListener('activate', function (e) {
   e.waitUntil(
     caches.keys().then(function (keyList) {
-      // `keyList` contains all cache names under your username.github.io
-      // filter out ones that has this app prefix to create white list
-      var cacheWhitelist = keyList.filter(function (key) {
-        return key.indexOf(APP_PREFIX)
-      })
-      // add current cache name to white list
-      cacheWhitelist.push(CACHE_NAME)
-
       return Promise.all(keyList.map(function (key, i) {
-        if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i] )
-          return caches.delete(keyList[i])
-        }
+        console.log('deleting cache : ' + keyList[i] )
+        return caches.delete(keyList[i])
       }))
     })
   )
