@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+  document.body.style.background = "purple";
   document.getElementById('reload').addEventListener('click', function() {
     window.location.reload();
-    alert("update this..")
   });
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
