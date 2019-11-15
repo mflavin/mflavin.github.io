@@ -11,7 +11,27 @@ var URLS = [                            // Add URL you want to cache in this lis
 self.addEventListener('fetch', function (event) {
   console.log('fetch...');
   event.respondWith(
-    fetch(event.request).catch(() => {
+    fetch(() => {
+      self.clients.matchAll().then(function (clients) {
+        clients.forEach(function (client) {
+          // Encode which resource has been updated. By including the
+          // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) the client can
+          // check if the content has changed.
+          var message = {
+            type: 'refresh',
+            url: event.request.url,
+            // Notice not all servers return the ETag header. If this is not
+            // provided you should use other cache headers or rely on your own
+            // means to check if the content has changed.
+            eTag: event.request.headers.get('ETag'),
+            lmd: event.request.headers.get('Last-Modified')
+          };
+          // Tell the client about the update.
+          client.postMessage(JSON.stringify(message));
+        });
+      });
+      return event.request;
+    }).catch(() => {
       console.log('caught fetch..');
       return caches.match(event.request);
     })
