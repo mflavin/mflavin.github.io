@@ -1,6 +1,7 @@
 var cacheName = 'cache-update-and-refresh';
 var cacheFiles = [
     './',
+    './index.js',
     // list all the assests you want to list
 ]
 
