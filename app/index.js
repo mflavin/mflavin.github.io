@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-        .register('./service-worker.js', { scope: './' })
+        .register('./service-worker.js', { updateViaCache: 'none', })
         .then(function (registration) {
             console.log("Service worker registered", registration)
         })
