@@ -102,7 +102,10 @@ function fromCache(request) {
 function update(request) {
   console.log('===UPDATE===', request);
   return caches.open(cacheName).then(function (cache) {
+    console.log('cache, ', cache);
+    console.log('request, ', request);
     return fetch(request).then(function (response) {
+      console.log('response, ', response);
       return cache.put(request, response.clone()).then(function () {
         console.log(response);
         return response;
