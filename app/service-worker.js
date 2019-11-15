@@ -9,8 +9,6 @@ var URLS = [                            // Add URL you want to cache in this lis
 
 
 self.addEventListener('fetch', function (event) {
-  console.log('event.request ', event.request);
-  console.log('fetch(event.request), ',fetch(event.request));
   event.respondWith(
     fetch(event.request).catch(() => {
       console.log('caught fetch..');
