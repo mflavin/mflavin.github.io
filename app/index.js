@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-  document.body.style.background = "purple";
+  document.body.style.background = "lightblue";
+  console.log('unga bunga');
   document.getElementById('reload').addEventListener('click', function() {
     window.location.reload();
   });
