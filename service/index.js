@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // console.log('reload');
     // navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
     window.location.reload();
+    console.log('Add this but check url.?');
   });
 
 
