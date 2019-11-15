@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
   var CACHE_NAME = APP_PREFIX + VERSION
   document.body.style.background = "darkblue";
   document.getElementById('reload').addEventListener('click', function() {
-    caches.keys().then(function (keyList) {
-      return Promise.all(keyList.map(function (key, i) {
-        console.log('deleting cache : ' + keyList[i] )
-        return caches.delete(keyList[i])
-      }))
-    })
+    // caches.keys().then(function (keyList) {
+    //   return Promise.all(keyList.map(function (key, i) {
+    //     console.log('deleting cache : ' + keyList[i] )
+    //     return caches.delete(keyList[i])
+    //   }))
+    // })
     location.reload(true);
   });
 
