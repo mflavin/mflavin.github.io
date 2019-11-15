@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", function(){
   document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
     // navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
-    location.reload(true);
     caches.keys().then(function (keyList) {
       return Promise.all(keyList.map(function (key, i) {
         console.log('deleting cache : ' + keyList[i] )
         return caches.delete(keyList[i])
       }))
     })
+        location.reload(true);
     console.log('Add this but check url.?');
   });
 
