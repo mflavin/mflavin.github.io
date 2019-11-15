@@ -89,10 +89,11 @@ self.addEventListener('fetch', function(evt) {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-  console.log('===CACHE===');
-  return caches.open(cacheName).then(function (cache) {
-    return cache.match(request);
-  });
+  console.log('===Fetch network===');
+  fetch(request).catch(() => {
+    console.log('caught fetch..');
+    return caches.match(request);
+  })
 }
 
 
