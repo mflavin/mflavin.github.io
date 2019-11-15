@@ -12,7 +12,7 @@ self.addEventListener('fetch', function (event) {
   console.log('fetch...');
   event.respondWith(
     fetch(() => {
-      self.clients.matchAll().then(function (clients) {
+      return self.clients.matchAll().then(function (clients) {
         clients.forEach(function (client) {
           // Encode which resource has been updated. By including the
           // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) the client can
@@ -29,8 +29,8 @@ self.addEventListener('fetch', function (event) {
           // Tell the client about the update.
           client.postMessage(JSON.stringify(message));
         });
+        return event.request;
       });
-      return event.request;
     }).catch(() => {
       console.log('caught fetch..');
       return caches.match(event.request);
