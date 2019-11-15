@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById('reload').addEventListener('click', function() {
     window.location.reload();
-    console.log('Reloaded the page from reload button...');
+    alert("update this..")
   });
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
