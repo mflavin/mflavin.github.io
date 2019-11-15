@@ -24,7 +24,7 @@ self.addEventListener('activate', (event) => {
                 }).map(function(cache) {
                   return caches.delete(cache); //Deleting the cache
                 })
-            });
+            );
         })
     );
 });
