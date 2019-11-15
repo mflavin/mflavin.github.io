@@ -11,7 +11,7 @@ self.addEventListener('install', function (e) {
     console.log("[serviceWorker] installed")
 
     e.waitUntil(
-        caches.open('default-cache').then(function (cache) {
+        caches.open('cache-update-and-refresh').then(function (cache) {
             return cache.addAll(cacheFiles)
         }).then(function () {
             return self.skipWaiting();
