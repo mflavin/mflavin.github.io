@@ -15,4 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
       })
   }
 
+  navigator.serviceWorker.onmessage = function (evt) {
+    console.log('evt, ', evt);
+  }
+
 });
