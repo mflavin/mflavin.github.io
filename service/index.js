@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById('testText').style.color = "#"+((1<<24)*Math.random()|0).toString(16);
   document.body.style.background = "green";
   document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
