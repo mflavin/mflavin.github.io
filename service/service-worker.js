@@ -70,7 +70,12 @@ self.addEventListener('install', function(evt) {
 self.addEventListener('fetch', function(evt) {
   console.log('The service worker is serving the asset.');
   // You can use `respondWith()` to answer ASAP...
-  evt.respondWith(fromCache(evt.request));
+  evt.respondWith(
+    fetch(evt.request).catch(() => {
+      console.log('caught fetch..');
+      return caches.match(evt.request);
+    })
+  );
   // ...and `waitUntil()` to prevent the worker to be killed until
   // the cache is updated.
   evt.waitUntil(
@@ -88,13 +93,13 @@ self.addEventListener('fetch', function(evt) {
 // Open the cache where the assets were stored and search for the requested
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
-function fromCache(request) {
-  console.log('===Fetch network===');
-  fetch(request).catch(() => {
-    console.log('caught fetch..');
-    return caches.match(request);
-  })
-}
+// function fromCache(request) {
+//   console.log('===Fetch network===');
+//   fetch(request).catch(() => {
+//     console.log('caught fetch..');
+//     return caches.match(request);
+//   })
+// }
 
 
 // Update consists in opening the cache, performing a network request and
