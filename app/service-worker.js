@@ -7,17 +7,13 @@ var cacheFiles = [
 
 
 
-self.addEventListener('install', event => {
-    console.log("[serviceWorker] installed")
-
-    event.waitUntil(
-      caches.open(cacheName)
-        .then(cache => {
-          return cache.addAll(cacheFiles)
-        });
-    );
-    console.log("[serviceWorker] Cached")
-})
+// On install, cache some resource.
+self.addEventListener('install', function(evt) {
+  evt.waitUntil(
+    caches.open(cacheName)
+      .then(cache => cache.addAll(cacheFiles))
+  );
+});
 
 self.addEventListener('activate', (event) => {
     console.info('Event: Activate');
