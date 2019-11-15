@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-  document.body.style.background = "red";
+  document.body.style.background = "green";
   document.getElementById('alertA').addEventListener('click', function() {
     // console.log('reload');
     // navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
