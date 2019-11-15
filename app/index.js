@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  document.body.style.background = "red";
+  document.body.style.background = "grey";
   document.getElementById('reload').addEventListener('click', function() {
     window.location.reload();
   });
