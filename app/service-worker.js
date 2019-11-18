@@ -1,68 +1,25 @@
-var APP_PREFIX = 'ApplicationName_'     // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
-var CACHE_NAME = APP_PREFIX + VERSION
-var URLS = [                            // Add URL you want to cache in this list.
-  '/app/',                     // If you have separate JS/CSS files,
-  '/app/index.html',           // add path to those files here
-  '/app/index.js'
-]
-
-
-self.addEventListener('fetch', function (event) {
-  console.log('fetch...');
-  console.log('event.request, ', event.request);
-  event.respondWith(
-    fetch(event.request)
-      .then(refresh)
-      .catch(() => {
-        console.log('caught fetch..');
-        return caches.match(event.request);
-      })
-  );
-});
-
-
-// Cache resources
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('installing cache : ' + CACHE_NAME)
-      return cache.addAll(URLS)
-    })
-  )
-})
-
-// Delete outdated caches
-self.addEventListener('activate', function (e) {
-  e.waitUntil(
-    caches.keys().then(function (keyList) {
-      return Promise.all(keyList.map(function (key, i) {
-        console.log('deleting cache : ' + keyList[i] )
-        return caches.delete(keyList[i])
-      }))
-    })
-  )
-})
-
-// Sends a message to the clients.
-function refresh(response) {
-  console.log('===REFRESH===', response);
-  return self.clients.matchAll().then(function (clients) {
-    clients.forEach(function (client) {
-      // Encode which resource has been updated. By including the
-      // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) the client can
-      // check if the content has changed.
-      var message = {
-        type: 'refresh',
-        url: response.url,
-        // Notice not all servers return the ETag header. If this is not
-        // provided you should use other cache headers or rely on your own
-        // means to check if the content has changed.
-        eTag: response.headers.get('ETag'),
-        lmd: response.headers.get('Last-Modified')
-      };
-      // Tell the client about the update.
-      client.postMessage(JSON.stringify(message));
-    });
-  });
+// urlB64ToUint8Array is a magic function that will encode the base64 public key
+// to Array buffer which is needed by the subscription option
+const urlB64ToUint8Array = base64String => {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/')
+  const rawData = atob(base64)
+  const outputArray = new Uint8Array(rawData.length)
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i)
+  }
+  return outputArray
 }
+self.addEventListener('activate', async () => {
+  // This will be called only once when the service worker is activated.
+  try {
+    const applicationServerKey = urlB64ToUint8Array(
+      'BGN3Y0rO0TxbEJ-HH-kCqn4ouUQ8dkxJ1QZog4oKwTY-7pndUQAY9GCMHd64jFZZ7W7_rqn548f50wQz0tqO3hs'
+    )
+    const options = { applicationServerKey, userVisibleOnly: true }
+    const subscription = await self.registration.pushManager.subscribe(options)
+    console.log(JSON.stringify(subscription))
+  } catch (err) {
+    console.log('Error', err)
+  }
+})

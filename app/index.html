@@ -1,68 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="cache-control" content="max-age=0">
-  <title>PWA - New Service Worker available</title>
-  <style>
-    #reload {
-      cursor: pointer;
-    }
-    #snackbar {
-      visibility: hidden;
-      min-width: 250px;
-      margin-left: -125px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 2px;
-      padding: 16px;
-      position: fixed;
-      z-index: 1;
-      left: 50%;
-      bottom: 30px;
-    }
-
-    #snackbar.show {
-      visibility: visible;
-      -webkit-animation: fadein 0.5s;
-      animation: fadein 0.5s;
-    }
-
-    @-webkit-keyframes fadein {
-      from {
-        bottom: 0;
-        opacity: 0;
-      }
-      to {
-        bottom: 30px;
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadein {
-      from {
-        bottom: 0;
-        opacity: 0;
-      }
-      to {
-        bottom: 30px;
-        opacity: 1;
-      }
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Push Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <script src="./index.js"></script>
 </head>
-
 <body>
-  <!-- <img src="./dog.jpg" /> -->
-  <p>Kraus 8 Canned Beans</p>
-  <h1 style="color: gold">ooowee</h1>
-  <p>newnew</p>
-  <!-- The actual snackbar -->
-  <div id="snackbar">A new version of this app is available. Click <a id="reload" style="color: salmon">here</a> to update.</div>
-  <script src="./index.js" charset="utf-8"></script>
+    <h1>Hello World</h1>
+    <button id="permission-btn" onclick="main()">Ask Permission</button>
 </body>
-
 </html>
