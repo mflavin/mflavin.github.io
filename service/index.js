@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Give an indicator that service workers are supported.
     status.textContent = 'supported';
 
-    navigator.serviceWorker.register('./service-worker.js', { scope: '/service/' });
+    navigator.serviceWorker.register('/service/sw.js', {scope: '/service/'})
 
 
     navigator.serviceWorker.onmessage = function (evt) {
