@@ -113,6 +113,7 @@ main {
   text-align: center;
   padding: 0px 0px 20px 0px;
   margin-top: 60px;
+  height: 150px;
 }
 
 .contactInfo i {
@@ -191,7 +192,7 @@ main {
   padding-top: 16px;
 }
 
-#main-img{
+#main-img {
   content: url('imgs/1.jpg');
 }
 
@@ -218,7 +219,7 @@ main {
   .menu-detail {
     font-size: 16px;
   }
-  #main-img{
+  #main-img {
     content: url('imgs/2.jpg');
   }
 }
@@ -243,7 +244,7 @@ main {
   #contact {
     padding: 120px 0px;
   }
-  #main-img{
+  #main-img {
     content: url('imgs/3.jpg');
   }
 }
