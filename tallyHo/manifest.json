@@ -4,8 +4,13 @@
   "icons": [
     {
       "src": "assets/imgs/sign.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/imgs/sign.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": "/tallyHo/",
