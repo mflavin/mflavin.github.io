@@ -15,7 +15,7 @@ const navigationRoute = new workbox.routing.NavigationRoute(handler);
 workbox.routing.registerRoute(navigationRoute);
 
 workbox.routing.registerRoute(
-  /\.(?:png|gif|jpg|jpeg|svg|ttf)$/,
+  /\.(?:png|gif|jpg|jpeg|svg|ttf)|$/,
   new workbox.strategies.CacheFirst({
     cacheName: 'images',
     plugins: [
