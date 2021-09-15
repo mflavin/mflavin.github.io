@@ -1,0 +1,9 @@
+{
+  "name":"Tally Ho Supper Club",
+  "short_name":"Tally Ho",
+  "icons": [],
+  "start_url": ".",
+  "background_color": "#fbfbfc",
+  "display": "standalone",
+  "theme_color": "#fbfbfc"
+}
