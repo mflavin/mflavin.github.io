@@ -144,6 +144,7 @@ main {
   flex: 0 0 66%;
   align-self: center;
 }
+
 .menu-sub-title {
   font-size: 30px;
   line-height: 45px;
@@ -156,29 +157,26 @@ main {
   font-weight: bold !important;
 }
 
-.menu-detail {
-  margin-bottom: 10px;
-  color: #aeaeae;
-  flex: 0 0 100%;
-}
-
 .menu-list {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-around;
+  margin: 0 5%;
 }
 
 .menu-item {
-  /* margin: 1%; */
-  /* border-radius: 3px; */
-  /* background: #fff; */
-  /* box-shadow: 0 0 0 1px rgb(67 41 163 / 8%), 0 1px 5px 0 rgb(67 41 163 / 8%); */
-
   flex: 0 0 45%;
   border-bottom: 1px #d8d8d8 dashed;
   margin-bottom: 2%;
   display: flex;
   flex-flow: row wrap;
+}
+
+.menu-detail {
+  margin-bottom: 10px;
+  color: #aeaeae;
+  flex: 0 0 100%;
+  font-size: 14px;
 }
 
 .menu-price {
@@ -213,6 +211,13 @@ main {
   .eventPadding {
     padding-top: 0px;
   }
+  .menu-list {
+    margin: 0;
+    flex-flow: row wrap;
+  }
+  .menu-detail {
+    font-size: 16px;
+  }
   #main-img{
     content: url('imgs/2.jpg');
   }
@@ -225,12 +230,15 @@ main {
   .headerContainer {
     width: 75%;
   }
-  .menu-list {
-    flex-flow: row wrap;
-  }
   .menu-item-title {
     font-size: 20px;
     line-height: 30px;
+  }
+  .menu-detail {
+    font-size: 18px;
+  }
+  .nav-pills {
+    font-size: 16pt;
   }
   #contact {
     padding: 120px 0px;
