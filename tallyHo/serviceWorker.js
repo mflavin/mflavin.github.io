@@ -13,3 +13,23 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 const handler = workbox.precaching.createHandlerBoundToURL('/tallyHo/');
 const navigationRoute = new workbox.routing.NavigationRoute(handler);
 workbox.routing.registerRoute(navigationRoute);
+
+workbox.routing.registerRoute(
+  /\.(?:png|gif|jpg|jpeg|svg)$/,
+  workbox.strategies.cacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
+
+workbox.routing.registerRoute(
+  /\.(?:js|css)$/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'static-resources',
+  })
+);
