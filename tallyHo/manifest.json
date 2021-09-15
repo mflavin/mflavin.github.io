@@ -1,7 +1,13 @@
 {
   "name":"Tally Ho Supper Club",
   "short_name":"Tally Ho",
-  "icons": [],
+  "icons": [
+    {
+      "src": "assets/imgs/sign.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+  ],
   "start_url": ".",
   "background_color": "#fbfbfc",
   "display": "standalone",
