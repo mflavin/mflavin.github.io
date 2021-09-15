@@ -8,7 +8,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/tallyHo/",
   "background_color": "#fbfbfc",
   "display": "standalone",
   "theme_color": "#fbfbfc"
