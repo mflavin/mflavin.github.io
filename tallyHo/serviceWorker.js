@@ -2,8 +2,8 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
 const cacheFiles = [
 	{
-		revision: '090420212205',
-    url: '/test/',
+		revision: '090420212217',
+    url: '/tallyHo/',
 	}
 ];
 
