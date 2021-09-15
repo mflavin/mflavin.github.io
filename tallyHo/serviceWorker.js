@@ -16,7 +16,7 @@ workbox.routing.registerRoute(navigationRoute);
 
 workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|jpeg|svg)$/,
-  workbox.strategies.cacheFirst({
+  new workbox.strategies.CacheFirst({
     cacheName: 'images',
     plugins: [
       new workbox.expiration.ExpirationPlugin({
@@ -29,7 +29,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   /\.(?:js|css)$/,
-  workbox.strategies.cacheFirst({
+  new workbox.strategies.CacheFirst({
     cacheName: 'static-resources',
   })
 );
