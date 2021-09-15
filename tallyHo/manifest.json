@@ -5,7 +5,8 @@
     {
       "src": "assets/imgs/sign.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "assets/imgs/sign.png",
