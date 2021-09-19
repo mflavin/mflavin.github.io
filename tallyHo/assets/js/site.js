@@ -1,10 +1,4 @@
 (async () => {
-	// Register service worker
-	if ('serviceWorker' in navigator)
-		navigator.serviceWorker.register('serviceWorker.js')
-			.then(() => console.log('Service Worker Registered'))
-			.catch((e) => console.log('idk error ', e));
-
 	// Set menu tabs for food sections
 	const sections = {
 		"ids": ['appetizers', 'favorites', 'soups']
