@@ -98,7 +98,7 @@ main {
 
 #contact {
   padding: 60px 0px;
-  background-image: url(imgs/contact-bg.jpg);
+  background-image: url(../imgs/contact-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
