@@ -174,8 +174,8 @@
 		<ul class="nav nav-pills justify-content-center" role="tablist">
 			{% for (let i = 0; i < o.ids.length; i++) { %}
 				<li class="nav-item" role="presentation">
-					<button class="nav-link active" id="{%=o.ids[0]%}-tab" data-bs-toggle="tab" data-bs-target="#{%=o.ids[0]%}" type="button" role="tab" aria-controls="{%=o.ids[0]%}" aria-selected="true">
-						{%=o.ids[0]%}
+					<button class="nav-link active" id="{%=o.ids[i]%}-tab" data-bs-toggle="tab" data-bs-target="#{%=o.ids[i]%}" type="button" role="tab" aria-controls="{%=o.ids[i]%}" aria-selected="true">
+						{%=o.ids[i]%}
 					</button>
 				</li>
 			{% } %}
@@ -185,7 +185,7 @@
 				{% if (i == 0) { %}
 					<div class="tab-pane fade show active" id="{%=o.ids[0]%}" role="tabpanel" aria-labelledby="{%=o.ids[0]%}-tab"></div>
 				{% } else { %}
-					<div class="tab-pane fade" id="{%=o.ids[0]%}" role="tabpanel" aria-labelledby="{%=o.ids[0]%}-tab"></div>
+					<div class="tab-pane fade" id="{%=o.ids[i]%}" role="tabpanel" aria-labelledby="{%=o.ids[i]%}-tab"></div>
 				{% } %}
 			{% } %}
 		</div>
