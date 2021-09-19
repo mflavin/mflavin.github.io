@@ -5,6 +5,10 @@
 			.then(() => console.log('Service Worker Registered'))
 			.catch((e) => console.log('idk error ', e));
 
+	// Set menu tabs for food sections
+	document.getElementById('menu').innerHTML = tmpl('menu-tmpl', ['appetizers', 'favorites', 'soups']);
+
+	// Get menu data from json files
 	const getMenuData = async (section) => {
 		const menuData = await fetch(`./assets/js/menu/${section}.json`);
 		const data = await menuData.json();
@@ -18,7 +22,4 @@
 
 	// Template data for Soup, Salad, & Sandwiches
 	await getMenuData('soups');
-
-	// Set menu tabs for food sections
-	document.getElementById('menu').innerHTML = tmpl('menu-tmpl', ['appetizers', 'favorites', 'soups']);
 })();

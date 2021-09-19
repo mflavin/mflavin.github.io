@@ -168,22 +168,6 @@
 	<script src="assets/blueimp-tmpl/js/tmpl.min.js" charset="utf-8"></script>
 	<script src="assets/bootstrap/js/bootstrap.bundle.min.js" charset="utf-8"></script>
 
-	<script type="text/x-tmpl" id="item-card-tmpl">
-		<h2 class="menu-sub-title">{%=o.title%}</h2>
-		<div class="menu-list">
-			{% for (let i = 0; i < o.menu.length; i++) { %}
-				<div class="row menu-item">
-					<h4 class="menu-item-title">
-						{%=o.menu[i].name%}
-					</h4>
-					<h4 class="menu-price">${%=o.menu[i].price%}</h4>
-					<div class="menu-detail">
-						{%=o.menu[i].description%}
-					</div>
-				</div>
-			{% } %}
-		</div>
-	</script>
 	<script type="text/x-tmpl" id="menu-tmpl">
 		<hr class="my-4">
 		<h2 class="heading">Menu</h2>
@@ -203,6 +187,22 @@
 				{% } else { %}
 					<div class="tab-pane fade" id="{%=o.ids[0]%}" role="tabpanel" aria-labelledby="{%=o.ids[0]%}-tab"></div>
 				{% } %}
+			{% } %}
+		</div>
+	</script>
+	<script type="text/x-tmpl" id="item-card-tmpl">
+		<h2 class="menu-sub-title">{%=o.title%}</h2>
+		<div class="menu-list">
+			{% for (let i = 0; i < o.menu.length; i++) { %}
+				<div class="row menu-item">
+					<h4 class="menu-item-title">
+						{%=o.menu[i].name%}
+					</h4>
+					<h4 class="menu-price">${%=o.menu[i].price%}</h4>
+					<div class="menu-detail">
+						{%=o.menu[i].description%}
+					</div>
+				</div>
 			{% } %}
 		</div>
 	</script>
