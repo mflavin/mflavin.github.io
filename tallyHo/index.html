@@ -88,44 +88,7 @@
 
 		<div class="container marketing">
 			<!-- START THE FEATURETTES -->
-			<div class="featurette" id="menu">
-				<hr class="my-4">
-				<h2 class="heading">Menu</h2>
-				<ul class="nav nav-pills justify-content-center" role="tablist">
-					<li class="nav-item" role="presentation">
-						<button class="nav-link active" id="Appetizers-tab" data-bs-toggle="tab" data-bs-target="#Appetizers" type="button" role="tab" aria-controls="Appetizers" aria-selected="true">
-							Appetizers
-						</button>
-					</li>
-					<li class="nav-item" role="presentation">
-						<button class="nav-link" id="Favorites-tab" data-bs-toggle="tab" data-bs-target="#Favorites" type="button" role="tab" aria-controls="Favorites" aria-selected="false">
-							Favorites
-						</button>
-					</li>
-					<li class="nav-item" role="presentation">
-						<button class="nav-link" id="Salads-tab" data-bs-toggle="tab" data-bs-target="#Salads" type="button" role="tab" aria-controls="Salads" aria-selected="false">
-							Salads
-						</button>
-					</li>
-					<li class="nav-item" role="presentation">
-						<button class="nav-link" id="Steaks-tab" data-bs-toggle="tab" data-bs-target="#Steaks" type="button" role="tab" aria-controls="Steaks" aria-selected="false">
-							Steaks
-						</button>
-					</li>
-					<li class="nav-item" role="presentation">
-						<button class="nav-link" id="Country-tab" data-bs-toggle="tab" data-bs-target="#Country" type="button" role="tab" aria-controls="Country" aria-selected="false">
-							Country
-						</button>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade show active" id="Appetizers" role="tabpanel" aria-labelledby="Appetizers-tab"></div>
-					<div class="tab-pane fade" id="Favorites" role="tabpanel" aria-labelledby="Favorites-tab"></div>
-					<div class="tab-pane fade" id="Salads" role="tabpanel" aria-labelledby="Salads-tab"></div>
-					<div class="tab-pane fade" id="Steaks" role="tabpanel" aria-labelledby="Steaks-tab"></div>
-					<div class="tab-pane fade" id="Country" role="tabpanel" aria-labelledby="Country-tab"></div>
-				</div>
-			</div>
+			<div class="featurette" id="menu"></div>
 
 			<div class="row featurette" id="events">
 				<hr class="my-4">
@@ -218,6 +181,28 @@
 						{%=o.menu[i].description%}
 					</div>
 				</div>
+			{% } %}
+		</div>
+	</script>
+	<script type="text/x-tmpl" id="menu-tmpl">
+		<hr class="my-4">
+		<h2 class="heading">Menu</h2>
+		<ul class="nav nav-pills justify-content-center" role="tablist">
+			{% for (let i = 0; i < o.ids.length; i++) { %}
+				<li class="nav-item" role="presentation">
+					<button class="nav-link active" id="{%=o.ids[0]%}-tab" data-bs-toggle="tab" data-bs-target="#{%=o.ids[0]%}" type="button" role="tab" aria-controls="{%=o.ids[0]%}" aria-selected="true">
+						{%=o.ids[0]%}
+					</button>
+				</li>
+			{% } %}
+		</ul>
+		<div class="tab-content">
+			{% for (let i = 0; i < o.ids.length; i++) { %}
+				{% if (i == 0) { %}
+					<div class="tab-pane fade show active" id="{%=o.ids[0]%}" role="tabpanel" aria-labelledby="{%=o.ids[0]%}-tab"></div>
+				{% } else { %}
+					<div class="tab-pane fade" id="{%=o.ids[0]%}" role="tabpanel" aria-labelledby="{%=o.ids[0]%}-tab"></div>
+				{% } %}
 			{% } %}
 		</div>
 	</script>

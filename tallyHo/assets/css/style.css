@@ -92,6 +92,9 @@ main {
   height: 24px;
   line-height: 24px;
 }
+.nav-link {
+  text-transform: capitalize;
+}
 .featureContent {
   margin-left: 5%;
 }

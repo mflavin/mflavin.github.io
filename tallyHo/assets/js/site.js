@@ -5,26 +5,20 @@
 			.then(() => console.log('Service Worker Registered'))
 			.catch((e) => console.log('idk error ', e));
 
-	// Get Menu data
-	const menuData = await fetch('./assets/js/menu.json');
-	const data = await menuData.json();
-	// Template data for Appetizers
-	const appetizersData = data.find(m => m.title === 'Appetizers');
-	document.getElementById('Appetizers').innerHTML = tmpl('item-card-tmpl', appetizersData);
+	const getMenuData = (section) => {
+		const menuData = await fetch(`./assets/js/menu/${section}.json`);
+		const data = await menuData.json();
+		document.getElementById(section).innerHTML = tmpl('item-card-tmpl', data);
+	};
+		// Template data for Appetizers
+	getMenuData('appetizers');
 
 	// Template data for Favorites
-	const favoritesData = data.find(m => m.title === 'Favorites');
-	document.getElementById('Favorites').innerHTML = tmpl('item-card-tmpl', favoritesData);
+	getMenuData('favorites');
 
-	// Template data for Salads
-	const saladsData = data.find(m => m.title === 'Salads');
-	document.getElementById('Salads').innerHTML = tmpl('item-card-tmpl', saladsData);
+	// Template data for Soup, Salad, & Sandwiches
+	getMenuData('soups');
 
-	// Template data for Steaks
-	const steaksData = data.find(m => m.title === 'Steaks');
-	document.getElementById('Steaks').innerHTML = tmpl('item-card-tmpl', steaksData);
-
-	// Template data for Country
-	const countryData = data.find(m => m.title === 'Country');
-	document.getElementById('Country').innerHTML = tmpl('item-card-tmpl', countryData);
+	// Set menu tabs for food sections
+	document.getElementById('menu').innerHTML = tmpl('menu-tmpl', ['appetizers', 'favorites', 'soups']);
 })();
