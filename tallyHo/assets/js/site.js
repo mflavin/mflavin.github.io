@@ -1,6 +1,7 @@
 (async () => {
 	try {
-		const data = await fetch('./employees.json');
+		const d = await fetch('./employees.json').json();
+		const data = await d.json()
 		console.log('data', data);
 	} catch (e) {
 		console.log('error , ', e);
