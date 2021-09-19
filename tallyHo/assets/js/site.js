@@ -5,7 +5,7 @@
 			.then(() => console.log('Service Worker Registered'))
 			.catch((e) => console.log('idk error ', e));
 
-	const getMenuData = await (section) => {
+	const getMenuData = async (section) => {
 		const menuData = await fetch(`./assets/js/menu/${section}.json`);
 		const data = await menuData.json();
 		document.getElementById(section).innerHTML = tmpl('item-card-tmpl', data);
