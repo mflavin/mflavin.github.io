@@ -6,7 +6,10 @@
 			.catch((e) => console.log('idk error ', e));
 
 	// Set menu tabs for food sections
-	document.getElementById('menu').innerHTML = tmpl('menu-tmpl', ['appetizers', 'favorites', 'soups']);
+	const sections = {
+		"ids": ['appetizers', 'favorites', 'soups']
+	}
+	document.getElementById('menu').innerHTML = tmpl('menu-tmpl', sections);
 
 	// Get menu data from json files
 	const getMenuData = async (section) => {
