@@ -1,6 +1,7 @@
 (async () => {
 	try {
-		const d = await fetch('./assets/js/employees.json').json();
+		const d = await fetch('./assets/js/employees.json');
+		console.log('d', d);
 		const data = await d.json()
 		console.log('data', data);
 	} catch (e) {
@@ -9,7 +10,7 @@
 
 	// Register service worker
 	if ('serviceWorker' in navigator)
-		navigator.serviceWorker.register('.serviceWorker.js')
+		navigator.serviceWorker.register('serviceWorker.js')
 			.then(() => console.log('Service Worker Registered'))
 			.catch((e) => console.log('idk error ', e));
 
