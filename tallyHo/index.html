@@ -174,9 +174,15 @@
 		<ul class="nav nav-pills justify-content-center" role="tablist">
 			{% for (let i = 0; i < o.ids.length; i++) { %}
 				<li class="nav-item" role="presentation">
+					{% if (i == 0) { %}
 					<button class="nav-link active" id="{%=o.ids[i]%}-tab" data-bs-toggle="tab" data-bs-target="#{%=o.ids[i]%}" type="button" role="tab" aria-controls="{%=o.ids[i]%}" aria-selected="true">
 						{%=o.ids[i]%}
 					</button>
+					{% } else { %}
+					<button class="nav-link" id="{%=o.ids[i]%}-tab" data-bs-toggle="tab" data-bs-target="#{%=o.ids[i]%}" type="button" role="tab" aria-controls="{%=o.ids[i]%}" aria-selected="false">
+						{%=o.ids[i]%}
+					</button>
+					{% } %}
 				</li>
 			{% } %}
 		</ul>
