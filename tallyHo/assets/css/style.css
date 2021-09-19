@@ -84,6 +84,7 @@ main {
 }
 .nav-item {
   text-align: center;
+  height: 40px;
 }
 .nav-item a {
   font-weight: 600;
