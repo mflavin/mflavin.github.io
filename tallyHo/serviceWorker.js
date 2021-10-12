@@ -12,7 +12,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 const handler = workbox.precaching.createHandlerBoundToURL('/tallyHo/');
 const navigationRoute = new workbox.routing.NavigationRoute(handler);
-// workbox.routing.registerRoute(navigationRoute);
+workbox.routing.registerRoute(navigationRoute);
 
 workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|jpeg|svg|ttf)|$/,

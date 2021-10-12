@@ -3,6 +3,7 @@
 	const sections = {
 		"ids": ['appetizers', 'favorites', 'soups']
 	}
+	// Set section headers
 	document.getElementById('menu').innerHTML = tmpl('menu-tmpl', sections);
 
 	// Get menu data from json files
