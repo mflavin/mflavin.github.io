@@ -13,7 +13,7 @@ workbox.precaching.precacheAndRoute([
 
 // Demonstrates using default cache
 workbox.routing.registerRoute(
-  new RegExp('.*\\.(?:js)'),
+  new RegExp('.*\\.(?:html)'),
   new workbox.strategies.NetworkFirst(),
 );
 
