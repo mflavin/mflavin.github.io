@@ -19,10 +19,6 @@ const cacheFiles = [
 self.__precacheManifest = cacheFiles.concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-const handler = workbox.precaching.createHandlerBoundToURL('/');
-const navigationRoute = new workbox.routing.NavigationRoute(handler);
-workbox.routing.registerRoute(navigationRoute);
-
 workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|jpeg|svg|ttf)|$/,
   new workbox.strategies.StaleWhileRevalidate({
