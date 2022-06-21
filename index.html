@@ -7,13 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <title>mflavin</title>
   <style type="text/css">
-    @media (min-width: 1000px) {
-      .col {
-        flex: 0 0 auto !important;
-        width: 50% !important;
-      }
-    }
-
     :root {
       --bg-color: slategray;
       --hov-color: #4b4066;
@@ -67,9 +60,10 @@
     .row {
       display: flex;
       flex-wrap: wrap;
-      padding-block: 3rem !important;
       padding-inline: 1.5rem !important;
       margin-top: 1.5rem;
+      max-width: 540px;
+      margin: auto;
     }
 
     .col {
@@ -89,6 +83,18 @@
 
     .col-text {
       padding-block: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .row {
+        padding-block: 3rem !important;
+        max-width: 960px;
+      }
+
+      .col {
+        flex: 0 0 auto;
+        width: 50%;
+      }
     }
   </style>
 </head>
