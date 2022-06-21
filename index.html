@@ -1,21 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title></title>
-  </head>
-  <body></body>
 
-  <script>
-    // self executing function here
-    (function () {
-      // your page initialization code here
-      // the DOM will be available here
-      window.location.href = "https://mflavin.github.io/v3";
-    })();
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>mflavin</title>
+  <style type="text/css">
+    :root {
+      --hex-scale: 2;
+      --hex-bg-color: slategray;
+      --hex-hov-color: #4b4066;
+      --hex-base-width: calc(104px * var(--hex-scale));
+      --hex-base-height: calc(60px * var(--hex-scale));
+      --hex-base-block: calc(30px * var(--hex-scale));
+      --hex-base-nblock: calc(-30px * var(--hex-scale));
+      --hex-base-inline: calc(52px * var(--hex-scale));
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      position: relative;
+      font-weight: normal;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      min-width: 320px;
+      min-height: 100vh;
+      font-family: Inter var, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+        Noto Color Emoji;
+      letter-spacing: 0.2px;
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 400;
+      direction: ltr;
+      font-synthesis: none;
+      background-color: #dbcbd8;
+      background-image: linear-gradient(316deg, #dbcbd8 -50%, #2e4057 52%);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: #222;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #EEE;
+    }
+
+    .hex {
+      width: var(--hex-base-width);
+      height: var(--hex-base-height);
+      background-color: var(--hex-bg-color);
+      border-color: var(--hex-bg-color);
+      position: relative;
+      display: inline-block;
+      margin-left: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hex:hover {
+      background-color: var(--hex-hov-color);
+      border-color: var(--hex-hov-color);
+    }
+
+    .hex:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-bottom: var(--hex-base-block) solid;
+      border-color: inherit;
+      border-left: var(--hex-base-inline) solid transparent;
+      border-right: var(--hex-base-inline) solid transparent;
+      position: absolute;
+      top: var(--hex-base-nblock);
+    }
+
+    .hex:after {
+      content: "";
+      width: 0;
+      position: absolute;
+      bottom: var(--hex-base-nblock);
+      border-top: var(--hex-base-block) solid;
+      border-color: inherit;
+      border-left: var(--hex-base-inline) solid transparent;
+      border-right: var(--hex-base-inline) solid transparent;
+    }
+
+    .hex-row {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      height: 60%;
+    }
+
+    .hex-text {
+      font-size: 2rem;
+      line-height: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hex-row">
+    <a href="com" class="hex">
+      <div class="hex-text">
+        Com
+      </div>
+    </a>
+    <a href="v3" class="hex">
+      <div class="hex-text">
+        Boat
+      </div>
+    </a>
+    <a href="v3tw" class="hex">
+      <div class="hex-text">
+        tailwindcss
+      </div>
+    </a>
+  </div>
+</body>
+
 </html>
