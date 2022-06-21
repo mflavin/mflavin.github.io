@@ -10,7 +10,7 @@ workbox.setConfig({
 workbox.navigationPreload.enable();
 
 // Swap in NetworkOnly, CacheFirst, or StaleWhileRevalidate as needed.
-const strategy = new workbox.strategies.NetworkFirst({
+const strategy = new workbox.strategies.StaleWhileRevalidate({
   cacheName: 'cached-navigations',
   plugins: [
     // Any plugins, like workbox.expiration, etc.
