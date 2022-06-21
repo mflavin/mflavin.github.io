@@ -6,9 +6,6 @@ workbox.setConfig({
   debug: true,
 });
 
-// Enable navigation preload.
-workbox.navigationPreload.enable();
-
 // Swap in NetworkOnly, CacheFirst, or StaleWhileRevalidate as needed.
 const strategy = new workbox.strategies.StaleWhileRevalidate({
   cacheName: 'cached-navigations',
@@ -17,12 +14,7 @@ const strategy = new workbox.strategies.StaleWhileRevalidate({
   ],
 });
 
-const navigationRoute = new workbox.routing.NavigationRoute(strategy, {
-  // Optionally, provide a allowlist/denylist of RegExps to determine
-  // which paths will match this route.
-  // allowlist: [],
-  // denylist: [],
-});
+const navigationRoute = new workbox.routing.NavigationRoute(strategy);
 
 workbox.routing.registerRoute(navigationRoute);
 
