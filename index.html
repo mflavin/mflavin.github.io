@@ -7,15 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <title>mflavin</title>
   <style type="text/css">
+    @media (min-width: 1000px) {
+      .col {
+        flex: 0 0 auto !important;
+        width: 50% !important;
+      }
+    }
+
     :root {
-      --hex-scale: 2;
-      --hex-bg-color: slategray;
-      --hex-hov-color: #4b4066;
-      --hex-base-width: calc(104px * var(--hex-scale));
-      --hex-base-height: calc(60px * var(--hex-scale));
-      --hex-base-block: calc(30px * var(--hex-scale));
-      --hex-base-nblock: calc(-30px * var(--hex-scale));
-      --hex-base-inline: calc(52px * var(--hex-scale));
+      --bg-color: slategray;
+      --hov-color: #4b4066;
     }
 
     *,
@@ -42,99 +43,119 @@
       font-weight: 400;
       direction: ltr;
       font-synthesis: none;
-      background-color: #dbcbd8;
-      background-image: linear-gradient(316deg, #dbcbd8 -50%, #2e4057 52%);
+      background: #EEE;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    a {
-      color: #222;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #EEE;
-    }
-
-    .hex {
-      width: var(--hex-base-width);
-      height: var(--hex-base-height);
-      background-color: var(--hex-bg-color);
-      border-color: var(--hex-bg-color);
-      position: relative;
-      display: inline-block;
-      margin-left: 24px;
+    .icon {
+      width: 64px;
+      height: 64px;
+      background: #0D6EFD;
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .hex:hover {
-      background-color: var(--hex-hov-color);
-      border-color: var(--hex-hov-color);
+    svg {
+      width: 48px;
+      height: 48px;
     }
 
-    .hex:before {
-      content: "";
-      width: 0;
-      height: 0;
-      border-bottom: var(--hex-base-block) solid;
-      border-color: inherit;
-      border-left: var(--hex-base-inline) solid transparent;
-      border-right: var(--hex-base-inline) solid transparent;
-      position: absolute;
-      top: var(--hex-base-nblock);
-    }
-
-    .hex:after {
-      content: "";
-      width: 0;
-      position: absolute;
-      bottom: var(--hex-base-nblock);
-      border-top: var(--hex-base-block) solid;
-      border-color: inherit;
-      border-left: var(--hex-base-inline) solid transparent;
-      border-right: var(--hex-base-inline) solid transparent;
-    }
-
-    .hex-row {
-      justify-content: center;
-      align-items: center;
+    .row {
       display: flex;
-      height: 60%;
+      flex-wrap: wrap;
+      padding-block: 3rem !important;
+      padding-inline: 1.5rem !important;
+      margin-top: 1.5rem;
     }
 
-    .hex-text {
-      font-size: 2rem;
-      line-height: 4rem;
+    .col {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-inline: 0.75rem calc(var(--bs-gutter-x) * .5);
+      margin-top: 1.5rem;
+      flex: 0 0 auto;
+    }
+
+    .col-header {
+      padding-top: 1rem;
+      font-size: 29px;
+      font-weight: 500;
+    }
+
+    .col-text {
+      padding-block: 1rem;
     }
   </style>
 </head>
 
 <body>
-  <div class="hex-row">
-    <a href="com" class="hex">
-      <div class="hex-text">
+  <div class="row">
+    <div class="col">
+      <div class="icon">
+        <svg viewBox="0 0 24 24">
+          <path fill="white"
+            d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M14,20V19C14,17.67 11.33,17 10,17C8.67,17 6,17.67 6,19V20H14M10,12A2,2 0 0,0 8,14A2,2 0 0,0 10,16A2,2 0 0,0 12,14A2,2 0 0,0 10,12Z" />
+        </svg>
+      </div>
+      <div class="col-header">
         Com
       </div>
-    </a>
-    <a href="tallyHo" class="hex">
-      <div class="hex-text">
+      <div class="col-text">
+        Old online profile site.
+      </div>
+      <a href="com">To Com</a>
+    </div>
+    <div class="col">
+      <div class="icon">
+        <svg viewBox="0 0 24 24">
+          <path fill="white"
+            d="M6,6H18V9.96L12,8L6,9.96M3.94,19H4C5.6,19 7,18.12 8,17C9,18.12 10.4,19 12,19C13.6,19 15,18.12 16,17C17,18.12 18.4,19 20,19H20.05L21.95,12.31C22.03,12.06 22,11.78 21.89,11.54C21.76,11.3 21.55,11.12 21.29,11.04L20,10.62V6C20,4.89 19.1,4 18,4H15V1H9V4H6A2,2 0 0,0 4,6V10.62L2.71,11.04C2.45,11.12 2.24,11.3 2.11,11.54C2,11.78 1.97,12.06 2.05,12.31M20,21C18.61,21 17.22,20.53 16,19.67C13.56,21.38 10.44,21.38 8,19.67C6.78,20.53 5.39,21 4,21H2V23H4C5.37,23 6.74,22.65 8,22C10.5,23.3 13.5,23.3 16,22C17.26,22.65 18.62,23 20,23H22V21H20Z" />
+        </svg>
+      </div>
+      <div class="col-header">
         Tally Ho
       </div>
-    </a>
-    <a href="v3" class="hex">
-      <div class="hex-text">
+      <div class="col-text">
+        Tally Ho updated website.
+      </div>
+      <a href="tallyHo">To TallyHo</a>
+    </div>
+    <div class="col">
+      <div class="icon">
+        <svg viewBox="0 0 24 24">
+          <path fill="white"
+            d="M3 13.5L11 2.03V13.5H3M12.5 13.5C13.85 9.75 13.67 4.71 12.5 1C17.26 2.54 20.9 8.4 20.96 13.5H12.5M21.1 17.08C20.69 17.72 20.21 18.27 19.65 18.74C19 18.45 18.42 18 17.96 17.5C16.47 19.43 13.46 19.43 11.97 17.5C10.5 19.43 7.47 19.43 6 17.5C5.5 18 4.95 18.45 4.3 18.74C3.16 17.8 2.3 16.46 2 15H21.94C21.78 15.75 21.5 16.44 21.1 17.08M20.96 23C19.9 23 18.9 22.75 17.96 22.25C16.12 23.25 13.81 23.25 11.97 22.25C10.13 23.25 7.82 23.25 6 22.25C4.77 22.94 3.36 23.05 2 23V21C3.41 21.05 4.77 20.9 6 20C7.74 21.25 10.21 21.25 11.97 20C13.74 21.25 16.2 21.25 17.96 20C19.17 20.9 20.54 21.05 21.94 21V23H20.96Z" />
+        </svg>
+      </div>
+      <div class="col-header">
         Boat
       </div>
-    </a>
-    <a href="v3tw" class="hex">
-      <div class="hex-text">
-        tailwindcss
+      <div class="col-text">
+        Working on a boat blog with a page editor. WIP...
       </div>
-    </a>
+      <a href="v3">To Boat</a>
+    </div>
+    <div class="col">
+      <div class="icon">
+        <svg viewBox="0 0 24 24">
+          <path fill="white"
+            d="M12 6C9.33 6 7.67 7.33 7 10C8 8.67 9.17 8.17 10.5 8.5C11.26 8.69 11.81 9.24 12.41 9.85C13.39 10.85 14.5 12 17 12C19.67 12 21.33 10.67 22 8C21 9.33 19.83 9.83 18.5 9.5C17.74 9.31 17.2 8.76 16.59 8.15C15.61 7.15 14.5 6 12 6M7 12C4.33 12 2.67 13.33 2 16C3 14.67 4.17 14.17 5.5 14.5C6.26 14.69 6.8 15.24 7.41 15.85C8.39 16.85 9.5 18 12 18C14.67 18 16.33 16.67 17 14C16 15.33 14.83 15.83 13.5 15.5C12.74 15.31 12.2 14.76 11.59 14.15C10.61 13.15 9.5 12 7 12Z" />
+        </svg>
+      </div>
+      <div class="col-header">
+        Tailwindcss
+      </div>
+      <div class="col-text">
+        Working on page lage out using Tailwindcss. Just trying it out and trying to build some vue components using
+        tailwindcss.
+      </div>
+      <a href="v3tw">To Tailwindcss</a>
+    </div>
   </div>
   <script>
     if ('serviceWorker' in navigator) {
