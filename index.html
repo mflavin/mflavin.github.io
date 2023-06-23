@@ -9,11 +9,6 @@
     />
     <title>mflavin</title>
     <style type="text/css">
-      :root {
-        --bg-color: slategray;
-        --hov-color: #4b4066;
-      }
-
       *,
       *::before,
       *::after {
@@ -26,15 +21,15 @@
       body {
         width: 100%;
         height: 100vh;
-        min-width: 320px;
+        min-width: 27rem;
         min-height: 100vh;
         font-family: Inter var, ui-sans-serif, system-ui, -apple-system,
           BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
           sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
           Noto Color Emoji;
-        letter-spacing: 0.2px;
-        line-height: 24px;
-        font-size: 16px;
+        letter-spacing: 0.0125rem;
+        line-height: 1.5rem;
+        font-size: 1rem;
         font-weight: 400;
         direction: ltr;
         font-synthesis: none;
@@ -44,110 +39,176 @@
         -moz-osx-font-smoothing: grayscale;
       }
 
-      .icon {
-        width: 64px;
-        height: 64px;
-        background: #0d6efd;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      svg {
-        width: 48px;
-        height: 48px;
-      }
-
-      .headerTitle {
-        padding-top: 2rem;
-        text-decoration: underline;
-        font-weight: 600;
-        width: 100%;
-      }
-
       .row {
         display: flex;
         flex-wrap: wrap;
-        padding-inline: 1.5rem !important;
-        padding-bottom: 4rem;
-        margin-top: 1.5rem;
-        max-width: 540px;
-        margin: auto;
+        padding: 4rem 3rem 4rem 3rem;
+        justify-content: space-around;
       }
 
       .col {
-        flex-shrink: 0;
-        width: 100%;
-        max-width: 100%;
-        padding-inline: 0.75rem calc(var(--bs-gutter-x) * 0.5);
-        margin-top: 1.5rem;
-        flex: 0 0 auto;
-      }
-
-      .col-header {
-        padding-top: 1rem;
-        font-size: 29px;
-        font-weight: 500;
-      }
-
-      .col-text {
-        padding-block: 1rem;
+        flex: 0 0 100%;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px 0px;
+        background-color: #fefefe;
+        border-radius: 1rem;
+        margin-bottom: 4rem;
+        max-width: 24rem;
       }
 
       @media (min-width: 768px) {
         .row {
-          padding-block: 3rem !important;
-          max-width: 960px;
+          max-width: 768px;
+          margin: auto;
         }
-
         .col {
-          flex: 0 0 auto;
-          width: 50%;
+          max-width: 36rem;
         }
       }
     </style>
     <script>
-      class ProjectList extends HTMLElement {
-        connectedCallback() {
-          const projects = [
-            { name: 'Com', desc: 'Old online profile site', link: 'com' },
-            { name: 'Tally Ho', desc: 'Tally Ho website', link: 'tallyHo' },
-            { name: 'Boat', desc: 'Working on a boat blog with a page editor. WIP...', link: 'v3' },
-            { name: 'Tailwindcss', desc: 'Working on page lage out using Tailwindcss. Just trying it out and trying to build some vue components using tailwindcss.', link: 'v3tw' },
-            { name: 'Buy My Chair', desc: '', link: 'https://buy-my-chair.netlify.app' },
-            { name: 'Astro Basics', desc: 'Working on building a review site', link: 'https://astro-basics.netlify.app' },
-            { name: 'Vite SSR', desc: '', link: 'https://vite-ssr.netlify.app' },
-            { name: 'v3tw', desc: '', link: 'https://v3tw.netlify.app/' },
-          ];
-          const builtProjects = projects.reduce(
-            (s, f) =>
-              (s += `
-              <div class="col">
-                <div class="icon">
-                  <svg viewBox="0 0 24 24"></svg>
-                </div>
-                <div class="col-header">${f.name}</div>
-                <div class="col-text">${f.desc || '...'}</div>
-                <a href="${f.link}">To ${f.name}</a>
+      document.addEventListener('DOMContentLoaded', function (event) {
+        class AppCard extends HTMLElement {
+          constructor() {
+            super();
+
+            const shadowRoot = this.attachShadow({ mode: 'open' });
+
+            // Add the component's styles to the shadow root
+            const style = document.createElement('style');
+            style.textContent = `
+              svg {
+                width: 100%;
+                height: 12rem;
+                border-radius: 1rem;
+                border-bottom-left-radius: 0.25rem;
+                border-bottom-right-radius: 0.25rem;
+                background: rgb(14, 165, 233);
+              }
+
+              a:hover {
+                color: #000000;
+              }
+
+              .col-body {
+                padding: 2rem;
+              }
+
+              .col-header {
+                margin-bottom: 0.25rem;
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                font-weight: 600;
+                letter-spacing: 0.025em;
+                text-transform: uppercase;
+                color: rgb(56, 189, 248);
+              }
+
+              .col-link {
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+                font-weight: 500;
+                color: #000000;
+              }
+
+              .col-text {
+                margin-top: 0.5rem;
+                color: rgb(100, 116, 139);
+              }
+
+              @media (min-width: 768px) {
+                svg {
+                  height: 100%;
+                  width: 12rem;
+                  border-radius: 1rem;
+                  border-bottom-right-radius: 0.25rem;
+                  border-top-right-radius: 0.25rem;
+                }
+
+                .container {
+                  display: flex;
+                }
+
+                .icon {
+                  flex-shrink: 0;
+                }
+              }
+            `;
+            shadowRoot.appendChild(style);
+
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('container');
+            // Get the value of the 'text' attribute
+            const text = this.getAttribute('text');
+            // Get the value of the 'desc' attribute
+            const desc = this.getAttribute('desc');
+            // Get the value of the 'href' attribute
+            const href = this.getAttribute('href');
+            // Set the inner HTML of the component
+            wrapper.innerHTML = `
+              <div class="icon">
+                <svg viewBox="0 0 24 24"></svg>
               </div>
-              `),
-            ''
-          );
-          this.innerHTML = `
-            <div class="row">
-              ${builtProjects}
-            </div>
+              <div class="col-body">
+                <div class="col-header">${text}</div>
+                <a class="col-link" href="${href}">To ${text}</a>
+                <div class="col-text">${desc}</div>
+              </div>
+            `;
+            shadowRoot.appendChild(wrapper);
+          }
+
+          connectedCallback() {
+            this.classList.add('col');
+          }
+
+          disconnectedCallback() {
+            this.classList.remove('col');
+          }
+        }
+        customElements.define('app-card', AppCard);
+
+        const row = document.querySelector('.row');
+        const projects = [
+          { name: 'Com', desc: 'Old online profile site', link: 'com' },
+          { name: 'Tally Ho', desc: 'Tally Ho website', link: 'tallyHo' },
+          {
+            name: 'Boat',
+            desc: 'Working on a boat blog with a page editor. WIP...',
+            link: 'v3',
+          },
+          {
+            name: 'Tailwindcss',
+            desc: 'Working on page lage out using Tailwindcss. Just trying it out and trying to build some vue components using tailwindcss.',
+            link: 'v3tw',
+          },
+          {
+            name: 'Astro Basics',
+            desc: 'Working on building a review site',
+            link: 'https://astro-basics.netlify.app',
+          },
+          {
+            name: 'Vite SSR',
+            desc: '',
+            link: 'https://vite-ssr.netlify.app',
+          },
+          { name: 'v3tw', desc: '', link: 'https://v3tw.netlify.app/' },
+        ];
+        for (let i = 0; i < projects.length; i++) {
+          const { name, desc, link } = projects[i];
+          row.innerHTML += `
+            <app-card
+              text="${name}"
+              desc="${desc}"
+              href="${link}"
+            ></app-card>
           `;
         }
-      }
-
-      customElements.define('project-list', ProjectList);
+      });
     </script>
   </head>
 
   <body>
-    <project-list></project-list>
+    <div class="row"></div>
     <script src="registerSerivceWorker.js" charset="utf-8"></script>
   </body>
 </html>
