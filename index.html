@@ -76,17 +76,29 @@
             // Add the component's styles to the shadow root
             const style = document.createElement('style');
             style.textContent = `
-              svg {
+              .svg {
+                width: 100%;
+                height: 12rem;
+              }
+
+              .icon {
                 width: 100%;
                 height: 12rem;
                 border-radius: 1rem;
                 border-bottom-left-radius: 0.25rem;
                 border-bottom-right-radius: 0.25rem;
                 background: rgb(14, 165, 233);
+                display: flex;
+                align-items: center;
+                justify-content: center;
               }
 
               a:hover {
                 color: #000000;
+              }
+
+              .container {
+                height: 100%;
               }
 
               .col-body {
@@ -116,12 +128,8 @@
               }
 
               @media (min-width: 768px) {
-                svg {
-                  height: 100%;
-                  width: 12rem;
-                  border-radius: 1rem;
-                  border-bottom-right-radius: 0.25rem;
-                  border-top-right-radius: 0.25rem;
+                .svg {
+                  width: 8rem;
                 }
 
                 .container {
@@ -130,6 +138,11 @@
 
                 .icon {
                   flex-shrink: 0;
+                  height: 100%;
+                  width: 12rem;
+                  border-radius: 1rem;
+                  border-bottom-right-radius: 0.25rem;
+                  border-top-right-radius: 0.25rem;
                 }
               }
             `;
@@ -143,10 +156,12 @@
             const desc = this.getAttribute('desc');
             // Get the value of the 'href' attribute
             const href = this.getAttribute('href');
+            // Get the value of the 'svg' attribute
+            const svg = this.getAttribute('svg');
             // Set the inner HTML of the component
             wrapper.innerHTML = `
               <div class="icon">
-                <svg viewBox="0 0 24 24"></svg>
+                <img class="svg" src="./svgs/${svg}.svg" alt="My Happy SVG" />
               </div>
               <div class="col-body">
                 <div class="col-header">${text}</div>
@@ -169,37 +184,45 @@
 
         const row = document.querySelector('.row');
         const projects = [
-          { name: 'Com', desc: 'Old online profile site', link: 'com' },
-          { name: 'Tally Ho', desc: 'Tally Ho website', link: 'tallyHo' },
+          {
+            name: 'Com',
+            desc: 'Old online profile site',
+            link: 'com',
+            svg: 'com',
+          },
+          {
+            name: 'Tally Ho',
+            desc: 'Tally Ho website',
+            link: 'tallyHo',
+            svg: 'tallyHo',
+          },
           {
             name: 'Boat',
             desc: 'Working on a boat blog with a page editor. WIP...',
             link: 'v3',
+            svg: 'boat',
           },
           {
             name: 'Tailwindcss',
             desc: 'Working on page lage out using Tailwindcss. Just trying it out and trying to build some vue components using tailwindcss.',
             link: 'v3tw',
+            svg: 'v3tw',
           },
           {
             name: 'Astro Basics',
             desc: 'Working on building a review site',
             link: 'https://astro-basics.netlify.app',
+            svg: 'astro',
           },
-          {
-            name: 'Vite SSR',
-            desc: '',
-            link: 'https://vite-ssr.netlify.app',
-          },
-          { name: 'v3tw', desc: '', link: 'https://v3tw.netlify.app/' },
         ];
         for (let i = 0; i < projects.length; i++) {
-          const { name, desc, link } = projects[i];
+          const { name, desc, link, svg } = projects[i];
           row.innerHTML += `
             <app-card
               text="${name}"
               desc="${desc}"
               href="${link}"
+              svg="${svg}"
             ></app-card>
           `;
         }
