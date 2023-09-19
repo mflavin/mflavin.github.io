@@ -63,6 +63,7 @@
               .icon {
                 width: 100%;
                 height: 12rem;
+                min-height: 12rem;
                 border-radius: 1rem;
                 border-bottom-left-radius: 0.25rem;
                 border-bottom-right-radius: 0.25rem;
@@ -141,7 +142,7 @@
             // Set the inner HTML of the component
             wrapper.innerHTML = `
               <div class="icon">
-                <img class="svg" src="./svgs/${svg}.svg" alt="My Happy SVG" />
+                <img class="svg" src="./${svg}.svg" alt="My Happy SVG" />
               </div>
               <div class="col-body">
                 <div class="col-header">${text}</div>
