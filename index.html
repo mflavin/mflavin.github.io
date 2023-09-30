@@ -141,14 +141,15 @@
             const svg = this.getAttribute('svg');
             // Set the inner HTML of the component
             wrapper.innerHTML = `
+            <a href="${href}" style="display: contents">
               <div class="icon">
                 <img class="svg" src="./${svg}.svg" alt="My Happy SVG" />
               </div>
               <div class="col-body">
                 <div class="col-header">${text}</div>
-                <a class="col-link" href="${href}">To ${text}</a>
                 <div class="col-text">${desc}</div>
               </div>
+              </a>
             `;
             shadowRoot.appendChild(wrapper);
           }
@@ -166,8 +167,14 @@
         const row = document.querySelector('.row');
         const projects = [
           {
+            name: 'Notes/Posts',
+            desc: 'User auth site to save my reading list.',
+            link: 'https://spectacular-cascaron-b8176d.netlify.app/',
+            svg: 'vue-base',
+          },
+          {
             name: 'Boat',
-            desc: 'Working on a boat blog with a page editor. WIP...',
+            desc: 'Working on a boat blog with a page editor.',
             link: 'v3',
             svg: 'boat',
           },
