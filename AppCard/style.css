@@ -1,0 +1,11 @@
+/* style.css */
+
+simple-component {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 8px solid #ccc;
+}
