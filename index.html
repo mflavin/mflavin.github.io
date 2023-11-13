@@ -9,7 +9,6 @@
     />
     <title>mflavin</title>
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="./AppCard/main.js" defer></script>
     <script src="./components/AppCard.js" defer></script>
   </head>
 
@@ -50,6 +49,7 @@
         const { name, desc, link, svg } = projects[i];
         row.innerHTML += `
             <app-card
+              class="col"
               text="${name}"
               desc="${desc}"
               href="${link}"
