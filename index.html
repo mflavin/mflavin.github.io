@@ -3,12 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
     <title>mflavin</title>
+    <meta name="title" content="mflavin" />
+    <meta
+      name="description"
+      content="Full-stack developer with 5 years of experience specializing in building user-friendly interfaces and APIs"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mflavin.github.io//" />
+    <meta property="og:title" content="mflavin" />
+    <meta
+      property="og:description"
+      content="Full-stack developer with 5 years of experience specializing in building user-friendly interfaces and APIs"
+    />
+    <meta property="og:image" content="./assets/images/me.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mflavin.github.io//" />
+    <meta property="twitter:title" content="mflavin" />
+    <meta
+      property="twitter:description"
+      content="Full-stack developer with 5 years of experience specializing in building user-friendly interfaces and APIs"
+    />
+    <meta property="twitter:image" content="./assets/images/me.jpg" />
+
+    <!-- Other tags -->
+    <link rel="canonical" href="https://mflavin.github.io//" />
+
+    <!-- Style tags and image preloads -->
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="preload" href="./assets/images/tailwind.svg" as="image" />
-    <link rel="preload" href="./assets/images/daisyui.svg" as="image" />
-    <link rel="preload" href="./assets/images/nuxt.svg" as="image" />
-    <link rel="preload" href="./assets/images/me.jpg" as="image" />
+    <link rel="preload" href="./assets/images/tailwind.webp" as="image" />
+    <link rel="preload" href="./assets/images/daisyui.webp" as="image" />
+    <link rel="preload" href="./assets/images/nuxt.webp" as="image" />
+    <link rel="preload" href="./assets/images/me.webp" as="image" />
+
+    <!-- Script tags and script preloads -->
+    <link rel="preload" href="./js/main.js" as="script" />
     <script src="./js/main.js" defer></script>
   </head>
   <body>
@@ -44,15 +79,13 @@
         </svg>
       </div>
       <div class="profile-card">
-        <img src="./assets/images/me.jpg" alt="Avatar" class="profile-image" />
+        <img src="./assets/images/me.webp" alt="Avatar" class="profile-image" />
         <div class="profile-content">
           <h2>mflavin</h2>
-
           <p>
             Full-stack developer with 5 years of experience specializing in
             building user-friendly interfaces and APIs
           </p>
-
           <h3>Skills</h3>
           <ul class="skills-list">
             <li><span class="badge">HTML</span></li>

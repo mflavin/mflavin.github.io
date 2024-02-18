@@ -1,19 +1,22 @@
 // Array of card data
 const cardData = [
   {
-    image: './assets/images/tailwind.svg',
+    image: './assets/images/tailwind.webp',
+    alt: 'Tailwind CSS Logo',
     title: 'Vue 3 + Tailwind CSS',
     description: 'Personal project using Tailwind CSS and Vue 3.',
     link: '/v3tw',
   },
   {
-    image: './assets/images/daisyui.svg',
+    image: './assets/images/daisyui.webp',
+    alt: 'Daisy UI Logo',
     title: 'Vue 3 + Daisy UI',
     description: 'Personal project using Tailwind CSS, Daisy UI, and Vue 3.',
     link: 'https://spectacular-cascaron-b8176d.netlify.app',
   },
   {
-    image: './assets/images/nuxt.svg',
+    image: './assets/images/nuxt.webp',
+    alt: 'Nuxt Logo',
     title: 'Nuxt 3 + Nuxt UI',
     description: 'Personal project using Nuxt 3 and Nuxt UI.',
     link: 'https://relaxed-eclair-22ba96.netlify.app/',
@@ -28,6 +31,7 @@ function createCardElement(card) {
   const imgElement = document.createElement('img');
   imgElement.classList.add('svg');
   imgElement.src = card.image;
+  imgElement.alt = card.alt;
   cardElement.appendChild(imgElement);
 
   const titleElement = document.createElement('h2');
