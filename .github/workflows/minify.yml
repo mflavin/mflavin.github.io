@@ -26,8 +26,8 @@ jobs:
       - run: npm install -g html-minifier
 
       # Perform minification, overwriting original files
-      - run: terser ./js/spotilist.js --compress --mangle -o ./js/spotilist.js
-      - run: csso ./css/style.css -o ./css/style.css
+      - run: terser ./js/main.js --compress --mangle -o ./js/main.js
+      - run: csso ./css/styles.css -o ./css/styles.css
       - run: html-minifier --collapse-boolean-attributes --collapse-whitespace --minify-css --minify-js --minify-urls --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-tag-whitespace --use-short-doctype -o index.html index.html
 
       # (Force) push changes to `gh-pages` branch
