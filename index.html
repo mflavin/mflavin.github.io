@@ -47,65 +47,71 @@
     <script src="./js/main.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div id="darkModeToggle">
-        <svg
-          id="moon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-          ></path>
-        </svg>
-        <svg
-          id="sun"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-          ></path>
-        </svg>
-      </div>
-      <div class="profile-card">
-        <img src="./assets/images/me.webp" alt="Avatar" class="profile-image" />
-        <div class="profile-content">
-          <h2>mflavin</h2>
-          <p>
-            Full-stack developer with 5 years of experience specializing in
-            building user-friendly interfaces and APIs
-          </p>
-          <h3>Skills</h3>
-          <ul class="skills-list">
-            <li><span class="badge">HTML</span></li>
-            <li><span class="badge">CSS</span></li>
-            <li><span class="badge">JavaScript</span></li>
-            <li><span class="badge">Python</span></li>
-            <li><span class="badge">VueJs</span></li>
-            <li><span class="badge">React</span></li>
-            <li><span class="badge">NodeJs</span></li>
-            <li><span class="badge">Express</span></li>
-            <li><span class="badge">Django</span></li>
-            <li><span class="badge">Flask</span></li>
-            <li><span class="badge">MongoDB</span></li>
-            <li><span class="badge">AWS</span></li>
-          </ul>
+    <main>
+      <div class="container">
+        <div id="darkModeToggle">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+            ></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+            ></path>
+          </svg>
         </div>
+        <article class="profile-card">
+          <img
+            src="./assets/images/me.webp"
+            alt="Avatar"
+            class="profile-image"
+          />
+          <div class="profile-content">
+            <h2>mflavin</h2>
+            <p>
+              Full-stack developer with 5 years of experience specializing in
+              building user-friendly interfaces and APIs
+            </p>
+            <h3>Skills</h3>
+            <ul class="skills-list">
+              <li><span class="badge">HTML</span></li>
+              <li><span class="badge">CSS</span></li>
+              <li><span class="badge">JavaScript</span></li>
+              <li><span class="badge">Python</span></li>
+              <li><span class="badge">VueJs</span></li>
+              <li><span class="badge">React</span></li>
+              <li><span class="badge">NodeJs</span></li>
+              <li><span class="badge">Express</span></li>
+              <li><span class="badge">Django</span></li>
+              <li><span class="badge">Flask</span></li>
+              <li><span class="badge">MongoDB</span></li>
+              <li><span class="badge">AWS</span></li>
+            </ul>
+          </div>
+        </article>
+        <section class="card-container">
+          <!-- Cards will be inserted here -->
+        </section>
       </div>
-      <div class="card-container">
-        <!-- Cards will be inserted here -->
-      </div>
-    </div>
+    </main>
   </body>
 </html>

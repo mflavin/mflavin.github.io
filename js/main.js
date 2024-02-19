@@ -24,7 +24,7 @@ const cardData = [
 ];
 
 // Function to create a card element
-function createCardElement(card) {
+function createCardElement(card, tabIndex) {
   const cardElement = document.createElement('div');
   cardElement.classList.add('card');
 
@@ -47,7 +47,8 @@ function createCardElement(card) {
   const linkElement = document.createElement('a');
   linkElement.href = card.link;
   linkElement.classList.add('card-link');
-  linkElement.textContent = 'Link';
+  linkElement.textContent = card.link;
+  linkElement.tabIndex = tabIndex; // Make the link focusable
   cardElement.appendChild(linkElement);
 
   return cardElement;
@@ -79,19 +80,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.card-container');
 
   // Loop through cardData array and create card elements
-  cardData.forEach((card) => {
-    const cardElement = createCardElement(card);
+  cardData.forEach((card, index) => {
+    const cardElement = createCardElement(card, index + 1);
     // Append the card to the container
     container.appendChild(cardElement);
   });
 
   const darkModeToggle = document.getElementById('darkModeToggle');
   darkModeToggle.checked = isDarkMode;
+  darkModeToggle.tabIndex = 0; // Make the toggle focusable
+  darkModeToggle.setAttribute('role', 'switch'); // Add ARIA role
+  darkModeToggle.setAttribute('aria-checked', isDarkMode); // Add ARIA property
 
   // Save user preference when checkbox is toggled
   darkModeToggle.addEventListener('click', () => {
     const isDarkMode = document.body.getAttribute('data-theme') === 'dark';
     document.body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
     localStorage.setItem('darkMode', !isDarkMode);
+    darkModeToggle.setAttribute('aria-checked', !isDarkMode); // Update ARIA property
   });
 });
