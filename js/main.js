@@ -12,14 +12,21 @@ const cardData = [
     alt: 'Daisy UI Logo',
     title: 'Vue 3 + Daisy UI',
     description: 'Personal project using Tailwind CSS, Daisy UI, and Vue 3.',
-    link: 'https://spectacular-cascaron-b8176d.netlify.app',
+    link: 'https://spectacular-cascaron-b8176d.netlify.app/noteslist',
   },
   {
     image: './assets/images/nuxt.webp',
     alt: 'Nuxt Logo',
     title: 'Nuxt 3 + Nuxt UI',
     description: 'Personal project using Nuxt 3 and Nuxt UI.',
-    link: 'https://relaxed-eclair-22ba96.netlify.app/',
+    link: 'https://relaxed-eclair-22ba96.netlify.app/notes',
+  },
+  {
+    image: './assets/images/cabin.webp',
+    alt: 'Cabin Logo',
+    title: 'Resturant Website',
+    description: 'Resturant website using Bootstrap 5 and google APIs.',
+    link: 'https://astounding-valkyrie-3083cd.netlify.app',
   },
 ];
 
