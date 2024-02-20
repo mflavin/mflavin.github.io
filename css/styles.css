@@ -1,8 +1,9 @@
 :root {
   --primary-color: #f9f9f9;
-  --secondary-color: #e0e0e0;
+  --secondary-color: #e0e0f0;
   --accent-color: #00aaff;
   --text-color: #333;
+  --paragraph-color: #555;
   --bg-color: #f9f9f9;
   --fill-color: black;
   --filter: invert(100%);
@@ -20,6 +21,7 @@ body[data-theme='dark'] {
   --primary-color: #444;
   --secondary-color: #333;
   --text-color: #f9f9f9;
+  --paragraph-color: #ddd;
   --bg-color: #333;
   --fill-color: white;
   --filter: invert(0%);
@@ -170,11 +172,11 @@ h3 {
 }
 
 p {
+  color: var(--paragraph-color);
   font-size: 0.875em;
   line-height: 1.5;
   margin-bottom: 0.625em;
 }
-
 .skills-list {
   display: flex;
   flex-wrap: wrap;
