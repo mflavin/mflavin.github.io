@@ -1,4 +1,4 @@
-/*#region CSS Reset Start */
+/* #region CSS Reset Start */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -127,8 +127,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/*#endregion CSS Reset End*/
+/* #endregion CSS Reset End */
 
+/*#region Base Styles Start */
 :root {
   --primary-color: #f9f9f9;
   --secondary-color: #e0e0f0;
@@ -156,6 +157,27 @@ body[data-theme='dark'] {
   --bg-color: #333;
   --fill-color: white;
   --filter: invert(0%);
+}
+
+h2,
+h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  color: var(--paragraph-color);
+  font-size: 0.875em;
+  line-height: 1.5;
+  margin-block: 0.625em;
 }
 
 .container {
@@ -192,6 +214,9 @@ body[data-theme='dark'] {
   }
 }
 
+/* #endregion Base Styles End */
+
+/*#region Card Styles Start */
 .card,
 .profile-card {
   background-color: var(--primary-color);
@@ -273,6 +298,30 @@ body[data-theme='dark'] {
   }
 }
 
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-inline: 0;
+  margin-block: 0.625em;
+  padding: 0;
+}
+
+.skills-list li {
+  margin: 0.3125em;
+}
+
+.badge {
+  background-color: var(--secondary-color);
+  border-radius: 0.3125em;
+  padding: 0.3125em 0.625em;
+  font-size: 0.75em;
+  color: var(--text-color);
+}
+
+/* #endregion Card Styles End */
+
+/* #region Dark Mode Styles Start */
 #darkModeToggle {
   cursor: pointer;
   width: 1.5em;
@@ -298,44 +347,4 @@ body[data-theme='dark'] {
   opacity: 1;
 }
 
-h2,
-h3 {
-  margin: 0;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.25em;
-}
-
-h3 {
-  font-size: 1em;
-}
-
-p {
-  color: var(--paragraph-color);
-  font-size: 0.875em;
-  line-height: 1.5;
-  margin-block: 0.625em;
-}
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin-inline: 0;
-  margin-block: 0.625em;
-  padding: 0;
-}
-
-.skills-list li {
-  margin: 0.3125em;
-}
-
-.badge {
-  background-color: var(--secondary-color);
-  border-radius: 0.3125em;
-  padding: 0.3125em 0.625em;
-  font-size: 0.75em;
-  color: var(--text-color);
-}
+/* #endregion Dark Mode Styles End */
