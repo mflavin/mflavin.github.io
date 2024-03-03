@@ -1,3 +1,134 @@
+/*#region CSS Reset Start */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*#endregion CSS Reset End*/
+
 :root {
   --primary-color: #f9f9f9;
   --secondary-color: #e0e0f0;
@@ -33,24 +164,31 @@ body[data-theme='dark'] {
   align-items: center;
   padding: 1.25em;
   margin: 1.25em auto;
-  max-width: 80em;
+  max-width: 60em;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 80em;
+  justify-content: center;
+  max-width: 60em;
   width: 100%;
 }
 
-@media (max-width: 53em) {
-  .container {
-    padding: 0.625em;
+@media (min-width: 865px) {
+  .card-container {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1249px) {
+  .container,
+  .card-container {
+    max-width: 80em;
   }
 
-  .card-container {
-    justify-content: center;
+  .container {
+    padding: 0.625em;
   }
 }
 
@@ -68,6 +206,7 @@ body[data-theme='dark'] {
 }
 
 .card {
+  min-height: 175px;
   max-width: 20em;
 }
 
@@ -103,9 +242,9 @@ body[data-theme='dark'] {
   width: 100%;
 }
 
-.title,
-.description {
-  margin: 1.25em 0;
+.title {
+  margin-top: 0.3125em;
+  margin-bottom: 1em;
 }
 
 .svg {
@@ -159,7 +298,7 @@ body[data-theme='dark'] {
 
 h2,
 h3 {
-  margin: 0 0 0.3125em;
+  margin: 0;
   font-weight: bold;
 }
 
@@ -175,13 +314,15 @@ p {
   color: var(--paragraph-color);
   font-size: 0.875em;
   line-height: 1.5;
-  margin-bottom: 0.625em;
+  margin-block: 0.625em;
 }
+
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
+  margin-block: 0.625em;
   padding: 0;
 }
 
