@@ -1,66 +1,3 @@
-// Array of card data
-const cardData = [
-  {
-    image: './assets/images/tailwind.webp',
-    alt: 'Tailwind CSS Logo',
-    title: 'Vue 3 + Tailwind CSS',
-    description: 'Personal project using Tailwind CSS and Vue 3.',
-    link: '/v3tw',
-  },
-  {
-    image: './assets/images/daisyui.webp',
-    alt: 'Daisy UI Logo',
-    title: 'Vue 3 + Daisy UI',
-    description: 'Personal project using Tailwind CSS, Daisy UI, and Vue 3.',
-    link: 'https://spectacular-cascaron-b8176d.netlify.app/noteslist',
-  },
-  {
-    image: './assets/images/nuxt.webp',
-    alt: 'Nuxt Logo',
-    title: 'Nuxt 3 + Nuxt UI',
-    description: 'Personal project using Nuxt 3 and Nuxt UI.',
-    link: 'https://relaxed-eclair-22ba96.netlify.app/notes',
-  },
-  {
-    image: './assets/images/cabin.webp',
-    alt: 'Cabin Logo',
-    title: 'Resturant Website',
-    description: 'Resturant website using Bootstrap 5 and google APIs.',
-    link: 'https://astounding-valkyrie-3083cd.netlify.app',
-  },
-];
-
-// Function to create a card element
-function createCardElement(card, tabIndex) {
-  const cardElement = document.createElement('div');
-  cardElement.classList.add('card');
-
-  const imgElement = document.createElement('img');
-  imgElement.classList.add('svg');
-  imgElement.src = card.image;
-  imgElement.alt = card.alt;
-  cardElement.appendChild(imgElement);
-
-  const titleElement = document.createElement('h2');
-  titleElement.classList.add('title');
-  titleElement.textContent = card.title;
-  cardElement.appendChild(titleElement);
-
-  const descriptionElement = document.createElement('p');
-  descriptionElement.classList.add('description');
-  descriptionElement.textContent = card.description;
-  cardElement.appendChild(descriptionElement);
-
-  const linkElement = document.createElement('a');
-  linkElement.href = card.link;
-  linkElement.classList.add('card-link');
-  linkElement.textContent = card.link;
-  linkElement.tabIndex = tabIndex; // Make the link focusable
-  cardElement.appendChild(linkElement);
-
-  return cardElement;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   // Dark mode toggle
   const savedPreference = localStorage.getItem('darkMode');
@@ -84,19 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Append the style element to the head of the document
   setTimeout(() => document.head.appendChild(style), 0);
 
-  const container = document.querySelector('.card-container');
-
-  // Loop through cardData array and create card elements
-  cardData.forEach((card, index) => {
-    const cardElement = createCardElement(card, index + 1);
-    // Append the card to the container
-    container.appendChild(cardElement);
-  });
-
   const darkModeToggle = document.getElementById('darkModeToggle');
   darkModeToggle.checked = isDarkMode;
-  darkModeToggle.tabIndex = 0; // Make the toggle focusable
-  darkModeToggle.setAttribute('role', 'switch'); // Add ARIA role
   darkModeToggle.setAttribute('aria-checked', isDarkMode); // Add ARIA property
 
   // Save user preference when checkbox is toggled
