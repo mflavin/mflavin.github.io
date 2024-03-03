@@ -199,6 +199,10 @@ p {
 }
 
 @media (min-width: 865px) {
+  .card {
+    max-width: 20em !important;
+  }
+
   .card-container {
     justify-content: space-between;
   }
@@ -224,7 +228,6 @@ p {
   border: 0.125em solid transparent;
   border-radius: 0.625em;
   box-shadow: 0 0.625em 1.25em rgba(0, 0, 0, 0.1);
-  margin: 1.25em;
   padding: 1.25em;
   position: relative;
   text-align: center;
@@ -233,7 +236,8 @@ p {
 
 .card {
   min-height: 175px;
-  max-width: 20em;
+  max-width: 31.25em;
+  margin: 0.625em;
 }
 
 .card:hover {
@@ -247,6 +251,7 @@ p {
   align-items: center;
   width: 20em;
   text-align: start;
+  margin: 1.25em;
 }
 
 .profile-image {
