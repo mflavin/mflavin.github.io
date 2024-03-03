@@ -217,19 +217,33 @@ body[data-theme='dark'] {
 
 .profile-card {
   display: flex;
-  width: 31.25em;
+  flex-direction: column;
+  align-items: center;
+  width: 20em;
   text-align: start;
 }
 
-@media (max-width: 48em) {
+.profile-image {
+  width: 7.5em;
+  height: 7.5em;
+  border-radius: 50%;
+  margin: 0 0 1.25em;
+}
+
+.profile-content {
+  flex: 1;
+  font-family: sans-serif;
+}
+
+@media (min-width: 48em) {
   .profile-card {
-    flex-direction: column;
-    align-items: center;
-    width: 20em;
+    flex-direction: row;
+    width: 31.25em;
+    align-items: flex-start;
   }
 
   .profile-image {
-    margin: 0 0 1.25em;
+    margin-right: 1.25em;
   }
 }
 
@@ -282,18 +296,6 @@ body[data-theme='dark'] {
 [data-theme='light'] #sun,
 [data-theme='dark'] #moon {
   opacity: 1;
-}
-
-.profile-image {
-  width: 7.5em;
-  height: 7.5em;
-  border-radius: 50%;
-  margin-right: 1.25em;
-}
-
-.profile-content {
-  flex: 1;
-  font-family: sans-serif;
 }
 
 h2,
