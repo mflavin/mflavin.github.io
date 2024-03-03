@@ -147,6 +147,7 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
+  transition: color 0.5s, background-color 0.5s;
 }
 
 body[data-theme='dark'] {

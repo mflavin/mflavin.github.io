@@ -1,35 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Dark mode toggle
-  const savedPreference = localStorage.getItem('darkMode');
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const savedPreference = localStorage.getItem('darkMode') === 'true';
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)'
   ).matches;
-  const isDarkMode = savedPreference
-    ? savedPreference === 'true'
-    : prefersDarkMode;
 
-  document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  const isDarkMode = savedPreference || prefersDarkMode;
+  setTheme(isDarkMode);
+  setToggle(darkModeToggle, isDarkMode);
 
-  // Create a new style element
-  const style = document.createElement('style');
-  style.textContent = `
-    body {
-      transition: color 0.5s, background-color 0.5s;
-    }
-  `;
-
-  // Append the style element to the head of the document
-  setTimeout(() => document.head.appendChild(style), 0);
-
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  darkModeToggle.checked = isDarkMode;
-  darkModeToggle.setAttribute('aria-checked', isDarkMode); // Add ARIA property
-
-  // Save user preference when checkbox is toggled
   darkModeToggle.addEventListener('click', () => {
-    const isDarkMode = document.body.getAttribute('data-theme') === 'dark';
-    document.body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+    const isDarkMode = getTheme() === 'dark';
+    setTheme(!isDarkMode);
+    setToggle(darkModeToggle, !isDarkMode);
     localStorage.setItem('darkMode', !isDarkMode);
-    darkModeToggle.setAttribute('aria-checked', !isDarkMode); // Update ARIA property
   });
 });
+
+function setTheme(isDarkMode) {
+  document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+}
+
+function setToggle(toggleElement, isDarkMode) {
+  toggleElement.checked = isDarkMode;
+  toggleElement.setAttribute('aria-checked', isDarkMode);
+}
+
+function getTheme() {
+  return document.body.getAttribute('data-theme');
+}
