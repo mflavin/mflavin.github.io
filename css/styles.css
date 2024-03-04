@@ -236,7 +236,7 @@ p {
 
 .card {
   min-height: 175px;
-  max-width: 31.25em;
+  width: 20em;
   margin: 0.625em;
 }
 
@@ -267,9 +267,13 @@ p {
 }
 
 @media (min-width: 48em) {
+  .card,
+  .profile-card {
+    width: 31.25em;
+  }
+
   .profile-card {
     flex-direction: row;
-    width: 31.25em;
     align-items: flex-start;
   }
 

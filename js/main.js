@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   const darkModeToggle = document.getElementById('darkModeToggle');
-  const savedPreference = localStorage.getItem('darkMode') === 'true';
+  const savedPreference = localStorage.getItem('darkMode');
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)'
   ).matches;
+  const isDarkMode = savedPreference
+    ? savedPreference === 'true'
+    : prefersDarkMode;
 
-  const isDarkMode = savedPreference || prefersDarkMode;
   setTheme(isDarkMode);
   setToggle(darkModeToggle, isDarkMode);
 
