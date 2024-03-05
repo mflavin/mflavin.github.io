@@ -34,8 +34,9 @@ jobs:
 
       # Add and commit changes
       - run: |
+          git config user.name mflavin
+          git config user.email mflavin@user.noreply.github.com
           git add css/build.css
-          git commit -m 'Build input.css into build.css'
 
       # (Force) push changes to `gh-pages` branch
       - run: |
