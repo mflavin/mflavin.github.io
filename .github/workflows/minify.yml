@@ -24,6 +24,7 @@ jobs:
       - run: npm install -g terser
       - run: npm install -g csso-cli
       - run: npm install -g html-minifier
+      - run: npx tailwindcss build -i css/input.css -o css/build.css --minify
 
       # Perform minification, overwriting original files
       - run: terser ./js/main.js --compress --mangle -o ./js/main.js
