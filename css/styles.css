@@ -133,7 +133,7 @@ table {
 :root {
   --primary-color: #f9f9f9;
   --secondary-color: #e0e0f0;
-  --accent-color: #00aaff;
+  --accent-color: #4338ca;
   --text-color: #333;
   --paragraph-color: #555;
   --bg-color: #eee;
@@ -144,6 +144,7 @@ table {
 :root.dark {
   --primary-color: #444;
   --secondary-color: #333;
+  --accent-color: #a5b4fc;
   --text-color: #f9f9f9;
   --paragraph-color: #ddd;
   --bg-color: #333;
