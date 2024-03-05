@@ -24,6 +24,7 @@ jobs:
       - run: npm install -g terser
       - run: npm install -g csso-cli
       - run: npm install -g html-minifier
+      - run: npm install -g tailwindcss
       - run: npx tailwindcss build -i css/input.css -o css/build.css --minify
 
       # Perform minification, overwriting original files
@@ -31,12 +32,6 @@ jobs:
       - run: csso ./css/styles.css -o ./css/styles.css
       - run: csso ./css/build.css -o ./css/build.css
       - run: html-minifier --collapse-boolean-attributes --collapse-whitespace --minify-css --minify-js --minify-urls --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-tag-whitespace --use-short-doctype -o index.html index.html
-
-      # Add and commit changes
-      - run: |
-          git config user.name mflavin
-          git config user.email mflavin@user.noreply.github.com
-          git add css/build.css
 
       # (Force) push changes to `gh-pages` branch
       - run: |
