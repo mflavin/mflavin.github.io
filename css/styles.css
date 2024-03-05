@@ -141,16 +141,7 @@ table {
   --filter: invert(100%);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  transition: color 0.5s, background-color 0.5s;
-}
-
-body[data-theme='dark'] {
+:root.dark {
   --primary-color: #444;
   --secondary-color: #333;
   --text-color: #f9f9f9;
@@ -158,6 +149,15 @@ body[data-theme='dark'] {
   --bg-color: #333;
   --fill-color: white;
   --filter: invert(0%);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: color 0.5s, background-color 0.5s;
 }
 
 h2,
@@ -347,13 +347,13 @@ p {
   transition: opacity 0.3s ease;
 }
 
-[data-theme='light'] #moon,
-[data-theme='dark'] #sun {
+#moon,
+:root.dark #sun {
   opacity: 0;
 }
 
-[data-theme='light'] #sun,
-[data-theme='dark'] #moon {
+#sun,
+:root.dark #moon {
   opacity: 1;
 }
 

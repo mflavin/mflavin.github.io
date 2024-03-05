@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setTheme(isDarkMode) {
-  document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  document.documentElement.classList.toggle('dark', isDarkMode);
 }
 
 function setToggle(toggleElement, isDarkMode) {
@@ -29,5 +29,5 @@ function setToggle(toggleElement, isDarkMode) {
 }
 
 function getTheme() {
-  return document.body.getAttribute('data-theme');
+  return document.documentElement.classList.value;
 }
