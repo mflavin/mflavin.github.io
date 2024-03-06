@@ -8,16 +8,12 @@
   @apply bg-accent dark:bg-accent-dark hover:bg-accent/85 hover:dark:bg-accent-dark/85 text-primary-dark dark:text-primary font-semibold text-sm rounded-md py-2 px-3 items-center gap-2 min-h-11 min-w-11 inline-flex pr-3.5 justify-center xs:self-start xs:justify-start;
 }
 
-.footer-column {
-  @apply font-bold text-secondary/85 dark:text-secondary-dark/85 uppercase text-xs select-none tracking-wider;
-}
-
 .footer-icon-base {
   @apply font-medium flex items-center justify-center size-11 p-2 text-secondary dark:text-secondary-dark rounded-md;
 }
 
 .footer-link {
-  @apply text-xs text-secondary dark:text-secondary-dark font-semibold underline tracking-wider;
+  @apply text-sm relative text-secondary/85 dark:text-secondary-dark/85 hover:text-secondary dark:hover:text-secondary-dark;
 }
 
 .project-card {
@@ -26,4 +22,30 @@
 
 .project-card-image {
   @apply object-center p-1.5 aspect-square object-contain rounded-md group-hover:bg-transparent group-hover:transform group-hover:scale-105 transition-transform duration-300;
+}
+
+[type='button'] {
+  animation: button-pop 0.25s ease-out;
+  transition-property: color, background-color, border-color, opacity,
+    box-shadow, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+[type='button']:not([disabled]):active:hover,
+[type='button']:not([disabled]):active:focus {
+  animation: button-pop 0s ease-out;
+  transform: scale(0.98);
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(0.98);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1);
+  }
 }

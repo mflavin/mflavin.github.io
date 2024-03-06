@@ -28,12 +28,9 @@
       class="fixed top-0 h-full w-full z-10 left-0 right-0 p-3 max-h-[5rem] backdrop-blur"
     >
       <nav
-        class="bg-toolbar dark:bg-toolbar-dark max-w-2xl rounded-md h-full mx-auto py-1.5 px-2.5 flex items-center justify-end"
+        class="bg-toolbar dark:bg-toolbar-dark max-w-2xl rounded-md h-full mx-auto py-1.5 px-2.5 flex items-center justify-between"
       >
-        <a
-          class="flex flex-1 text-indigo-700 dark:text-indigo-300"
-          href="./index.html"
-        >
+        <a class="text-accent dark:text-accent-dark" href="./index.html">
           Home
         </a>
         <div
@@ -167,7 +164,7 @@
         <ul class="space-y-1">
           <li>
             <a
-              class="project-card group hover:bg-accent/25"
+              class="project-card group hover:bg-cyan-700/25"
               title="Tailwind CSS"
               href="/v3tw"
             >
@@ -177,7 +174,8 @@
                 width="56"
                 height="56"
                 decoding="async"
-                class="project-card-image bg-accent/25"
+                class="project-card-image bg-cyan-700/25"
+                src="./assets/images/tailwind.webp"
               />
               <div class="flex flex-col gap-0.5">
                 <div class="flex flex-row gap-3 items-stretch">
@@ -210,6 +208,7 @@
                 height="56"
                 decoding="async"
                 class="project-card-image bg-indigo-700/25"
+                src="./assets/images/daisyui.webp"
               />
               <div class="flex flex-col gap-0.5">
                 <div class="flex flex-row gap-3 items-stretch">
@@ -242,6 +241,7 @@
                 height="56"
                 decoding="async"
                 class="project-card-image bg-green-700/25"
+                src="./assets/images/nuxt.webp"
               />
               <div class="flex flex-col gap-0.5">
                 <div class="flex flex-row gap-3 items-stretch">
@@ -261,7 +261,7 @@
           </li>
           <li>
             <a
-              class="project-card group hover:bg-rose-700/25"
+              class="project-card group hover:bg-orange-700/25"
               title="Resturant Website"
               target="_blank"
               rel="noopener noreferrer"
@@ -273,7 +273,8 @@
                 width="56"
                 height="56"
                 decoding="async"
-                class="project-card-image bg-rose-700/25"
+                class="project-card-image bg-orange-700/25"
+                src="./assets/images/cabin.webp"
               />
               <div class="flex flex-col gap-0.5">
                 <div class="flex flex-row gap-3 items-stretch">
@@ -294,6 +295,7 @@
         </ul>
       </section>
     </main>
+
     <footer
       class="w-full mx-auto grid grid-cols-2 gap-6 px-3 pt-6 pb-8 border-t border-t-divider lg:pt-7 sm:pt-8 sm:pb-12 sm:grid-cols-4 sm:grid-rows-[1fr_auto] sm:gap-y-4 md:px-0 max-w-2xl"
     >
@@ -301,7 +303,7 @@
         <ul class="flex flex-row items-center gap-1.5">
           <li>
             <a
-              class="footer-icon-base hover:bg-dark hover:dark:bg-light hover:text-secondary-dark hover:dark:text-secondary"
+              class="footer-icon-base hover:bg-secondary/85 hover:dark:bg-secondary-dark/85 hover:text-light hover:dark:text-dark"
               title="GitHub"
               target="_blank"
               rel="noopener noreferrer"
@@ -343,12 +345,12 @@
           </li>
         </ul>
       </div>
-      <div class="flex flex-col gap-3 sm:row-span-2">
-        <p class="footer-column">Navigate</p>
+      <div>
+        <h3 class="text-sm/6 font-semibold">Navigate</h3>
         <ul
           title="Navigation links"
           aria-label="Navigation links"
-          class="flex flex-col gap-2"
+          class="mt-3 space-y-4"
         >
           <li>
             <a class="footer-link" title="Home" href="/">Home</a>
@@ -361,12 +363,12 @@
           </li>
         </ul>
       </div>
-      <div class="flex flex-col gap-3 sm:row-span-2">
-        <p class="footer-column">Misc</p>
+      <div>
+        <h3 class="text-sm/6 font-semibold">Misc</h3>
         <ul
           title="Miscellaneous links"
           aria-label="Miscellaneous links"
-          class="flex flex-col gap-2"
+          class="mt-3 space-y-4"
         >
           <li>
             <a href="#" class="footer-link" title="Contact">Contact</a>

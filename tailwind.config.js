@@ -9,7 +9,7 @@ export default {
       },
       colors: {
         light: '#FBFCFE',
-        dark: '#0C121E',
+        dark: '#0F172A',
         toolbar: {
           DEFAULT: '#3867D60D',
           dark: '#88a4e60e',
@@ -23,8 +23,8 @@ export default {
           dark: '#FBFCFED9',
         },
         accent: {
-          DEFAULT: '#3867d6',
-          dark: '#88A4E6',
+          DEFAULT: '#006877',
+          dark: '#52d7f0',
         },
       },
     },
