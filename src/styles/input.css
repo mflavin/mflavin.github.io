@@ -1,0 +1,55 @@
+/* npx tailwindcss build -i css/input.css -o css/build.css --minify */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.badge {
+  @apply flex items-center gap-1.5 rounded-md pl-3 pr-3.5 py-1.5 min-h-9 border border-secondary/25 dark:border-secondary-dark/25  text-sm font-medium cursor-default transition-colors text-secondary dark:text-secondary-dark bg-[#afc2ef0d] dark:bg-[#223e801a];
+}
+
+.btn {
+  @apply bg-accent dark:bg-accent-dark hover:bg-accent/85 hover:dark:bg-accent-dark/85 text-primary-dark dark:text-primary font-semibold text-sm rounded-md py-2 px-3 items-center gap-2 min-h-11 min-w-11 inline-flex pr-3.5 justify-center xs:self-start xs:justify-start;
+}
+
+.footer-icon-base {
+  @apply font-medium flex items-center justify-center size-11 p-2 text-secondary dark:text-secondary-dark rounded-md;
+}
+
+.footer-link {
+  @apply text-sm relative text-secondary/85 dark:text-secondary-dark/85 hover:text-secondary/100 dark:hover:text-secondary-dark/100 hover:underline;
+}
+
+.project-card {
+  @apply p-2.5 lg:p-3 rounded-md -mx-3 flex flex-row items-center gap-2 lg:gap-3 lg:items-start md:gap-3.5;
+}
+
+.project-card-image {
+  @apply object-center p-1.5 aspect-square object-contain rounded-md group-hover:bg-transparent group-hover:transform group-hover:scale-105 transition-transform duration-300;
+}
+
+[type='button'] {
+  animation: button-pop 0.25s ease-out;
+  transition-property: color, background-color, border-color, opacity,
+    box-shadow, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+[type='button']:not([disabled]):active:hover,
+[type='button']:not([disabled]):active:focus {
+  animation: button-pop 0s ease-out;
+  transform: scale(0.98);
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(0.98);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1);
+  }
+}

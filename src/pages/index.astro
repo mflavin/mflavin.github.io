@@ -1,0 +1,263 @@
+---
+import { Image } from 'astro:assets';
+
+// Styles
+import '../styles/input.css';
+
+// Layout
+import Layout from '../layouts/Layout.astro';
+
+// Components
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import ProjectLink from '../components/ProjectLink.astro';
+import Section from '../components/Section.astro';
+
+// Images
+import cabinImage from '../images/cabin.webp';
+import daisyuiImage from '../images/daisyui.webp';
+import meImage from '../images/me.webp';
+import nuxtImage from '../images/nuxt.webp';
+import tailwindImage from '../images/tailwind.webp';
+
+// Icons
+import javascriptIconImage from '../images/skillsIcons/javascript.png';
+import typescriptIconImage from '../images/skillsIcons/typescript.png';
+import pythonIconImage from '../images/skillsIcons/python.png';
+import nodejsIconImage from '../images/skillsIcons/nodejs.png';
+import vuejsIconImage from '../images/skillsIcons/vuejs.png';
+import nuxtjsIconImage from '../images/skillsIcons/nuxtjs.png';
+import tailwindcssIconImage from '../images/skillsIcons/tailwindcss.png';
+import astroIconImage from '../images/skillsIcons/astro.png';
+import bootstrapIconImage from '../images/skillsIcons/bootstrap.png';
+import htmlIconImage from '../images/skillsIcons/html.png';
+import cssIconImage from '../images/skillsIcons/css.png';
+
+// Data
+const projects = [
+  {
+    title: 'Vue 3 + Tailwind CSS',
+    href: '/v3tw',
+    alt: 'Tailwind CSS Logo',
+    description: 'Personal project using Tailwind CSS and Vue 3.',
+    src: tailwindImage,
+    className: 'bg-cyan-700/25',
+  },
+  {
+    title: 'Vue 3 + Daisy UI',
+    href: 'https://spectacular-cascaron-b8176d.netlify.app/noteslist',
+    alt: 'Daisy UI Logo',
+    description: 'Personal project using Daisy UI and Vue 3.',
+    src: daisyuiImage,
+    className: 'bg-indigo-700/25',
+  },
+  {
+    title: 'Nuxt 3 + Nuxt UI',
+    href: 'https://relaxed-eclair-22ba96.netlify.app/notes',
+    alt: 'Nuxt UI Logo',
+    description: 'Personal project using Nuxt 3 and Nuxt UI.',
+    src: nuxtImage,
+    className: 'bg-green-700/25',
+  },
+  {
+    title: 'Resturant Website',
+    href: 'https://astounding-valkyrie-3083cd.netlify.app',
+    alt: 'Cabin Logo',
+    description: 'Resturant website using Bootstrap 5 and google APIs.',
+    src: cabinImage,
+    className: 'bg-orange-700/25',
+  },
+];
+
+const badges = [
+  {
+    name: 'JavaScript',
+    className: 'hover:bg-yellow-700/25 hover:border-yellow-700',
+    src: javascriptIconImage,
+  },
+  {
+    name: 'TypeScript',
+    className: 'hover:bg-blue-700/25 hover:border-blue-700',
+    src: typescriptIconImage,
+  },
+  {
+    name: 'Python',
+    className: 'hover:bg-sky-700/25 hover:border-sky-700',
+    src: pythonIconImage,
+  },
+  {
+    name: 'Node.js',
+    className: 'hover:bg-emerald-700/25 hover:border-emerald-700',
+    src: nodejsIconImage,
+  },
+  {
+    name: 'Vue.js',
+    className: 'hover:bg-green-700/25 hover:border-green-700',
+    src: vuejsIconImage,
+  },
+  {
+    name: 'Nuxt.js',
+    className: 'hover:bg-green-700/25 hover:border-green-700',
+    src: nuxtjsIconImage,
+  },
+  {
+    name: 'Tailwind CSS',
+    className: 'hover:bg-cyan-700/25 hover:border-cyan-700',
+    src: tailwindcssIconImage,
+  },
+  {
+    name: 'Astro',
+    className: 'hover:bg-indigo-700/25 hover:border-indigo-700',
+    src: astroIconImage,
+  },
+  {
+    name: 'Bootstrap',
+    className: 'hover:bg-purple-700/25 hover:border-purple-700',
+    src: bootstrapIconImage,
+  },
+  {
+    name: 'HTML',
+    className: 'hover:bg-orange-700/25 hover:border-orange-700',
+    src: htmlIconImage,
+  },
+  {
+    name: 'CSS',
+    className: 'hover:bg-blue-700/25 hover:border-blue-700',
+    src: cssIconImage,
+  },
+];
+---
+
+<Layout
+  title='mflavin portfolio'
+  description='Full-stack developer with 5 years of experience specializing in building user-friendly interfaces and APIs'
+>
+  <Header />
+
+  <main
+    class='flex flex-col flex-1 z-0 pt-28 px-3 pb-8 gap-14 w-full mx-auto md:pt-32 md:px-0 max-w-2xl'
+  >
+    <section class='flex flex-col gap-6'>
+      <div class='flex flex-col gap-5 sm:block sm:space-y-4'>
+        <Image
+          alt='mflavin'
+          loading='eager'
+          fetchpriority='high'
+          width='160'
+          height='160'
+          class='object-cover object-center rounded-full aspect-square sm:float-right max-w-28 sm:max-w-36 md:max-w-40'
+          src={meImage}
+        />
+
+        <h1
+          class='flex flex-col gap-1 sm:!-mt-2 text-2xl leading-9 font-semibold'
+        >
+          <span class='flex flex-row items-center gap-2'>
+            <span>
+              I am
+              <span class='text-accent dark:text-accent-dark'>mflavin</span>
+            </span>
+          </span>
+        </h1>
+        <p class='flex flex-col gap-2 text-secondary dark:text-secondary-dark'>
+          <span class='max-w-sm'>
+            Passionate and creative full-stack software engineer from Illinois
+          </span>
+          <span class='max-w-md'>
+            Full-stack developer with 5 years of experience specializing in
+            building user-friendly interfaces and APIs
+          </span>
+        </p>
+      </div>
+      <div class='flex flex-col gap-3 items-center lg:flex-row lg:flex-wrap'>
+        <a
+          title='More about me'
+          class='btn w-full xs:w-44'
+          aria-label='More about me'
+          type='button'
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://github.com/mflavin'
+        >
+          <svg
+            viewBox='0 0 24 24'
+            role='presentation'
+            class='fill-inherit size-6'
+            aria-hidden='true'
+          >
+            <path
+              class='fill-current'
+              d='M12 2C6.3 2 1.8 6.6 1.8 12.2c0 4.5 2.9 8.4 7 9.7.5.1.7-.2.7-.5v-1.7c-2.9.7-3.5-1.3-3.5-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.1-4.7-5 0-1.1.4-2 1.1-2.8-.2-.4-.5-1.5 0-2.8 0 0 .9-.3 2.8 1 .8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1.1 1.6 1.1 2.8 0 3.9-2.4 4.8-4.7 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4.1-1.4 7-5.2 7-9.7C22.2 6.6 17.7 2 12 2z'
+            ></path>
+          </svg>
+          <span>More about me</span>
+        </a>
+      </div>
+    </section>
+
+    <Section title='Skills'>
+      <ul class='flex flex-wrap gap-2'>
+        {
+          badges.map((badge) => (
+            <li
+              class:list={['flex badge transition-colors', [badge.className]]}
+            >
+              <Image
+                alt='Badge for skill'
+                width='24'
+                height='24'
+                class='object-center aspect-square object-contain'
+                src={badge.src}
+              />
+              <span>{badge.name}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+
+    <Section title='Projects'>
+      <a
+        slot='title'
+        title='View all'
+        class='btn w-28'
+        aria-label='View all'
+        type='button'
+        target='_blank'
+        rel='noopener noreferrer'
+        href='https://github.com/mflavin?tab=repositories'
+      >
+        <svg
+          viewBox='0 0 24 24'
+          role='presentation'
+          class='fill-inherit size-5'
+          aria-hidden='true'
+        >
+          <path
+            class='fill-current'
+            d='M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z'
+          ></path>
+        </svg>
+        <span>View all</span>
+      </a>
+      <ul class='space-y-1'>
+        {
+          projects.map((project) => (
+            <li>
+              <ProjectLink
+                title={project.title}
+                href={project.href}
+                alt={project.alt}
+                description={project.description}
+                src={project.src}
+                className={project.className}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+  </main>
+
+  <Footer />
+</Layout>
