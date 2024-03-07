@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.badge {
+  @apply flex items-center gap-1.5 rounded-md pl-3 pr-3.5 py-1.5 min-h-9 border border-secondary/25 dark:border-secondary-dark/25  text-sm font-medium cursor-default transition-colors text-secondary dark:text-secondary-dark bg-[#afc2ef0d] dark:bg-[#223e801a];
+}
+
 .btn {
   @apply bg-accent dark:bg-accent-dark hover:bg-accent/85 hover:dark:bg-accent-dark/85 text-primary-dark dark:text-primary font-semibold text-sm rounded-md py-2 px-3 items-center gap-2 min-h-11 min-w-11 inline-flex pr-3.5 justify-center xs:self-start xs:justify-start;
 }
@@ -13,7 +17,7 @@
 }
 
 .footer-link {
-  @apply text-sm relative text-secondary/85 dark:text-secondary-dark/85 hover:text-secondary dark:hover:text-secondary-dark;
+  @apply text-sm relative text-secondary/85 dark:text-secondary-dark/85 hover:text-secondary/100 dark:hover:text-secondary-dark/100 hover:underline;
 }
 
 .project-card {
