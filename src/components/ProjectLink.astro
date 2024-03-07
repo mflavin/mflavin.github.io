@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  href: string;
+  alt: string;
+  description: string;
+  src: ImageMetadata;
+  className: string;
+}
+
+const { title, href, alt, description, src, className } = Astro.props;
+---
+
+<a
+  class:list={['project-card group', ['hover:' + className]]}
+  title={title}
+  target='_blank'
+  rel='noopener noreferrer'
+  href={href}
+>
+  <Image
+    alt={alt}
+    width='56'
+    height='56'
+    class:list={['project-card-image', [className]]}
+    src={src}
+  />
+  <div class='flex flex-col gap-0.5'>
+    <div class='flex flex-row gap-3 items-stretch'>
+      <p class='font-medium text-primary dark:text-primary-dark line-clamp-2'>
+        {title}
+      </p>
+    </div>
+    <p class='line-clamp-2 text-secondary dark:text-secondary-dark text-sm'>
+      {description}
+    </p>
+  </div>
+</a>
