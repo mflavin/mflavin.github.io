@@ -20,14 +20,6 @@
   @apply text-sm relative text-secondary/85 dark:text-secondary-dark/85 hover:text-secondary/100 dark:hover:text-secondary-dark/100 hover:underline;
 }
 
-.project-card {
-  @apply p-2.5 lg:p-3 rounded-md -mx-3 flex flex-row items-center gap-2 lg:gap-3 lg:items-start md:gap-3.5;
-}
-
-.project-card-image {
-  @apply object-center p-1.5 aspect-square object-contain rounded-md group-hover:bg-transparent group-hover:transform group-hover:scale-105 transition-transform duration-300;
-}
-
 [type='button'] {
   animation: button-pop 0.25s ease-out;
   transition-property: color, background-color, border-color, opacity,

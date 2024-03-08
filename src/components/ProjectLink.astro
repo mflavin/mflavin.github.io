@@ -14,7 +14,10 @@ const { title, href, alt, description, src, className } = Astro.props;
 ---
 
 <a
-  class:list={['project-card group', ['hover:' + className]]}
+  class:list={[
+    'p-2.5 lg:p-3 rounded-md -mx-3 flex flex-row items-center gap-2 lg:gap-3 lg:items-start md:gap-3.5 group',
+    ['hover:' + className],
+  ]}
   title={title}
   target='_blank'
   rel='noopener noreferrer'
@@ -24,7 +27,10 @@ const { title, href, alt, description, src, className } = Astro.props;
     alt={alt}
     width='56'
     height='56'
-    class:list={['project-card-image', [className]]}
+    class:list={[
+      'object-center p-1.5 aspect-square object-contain rounded-md group-hover:bg-transparent group-hover:transform group-hover:scale-105 transition-transform duration-300',
+      [className],
+    ]}
     src={src}
   />
   <div class='flex flex-col gap-0.5'>

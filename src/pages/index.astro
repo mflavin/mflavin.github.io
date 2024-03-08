@@ -138,42 +138,25 @@ const badges = [
   <main
     class='flex flex-col flex-1 z-0 pt-28 px-3 pb-8 gap-14 w-full mx-auto md:pt-32 md:px-0 max-w-2xl'
   >
-    <section class='flex flex-col gap-6'>
-      <div class='flex flex-col gap-5 sm:block sm:space-y-4'>
-        <Image
-          alt='mflavin'
-          loading='eager'
-          fetchpriority='high'
-          width='160'
-          height='160'
-          class='object-cover object-center rounded-full aspect-square sm:float-right max-w-28 sm:max-w-36 md:max-w-40'
-          src={meImage}
-        />
-
-        <h1
-          class='flex flex-col gap-1 sm:!-mt-2 text-2xl leading-9 font-semibold'
-        >
-          <span class='flex flex-row items-center gap-2'>
-            <span>
-              I am
-              <span class='text-accent dark:text-accent-dark'>mflavin</span>
-            </span>
-          </span>
-        </h1>
-        <p class='flex flex-col gap-2 text-secondary dark:text-secondary-dark'>
-          <span class='max-w-sm'>
+    <section class='flex justify-between'>
+      <div>
+        <h2 class='text-primary dark:text-primary-dark mb-6 text-2xl font-bold'>
+          I am
+          <span class='text-accent dark:text-accent-dark'>mflavin</span>
+        </h2>
+        <div class='text-secondary dark:text-secondary-dark leading-7'>
+          <p class='max-w-sm mb-5'>
             Passionate and creative full-stack software engineer from Illinois
-          </span>
-          <span class='max-w-md'>
+          </p>
+          <p class='max-w-md my-5'>
             Full-stack developer with 5 years of experience specializing in
             building user-friendly interfaces and APIs
-          </span>
-        </p>
-      </div>
-      <div class='flex flex-col gap-3 items-center lg:flex-row lg:flex-wrap'>
+          </p>
+        </div>
+
         <a
           title='More about me'
-          class='btn w-full xs:w-44'
+          class='btn w-full xs:w-44 no-underline'
           aria-label='More about me'
           type='button'
           target='_blank'
@@ -194,13 +177,28 @@ const badges = [
           <span>More about me</span>
         </a>
       </div>
+
+      <Image
+        alt='mflavin'
+        loading='eager'
+        fetchpriority='high'
+        width='160'
+        height='160'
+        class='object-cover object-center rounded-full aspect-square h-fit sm:float-right max-w-28 sm:max-w-36 md:max-w-40'
+        src={meImage}
+      />
     </section>
 
     <Section title='Skills'>
       <ul class='flex flex-wrap gap-2'>
         {
           badges.map((badge) => (
-            <li class:list={['badge', [badge.className]]}>
+            <li
+              class:list={[
+                'flex items-center gap-1.5 rounded-md px-3 py-1.5 min-h-9 border border-secondary/25 dark:border-secondary-dark/25  text-sm font-medium cursor-default transition transform text-secondary dark:text-secondary-dark bg-[#afc2ef0d] dark:bg-[#223e801a]',
+                [badge.className],
+              ]}
+            >
               <Image
                 alt='Badge for skill'
                 loading='eager'
