@@ -1,5 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
+import BaseHead from "../components/BaseHead.astro";
 
 interface Props {
   title: string;
@@ -9,50 +9,48 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang='en' class='dark'>
+<html lang="en" class="dark">
   <head>
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class='flex flex-col justify-around min-h-screen text-primary dark:text-primary-dark bg-light dark:bg-dark'
+    class="flex min-h-screen flex-col justify-around bg-light text-primary dark:bg-dark dark:text-primary-dark"
   >
     <slot />
-  </body>
-</html>
+  </body><script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      if (!darkModeToggle) return;
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    if (!darkModeToggle) return;
+      const savedPreference = localStorage.getItem("darkMode");
+      const prefersDarkMode = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      const isDarkMode = savedPreference
+        ? savedPreference === "true"
+        : prefersDarkMode;
 
-    const savedPreference = localStorage.getItem('darkMode');
-    const prefersDarkMode = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
-    const isDarkMode = savedPreference
-      ? savedPreference === 'true'
-      : prefersDarkMode;
+      setTheme(isDarkMode);
+      setToggle(darkModeToggle, isDarkMode);
 
-    setTheme(isDarkMode);
-    setToggle(darkModeToggle, isDarkMode);
-
-    darkModeToggle.addEventListener('click', () => {
-      const isDarkMode = getTheme() === 'dark';
-      setTheme(!isDarkMode);
-      setToggle(darkModeToggle, !isDarkMode);
-      localStorage.setItem('darkMode', String(!isDarkMode));
+      darkModeToggle.addEventListener("click", () => {
+        const isDarkMode = getTheme() === "dark";
+        setTheme(!isDarkMode);
+        setToggle(darkModeToggle, !isDarkMode);
+        localStorage.setItem("darkMode", String(!isDarkMode));
+      });
     });
-  });
 
-  function setTheme(isDarkMode: boolean) {
-    document.documentElement.classList.toggle('dark', isDarkMode);
-  }
+    function setTheme(isDarkMode: boolean) {
+      document.documentElement.classList.toggle("dark", isDarkMode);
+    }
 
-  function setToggle(toggleElement: HTMLElement, isDarkMode: boolean) {
-    toggleElement.setAttribute('aria-checked', String(isDarkMode));
-  }
+    function setToggle(toggleElement: HTMLElement, isDarkMode: boolean) {
+      toggleElement.setAttribute("aria-checked", String(isDarkMode));
+    }
 
-  function getTheme() {
-    return document.documentElement.classList.value;
-  }
-</script>
+    function getTheme() {
+      return document.documentElement.classList.value;
+    }
+  </script>
+</html>

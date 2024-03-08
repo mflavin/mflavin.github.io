@@ -5,22 +5,22 @@
 @tailwind utilities;
 
 .badge {
-  @apply flex items-center gap-1.5 rounded-md px-3 py-1.5 min-h-9 border border-secondary/25 dark:border-secondary-dark/25  text-sm font-medium cursor-default transition transform text-secondary dark:text-secondary-dark bg-[#afc2ef0d] dark:bg-[#223e801a];
+  @apply flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-secondary/25 bg-[#afc2ef0d]  px-3 py-1.5 text-sm font-medium text-secondary transition dark:border-secondary-dark/25 dark:bg-[#223e801a] dark:text-secondary-dark;
 }
 
 .btn {
-  @apply bg-accent dark:bg-accent-dark hover:bg-accent/85 hover:dark:bg-accent-dark/85 text-primary-dark dark:text-primary font-semibold text-sm rounded-md py-2 px-3 items-center gap-2 min-h-11 min-w-11 inline-flex pr-3.5 justify-center xs:self-start xs:justify-start;
+  @apply inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-accent px-3 py-2 pr-3.5 text-sm font-semibold text-primary-dark hover:bg-accent/85 xs:justify-start xs:self-start dark:bg-accent-dark dark:text-primary hover:dark:bg-accent-dark/85;
 }
 
 .footer-icon-base {
-  @apply font-medium flex items-center justify-center size-11 p-2 text-secondary dark:text-secondary-dark rounded-md;
+  @apply flex size-11 items-center justify-center rounded-md p-2 font-medium text-secondary dark:text-secondary-dark;
 }
 
 .footer-link {
-  @apply text-sm relative text-secondary/85 dark:text-secondary-dark/85 hover:text-secondary/100 dark:hover:text-secondary-dark/100 hover:underline;
+  @apply relative text-sm text-secondary/85 hover:text-secondary/100 hover:underline dark:text-secondary-dark/85 dark:hover:text-secondary-dark/100;
 }
 
-[type='button'] {
+[type="button"] {
   animation: button-pop 0.25s ease-out;
   transition-property: color, background-color, border-color, opacity,
     box-shadow, transform;
@@ -28,8 +28,8 @@
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-[type='button']:not([disabled]):active:hover,
-[type='button']:not([disabled]):active:focus {
+[type="button"]:not([disabled]):active:hover,
+[type="button"]:not([disabled]):active:focus {
   animation: button-pop 0s ease-out;
   transform: scale(0.98);
 }

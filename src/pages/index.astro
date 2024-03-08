@@ -1,177 +1,177 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 // Styles
-import '../styles/input.css';
+import "../styles/input.css";
 
 // Layout
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 // Components
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import ProjectLink from '../components/ProjectLink.astro';
-import Section from '../components/Section.astro';
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import ProjectLink from "../components/ProjectLink.astro";
+import Section from "../components/Section.astro";
 
 // Images
-import cabinImage from '../images/cabin.webp';
-import daisyuiImage from '../images/daisyui.webp';
-import meImage from '../images/me.webp';
-import nuxtImage from '../images/nuxt.webp';
-import tailwindImage from '../images/tailwind.webp';
+import cabinImage from "../images/cabin.webp";
+import daisyuiImage from "../images/daisyui.webp";
+import meImage from "../images/me.webp";
+import nuxtImage from "../images/nuxt.webp";
+import tailwindImage from "../images/tailwind.webp";
 
 // Icons
-import javascriptIconImage from '../images/skillsIcons/javascript.png';
-import typescriptIconImage from '../images/skillsIcons/typescript.png';
-import pythonIconImage from '../images/skillsIcons/python.png';
-import nodejsIconImage from '../images/skillsIcons/nodejs.png';
-import vuejsIconImage from '../images/skillsIcons/vuejs.png';
-import nuxtjsIconImage from '../images/skillsIcons/nuxtjs.png';
-import tailwindcssIconImage from '../images/skillsIcons/tailwindcss.png';
-import astroIconImage from '../images/skillsIcons/astro.png';
-import bootstrapIconImage from '../images/skillsIcons/bootstrap.png';
-import htmlIconImage from '../images/skillsIcons/html.png';
-import cssIconImage from '../images/skillsIcons/css.png';
+import javascriptIconImage from "../images/skillsIcons/javascript.png";
+import typescriptIconImage from "../images/skillsIcons/typescript.png";
+import pythonIconImage from "../images/skillsIcons/python.png";
+import nodejsIconImage from "../images/skillsIcons/nodejs.png";
+import vuejsIconImage from "../images/skillsIcons/vuejs.png";
+import nuxtjsIconImage from "../images/skillsIcons/nuxtjs.png";
+import tailwindcssIconImage from "../images/skillsIcons/tailwindcss.png";
+import astroIconImage from "../images/skillsIcons/astro.png";
+import bootstrapIconImage from "../images/skillsIcons/bootstrap.png";
+import htmlIconImage from "../images/skillsIcons/html.png";
+import cssIconImage from "../images/skillsIcons/css.png";
 
 // Data
 const projects = [
   {
-    title: 'Vue 3 + Tailwind CSS',
-    href: '/v3tw',
-    alt: 'Tailwind CSS Logo',
-    description: 'Personal project using Tailwind CSS and Vue 3.',
+    title: "Vue 3 + Tailwind CSS",
+    href: "/v3tw",
+    alt: "Tailwind CSS Logo",
+    description: "Personal project using Tailwind CSS and Vue 3.",
     src: tailwindImage,
-    className: 'bg-cyan-700/25',
+    className: "bg-cyan-700/25",
   },
   {
-    title: 'Vue 3 + Daisy UI',
-    href: 'https://spectacular-cascaron-b8176d.netlify.app/noteslist',
-    alt: 'Daisy UI Logo',
-    description: 'Personal project using Daisy UI and Vue 3.',
+    title: "Vue 3 + Daisy UI",
+    href: "https://spectacular-cascaron-b8176d.netlify.app/noteslist",
+    alt: "Daisy UI Logo",
+    description: "Personal project using Daisy UI and Vue 3.",
     src: daisyuiImage,
-    className: 'bg-indigo-700/25',
+    className: "bg-indigo-700/25",
   },
   {
-    title: 'Nuxt 3 + Nuxt UI',
-    href: 'https://relaxed-eclair-22ba96.netlify.app/notes',
-    alt: 'Nuxt UI Logo',
-    description: 'Personal project using Nuxt 3 and Nuxt UI.',
+    title: "Nuxt 3 + Nuxt UI",
+    href: "https://relaxed-eclair-22ba96.netlify.app/notes",
+    alt: "Nuxt UI Logo",
+    description: "Personal project using Nuxt 3 and Nuxt UI.",
     src: nuxtImage,
-    className: 'bg-green-700/25',
+    className: "bg-green-700/25",
   },
   {
-    title: 'Resturant Website',
-    href: 'https://astounding-valkyrie-3083cd.netlify.app',
-    alt: 'Cabin Logo',
-    description: 'Resturant website using Bootstrap 5 and google APIs.',
+    title: "Resturant Website",
+    href: "https://astounding-valkyrie-3083cd.netlify.app",
+    alt: "Cabin Logo",
+    description: "Resturant website using Bootstrap 5 and google APIs.",
     src: cabinImage,
-    className: 'bg-orange-700/25',
+    className: "bg-orange-700/25",
   },
 ];
 
 const badges = [
   {
-    name: 'JavaScript',
-    className: 'hover:bg-yellow-700/25 hover:border-yellow-700 hover:scale-105',
+    name: "JavaScript",
+    className: "hover:bg-yellow-700/25 hover:border-yellow-700 hover:scale-105",
     src: javascriptIconImage,
   },
   {
-    name: 'TypeScript',
-    className: 'hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105',
+    name: "TypeScript",
+    className: "hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105",
     src: typescriptIconImage,
   },
   {
-    name: 'Python',
-    className: 'hover:bg-sky-700/25 hover:border-sky-700 hover:scale-105',
+    name: "Python",
+    className: "hover:bg-sky-700/25 hover:border-sky-700 hover:scale-105",
     src: pythonIconImage,
   },
   {
-    name: 'Node.js',
+    name: "Node.js",
     className:
-      'hover:bg-emerald-700/25 hover:border-emerald-700 hover:scale-105',
+      "hover:bg-emerald-700/25 hover:border-emerald-700 hover:scale-105",
     src: nodejsIconImage,
   },
   {
-    name: 'Vue.js',
-    className: 'hover:bg-green-700/25 hover:border-green-700 hover:scale-105',
+    name: "Vue.js",
+    className: "hover:bg-green-700/25 hover:border-green-700 hover:scale-105",
     src: vuejsIconImage,
   },
   {
-    name: 'Nuxt.js',
-    className: 'hover:bg-green-700/25 hover:border-green-700 hover:scale-105',
+    name: "Nuxt.js",
+    className: "hover:bg-green-700/25 hover:border-green-700 hover:scale-105",
     src: nuxtjsIconImage,
   },
   {
-    name: 'Tailwind CSS',
-    className: 'hover:bg-cyan-700/25 hover:border-cyan-700 hover:scale-105',
+    name: "Tailwind CSS",
+    className: "hover:bg-cyan-700/25 hover:border-cyan-700 hover:scale-105",
     src: tailwindcssIconImage,
   },
   {
-    name: 'Astro',
-    className: 'hover:bg-indigo-700/25 hover:border-indigo-700 hover:scale-105',
+    name: "Astro",
+    className: "hover:bg-indigo-700/25 hover:border-indigo-700 hover:scale-105",
     src: astroIconImage,
   },
   {
-    name: 'Bootstrap',
-    className: 'hover:bg-purple-700/25 hover:border-purple-700 hover:scale-105',
+    name: "Bootstrap",
+    className: "hover:bg-purple-700/25 hover:border-purple-700 hover:scale-105",
     src: bootstrapIconImage,
   },
   {
-    name: 'HTML',
-    className: 'hover:bg-orange-700/25 hover:border-orange-700 hover:scale-105',
+    name: "HTML",
+    className: "hover:bg-orange-700/25 hover:border-orange-700 hover:scale-105",
     src: htmlIconImage,
   },
   {
-    name: 'CSS',
-    className: 'hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105',
+    name: "CSS",
+    className: "hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105",
     src: cssIconImage,
   },
 ];
 ---
 
 <Layout
-  title='mflavin portfolio'
-  description='Full-stack developer with 5 years of experience specializing in building user-friendly interfaces and APIs'
+  title="mflavin portfolio"
+  description="Full-stack developer with 5 years of experience specializing in building user-friendly interfaces and APIs"
 >
   <Header />
 
   <main
-    class='flex flex-col flex-1 z-0 pt-28 px-3 pb-8 gap-14 w-full mx-auto md:pt-32 md:px-0 max-w-2xl'
+    class="z-0 mx-auto flex w-full max-w-2xl flex-1 flex-col gap-14 px-3 pb-8 pt-28 md:px-0 md:pt-32"
   >
-    <section class='flex justify-between'>
+    <section class="flex justify-between">
       <div>
-        <h2 class='text-primary dark:text-primary-dark mb-6 text-2xl font-bold'>
+        <h2 class="mb-6 text-2xl font-bold text-primary dark:text-primary-dark">
           I am
-          <span class='text-accent dark:text-accent-dark'>mflavin</span>
+          <span class="text-accent dark:text-accent-dark">mflavin</span>
         </h2>
-        <div class='text-secondary dark:text-secondary-dark leading-7'>
-          <p class='max-w-sm mb-5'>
+        <div class="leading-7 text-secondary dark:text-secondary-dark">
+          <p class="mb-5 max-w-sm">
             Passionate and creative full-stack software engineer from Illinois
           </p>
-          <p class='max-w-md my-5'>
+          <p class="my-5 max-w-md">
             Full-stack developer with 5 years of experience specializing in
             building user-friendly interfaces and APIs
           </p>
         </div>
 
         <a
-          title='More about me'
-          class='btn w-full xs:w-44 no-underline'
-          aria-label='More about me'
-          type='button'
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://github.com/mflavin'
+          title="More about me"
+          class="btn w-full no-underline xs:w-44"
+          aria-label="More about me"
+          type="button"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/mflavin"
         >
           <svg
-            viewBox='0 0 24 24'
-            role='presentation'
-            class='fill-inherit size-6'
-            aria-hidden='true'
+            viewBox="0 0 24 24"
+            role="presentation"
+            class="size-6 fill-inherit"
+            aria-hidden="true"
           >
             <path
-              class='fill-current'
-              d='M12 2C6.3 2 1.8 6.6 1.8 12.2c0 4.5 2.9 8.4 7 9.7.5.1.7-.2.7-.5v-1.7c-2.9.7-3.5-1.3-3.5-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.1-4.7-5 0-1.1.4-2 1.1-2.8-.2-.4-.5-1.5 0-2.8 0 0 .9-.3 2.8 1 .8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1.1 1.6 1.1 2.8 0 3.9-2.4 4.8-4.7 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4.1-1.4 7-5.2 7-9.7C22.2 6.6 17.7 2 12 2z'
+              class="fill-current"
+              d="M12 2C6.3 2 1.8 6.6 1.8 12.2c0 4.5 2.9 8.4 7 9.7.5.1.7-.2.7-.5v-1.7c-2.9.7-3.5-1.3-3.5-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.1-4.7-5 0-1.1.4-2 1.1-2.8-.2-.4-.5-1.5 0-2.8 0 0 .9-.3 2.8 1 .8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1.1 1.6 1.1 2.8 0 3.9-2.4 4.8-4.7 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4.1-1.4 7-5.2 7-9.7C22.2 6.6 17.7 2 12 2z"
             ></path>
           </svg>
           <span>More about me</span>
@@ -179,32 +179,32 @@ const badges = [
       </div>
 
       <Image
-        alt='mflavin'
-        loading='eager'
-        fetchpriority='high'
-        width='160'
-        height='160'
-        class='object-cover object-center rounded-full aspect-square h-fit sm:float-right max-w-28 sm:max-w-36 md:max-w-40'
+        alt="mflavin"
+        loading="eager"
+        fetchpriority="high"
+        width="160"
+        height="160"
+        class="aspect-square h-fit max-w-28 rounded-full object-cover object-center sm:float-right sm:max-w-36 md:max-w-40"
         src={meImage}
       />
     </section>
 
-    <Section title='Skills'>
-      <ul class='flex flex-wrap gap-2'>
+    <Section title="Skills">
+      <ul class="flex flex-wrap gap-2">
         {
           badges.map((badge) => (
             <li
               class:list={[
-                'flex items-center gap-1.5 rounded-md px-3 py-1.5 min-h-9 border border-secondary/25 dark:border-secondary-dark/25  text-sm font-medium cursor-default transition transform text-secondary dark:text-secondary-dark bg-[#afc2ef0d] dark:bg-[#223e801a]',
+                "flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-secondary/25 bg-[#afc2ef0d]  px-3 py-1.5 text-sm font-medium text-secondary transition dark:border-secondary-dark/25 dark:bg-[#223e801a] dark:text-secondary-dark",
                 [badge.className],
               ]}
             >
               <Image
-                alt='Badge for skill'
-                loading='eager'
-                width='24'
-                height='24'
-                class='object-center aspect-square object-contain'
+                alt="Badge for skill"
+                loading="eager"
+                width="24"
+                height="24"
+                class="aspect-square object-contain object-center"
                 src={badge.src}
               />
               <button>{badge.name}</button>
@@ -214,31 +214,31 @@ const badges = [
       </ul>
     </Section>
 
-    <Section title='Projects'>
+    <Section title="Projects">
       <a
-        slot='title'
-        title='View all'
-        class='btn w-28'
-        aria-label='View all'
-        type='button'
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://github.com/mflavin?tab=repositories'
+        slot="title"
+        title="View all"
+        class="btn w-28"
+        aria-label="View all"
+        type="button"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/mflavin?tab=repositories"
       >
         <svg
-          viewBox='0 0 24 24'
-          role='presentation'
-          class='fill-inherit size-5'
-          aria-hidden='true'
+          viewBox="0 0 24 24"
+          role="presentation"
+          class="size-5 fill-inherit"
+          aria-hidden="true"
         >
           <path
-            class='fill-current'
-            d='M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z'
+            class="fill-current"
+            d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
           ></path>
         </svg>
         <span>View all</span>
       </a>
-      <ul class='space-y-1'>
+      <ul class="space-y-1">
         {
           projects.map((project) => (
             <li>
