@@ -72,57 +72,58 @@ const projects = [
 const badges = [
   {
     name: 'JavaScript',
-    className: 'hover:bg-yellow-700/25 hover:border-yellow-700',
+    className: 'hover:bg-yellow-700/25 hover:border-yellow-700 hover:scale-105',
     src: javascriptIconImage,
   },
   {
     name: 'TypeScript',
-    className: 'hover:bg-blue-700/25 hover:border-blue-700',
+    className: 'hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105',
     src: typescriptIconImage,
   },
   {
     name: 'Python',
-    className: 'hover:bg-sky-700/25 hover:border-sky-700',
+    className: 'hover:bg-sky-700/25 hover:border-sky-700 hover:scale-105',
     src: pythonIconImage,
   },
   {
     name: 'Node.js',
-    className: 'hover:bg-emerald-700/25 hover:border-emerald-700',
+    className:
+      'hover:bg-emerald-700/25 hover:border-emerald-700 hover:scale-105',
     src: nodejsIconImage,
   },
   {
     name: 'Vue.js',
-    className: 'hover:bg-green-700/25 hover:border-green-700',
+    className: 'hover:bg-green-700/25 hover:border-green-700 hover:scale-105',
     src: vuejsIconImage,
   },
   {
     name: 'Nuxt.js',
-    className: 'hover:bg-green-700/25 hover:border-green-700',
+    className: 'hover:bg-green-700/25 hover:border-green-700 hover:scale-105',
     src: nuxtjsIconImage,
   },
   {
     name: 'Tailwind CSS',
-    className: 'hover:bg-cyan-700/25 hover:border-cyan-700',
+    className: 'hover:bg-cyan-700/25 hover:border-cyan-700 hover:scale-105',
     src: tailwindcssIconImage,
   },
   {
     name: 'Astro',
-    className: 'hover:bg-indigo-700/25 hover:border-indigo-700',
+    className: 'hover:bg-indigo-700/25 hover:border-indigo-700 hover:scale-105',
     src: astroIconImage,
   },
   {
     name: 'Bootstrap',
-    className: 'hover:bg-purple-700/25 hover:border-purple-700',
+    className: 'hover:bg-purple-700/25 hover:border-purple-700 hover:scale-105',
     src: bootstrapIconImage,
   },
   {
     name: 'HTML',
-    className: 'hover:bg-orange-700/25 hover:border-orange-700',
+    className: 'hover:bg-orange-700/25 hover:border-orange-700 hover:scale-105',
     src: htmlIconImage,
   },
   {
     name: 'CSS',
-    className: 'hover:bg-blue-700/25 hover:border-blue-700',
+    className: 'hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105',
     src: cssIconImage,
   },
 ];
@@ -199,17 +200,16 @@ const badges = [
       <ul class='flex flex-wrap gap-2'>
         {
           badges.map((badge) => (
-            <li
-              class:list={['flex badge transition-colors', [badge.className]]}
-            >
+            <li class:list={['badge', [badge.className]]}>
               <Image
                 alt='Badge for skill'
+                loading='eager'
                 width='24'
                 height='24'
                 class='object-center aspect-square object-contain'
                 src={badge.src}
               />
-              <span>{badge.name}</span>
+              <button>{badge.name}</button>
             </li>
           ))
         }
