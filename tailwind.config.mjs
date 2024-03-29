@@ -9,7 +9,7 @@ export default {
       },
       colors: {
         light: "#FBFCFE",
-        dark: "#0F172A",
+        dark: "#0d1117",
         toolbar: {
           DEFAULT: "#3867D60D",
           dark: "#88a4e60e",
