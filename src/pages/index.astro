@@ -16,6 +16,7 @@ import Section from "../components/Section.astro";
 // Images
 import cabinImage from "../images/cabin.webp";
 import daisyuiImage from "../images/daisyui.webp";
+import expenseImage from "../images/expense.webp";
 import meImage from "../images/me.webp";
 import nuxtImage from "../images/nuxt.webp";
 import tailwindImage from "../images/tailwind.webp";
@@ -39,17 +40,25 @@ const projects = [
     title: "Vue 3 + Tailwind CSS",
     href: "/v3tw",
     alt: "Tailwind CSS Logo",
-    description: "Personal project using Tailwind CSS and Vue 3.",
+    description: "Going through the Tailwind CSS documentation.",
     src: tailwindImage,
     className: "bg-cyan-700/25",
   },
   {
     title: "Vue 3 + Daisy UI",
-    href: "https://spectacular-cascaron-b8176d.netlify.app/noteslist",
+    href: "/vue-base/noteslist",
     alt: "Daisy UI Logo",
-    description: "Personal project using Daisy UI and Vue 3.",
+    description: "Project to store notes and test firebase",
     src: daisyuiImage,
     className: "bg-indigo-700/25",
+  },
+  {
+    title: "Vue 3 + Daisy UI",
+    href: "/daisyui",
+    alt: "Daisy UI Logo",
+    description: "Expense tracker app built using daisyui",
+    src: expenseImage,
+    className: "bg-purple-700/25",
   },
   {
     title: "Nuxt 3 + Nuxt UI",
