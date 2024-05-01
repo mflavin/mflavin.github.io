@@ -19,8 +19,8 @@ export default {
           dark: "#FBFCFE",
         },
         secondary: {
-          DEFAULT: "#0C121ED9",
-          dark: "#FBFCFED9",
+          DEFAULT: "#373C44",
+          dark: "#C2C7D0",
         },
         accent: {
           DEFAULT: "#006877",
