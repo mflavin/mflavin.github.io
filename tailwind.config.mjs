@@ -8,24 +8,28 @@ export default {
         xs: "420px",
       },
       colors: {
-        light: "#FBFCFE",
-        dark: "#0d1117",
-        toolbar: {
-          DEFAULT: "#3867D60D",
-          dark: "#88a4e60e",
+        background: {
+          DEFAULT: "var(--color-background)",
+          tint: "var(--color-background-tint)",
         },
         primary: {
-          DEFAULT: "#0C121E",
-          dark: "#FBFCFE",
+          DEFAULT: "var(--color-primary)",
+          tint: "var(--color-primary-tint)",
         },
+        "on-primary": "var(--color-on-primary)",
+        tertiary: {
+          DEFAULT: "var(--color-tertiary)",
+          tint: "var(--color-tertiary-tint)",
+        },
+        "on-tertiary": "var(--color-on-tertiary)",
         secondary: {
-          DEFAULT: "#373C44",
-          dark: "#C2C7D0",
+          DEFAULT: "var(--color-secondary)",
+          tint: "var(--color-secondary-tint)",
         },
-        accent: {
-          DEFAULT: "#006877",
-          dark: "#52d7f0",
-        },
+        "on-secondary": "var(--color-on-secondary)",
+        outline: "var(--color-outline)",
+        text: "var(--color-text)",
+        "text-muted": "var(--color-text-muted)",
       },
     },
   },
