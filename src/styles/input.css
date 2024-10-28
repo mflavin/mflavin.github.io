@@ -1,21 +1,23 @@
+@import "./theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .badge {
-  @apply flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-secondary/25 bg-[#afc2ef0d]  px-3 py-1.5 text-sm font-medium text-secondary transition dark:border-secondary-dark/25 dark:bg-[#223e801a] dark:text-secondary-dark;
+  @apply border-outline text-text bg-background flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md  border px-3 py-1.5 text-sm font-medium transition;
 }
 
 .btn {
-  @apply inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-accent px-3 py-2 pr-3.5 text-sm font-semibold text-primary-dark hover:bg-accent/85 xs:justify-start xs:self-start dark:bg-accent-dark dark:text-primary hover:dark:bg-accent-dark/85;
+  @apply hover:bg-tertiary text-on-primary inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 pr-3.5 text-sm font-semibold xs:justify-start xs:self-start;
 }
 
 .footer-icon-base {
-  @apply flex size-11 items-center justify-center rounded-md p-2 font-medium text-secondary dark:text-secondary-dark;
+  @apply text-text hover:bg-background-tint flex size-11 items-center justify-center rounded-md p-2 font-medium;
 }
 
 .footer-link {
-  @apply relative text-sm text-secondary/85 hover:text-secondary/100 hover:underline dark:text-secondary-dark/85 dark:hover:text-secondary-dark/100;
+  @apply text-text-muted hover:text-text relative text-sm hover:underline;
 }
 
 [type="button"] {
