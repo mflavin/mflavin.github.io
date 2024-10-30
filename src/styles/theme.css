@@ -15,7 +15,7 @@
   --color-outline: rgb(115 119 127);
 }
 
-:root.dark {
+:root[data-theme="dark"] {
   --color-background: rgb(17 19 24);
   --color-background-tint: rgb(29 32 36);
   --color-text: rgb(225 226 232);
@@ -30,4 +30,106 @@
   --color-tertiary-tint: rgb(245 217 255);
   --color-on-tertiary: rgb(60 41 71);
   --color-outline: rgb(67 71 78);
+}
+
+:root[data-theme="blue"] {
+  --color-primary: rgb(0 104 119);
+  --color-on-primary: rgb(255 255 255);
+  --color-secondary: rgb(75 98 104);
+  --color-on-secondary: rgb(255 255 255);
+  --color-tertiary: rgb(84 93 126);
+  --color-on-tertiary: rgb(255 255 255);
+  --color-background: rgb(245 250 252);
+  --color-text: rgb(23 29 30);
+  --color-text-muted: rgb(63 72 75);
+  --color-outline: rgb(111 121 123);
+  --color-primary-tint: rgb(164 238 255);
+  --color-secondary-tint: rgb(205 231 237);
+  --color-tertiary-tint: rgb(220 225 255);
+  --color-background-tint: rgb(233 239 240);
+}
+
+:root[data-theme="dark-blue"] {
+  --color-primary: rgb(131 210 228);
+  --color-on-primary: rgb(0 54 63);
+  --color-secondary: rgb(178 203 209);
+  --color-on-secondary: rgb(28 52 57);
+  --color-tertiary: rgb(189 197 235);
+  --color-on-tertiary: rgb(38 47 77);
+  --color-background: rgb(14 20 22);
+  --color-text: rgb(222 227 229);
+  --color-text-muted: rgb(191 200 203);
+  --color-outline: rgb(137 146 149);
+  --color-primary-tint: rgb(164 238 255);
+  --color-secondary-tint: rgb(205 231 237);
+  --color-tertiary-tint: rgb(220 225 255);
+  --color-background-tint: rgb(27 33 34);
+}
+
+:root[data-theme="red"] {
+  --color-primary: rgb(143 74 80);
+  --color-on-primary: rgb(255 255 255);
+  --color-secondary: rgb(118 86 88);
+  --color-on-secondary: rgb(255 255 255);
+  --color-tertiary: rgb(119 89 48);
+  --color-on-tertiary: rgb(255 255 255);
+  --color-background: rgb(255 248 247);
+  --color-text: rgb(34 25 26);
+  --color-text-muted: rgb(82 67 68);
+  --color-outline: rgb(133 115 115);
+  --color-primary-tint: rgb(255 218 219);
+  --color-secondary-tint: rgb(255 218 219);
+  --color-tertiary-tint: rgb(255 221 180);
+  --color-background-tint: rgb(252 234 234);
+}
+
+:root[data-theme="dark-red"] {
+  --color-primary: rgb(255 178 183);
+  --color-on-primary: rgb(86 29 36);
+  --color-secondary: rgb(230 189 190);
+  --color-on-secondary: rgb(68 41 43);
+  --color-tertiary: rgb(231 192 142);
+  --color-on-tertiary: rgb(67 44 6);
+  --color-background: rgb(26 17 18);
+  --color-text: rgb(240 222 222);
+  --color-text-muted: rgb(215 193 194);
+  --color-outline: rgb(159 140 141);
+  --color-primary-tint: rgb(255 218 219);
+  --color-secondary-tint: rgb(255 218 219);
+  --color-tertiary-tint: rgb(255 221 180);
+  --color-background-tint: rgb(39 29 30);
+}
+
+:root[data-theme="green"] {
+  --color-primary: rgb(38 106 74);
+  --color-on-primary: rgb(255 255 255);
+  --color-secondary: rgb(78 99 86);
+  --color-on-secondary: rgb(255 255 255);
+  --color-tertiary: rgb(60 100 114);
+  --color-on-tertiary: rgb(255 255 255);
+  --color-background: rgb(246 251 244);
+  --color-text: rgb(23 29 25);
+  --color-text-muted: rgb(64 73 67);
+  --color-outline: rgb(112 121 114);
+  --color-primary-tint: rgb(172 242 200);
+  --color-secondary-tint: rgb(208 232 215);
+  --color-tertiary-tint: rgb(191 233 249);
+  --color-background-tint: rgb(234 239 233);
+}
+
+:root[data-theme="dark-green"] {
+  --color-primary: rgb(144 213 173);
+  --color-on-primary: rgb(0 56 34);
+  --color-secondary: rgb(180 204 187);
+  --color-on-secondary: rgb(32 53 41);
+  --color-tertiary: rgb(164 205 221);
+  --color-on-tertiary: rgb(5 53 66);
+  --color-background: rgb(15 21 17);
+  --color-text: rgb(223 228 221);
+  --color-text-muted: rgb(192 201 193);
+  --color-outline: rgb(138 147 139);
+  --color-primary-tint: rgb(172 242 200);
+  --color-secondary-tint: rgb(208 232 215);
+  --color-tertiary-tint: rgb(191 233 249);
+  --color-background-tint: rgb(27 33 29);
 }
