@@ -9,50 +9,14 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en" class="dark">
+<html lang="en" data-theme="dark">
   <head>
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class="bg-background text-text flex min-h-screen flex-col justify-around"
+    class="flex min-h-screen flex-col justify-around bg-background text-text"
   >
     <slot />
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        if (!darkModeToggle) return;
 
-        const savedPreference = localStorage.getItem("darkMode");
-        const prefersDarkMode = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDarkMode = savedPreference
-          ? savedPreference === "true"
-          : prefersDarkMode;
-
-        setTheme(isDarkMode);
-        setToggle(darkModeToggle, isDarkMode);
-
-        darkModeToggle.addEventListener("click", () => {
-          const isDarkMode = getTheme() === "dark";
-          setTheme(!isDarkMode);
-          setToggle(darkModeToggle, !isDarkMode);
-          localStorage.setItem("darkMode", String(!isDarkMode));
-        });
-      });
-
-      function setTheme(isDarkMode: boolean) {
-        document.documentElement.classList.toggle("dark", isDarkMode);
-        document.documentElement.classList.toggle("light", !isDarkMode);
-      }
-
-      function setToggle(toggleElement: HTMLElement, isDarkMode: boolean) {
-        toggleElement.setAttribute("aria-checked", String(isDarkMode));
-      }
-
-      function getTheme() {
-        return document.documentElement.classList.value;
-      }
-    </script>
   </body>
 </html>
