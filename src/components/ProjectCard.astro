@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  href: string;
+  alt: string;
+  description: string;
+  src: ImageMetadata;
+  technologies: string[];
+}
+
+const { title, href, alt, description, src, technologies } = Astro.props;
+
+const tabs = [
+  { name: "Overview", active: true },
+];
+---
+
+<div
+  class="mx-auto flex size-96 h-full flex-col rounded-md border-[1.5px] border-outline lg:size-full lg:max-h-[768px]"
+>
+  <div class="overflow-hidden rounded-t-md">
+    <a href={href}>
+      <Image
+        decoding="async"
+        loading="lazy"
+        format="webp"
+        alt={alt}
+        width="1280"
+        height="1080"
+        class="h-full w-full bg-black object-cover transition-transform duration-500 hover:scale-105 hover:cursor-pointer"
+        src={src}
+      />
+    </a>
+  </div>
+  <div class="border-t-[1.5px] border-outline">
+    <div>
+      <div class="bg-background-tint">
+        <!-- Title -->
+        <h1 class="p-4">
+          <a
+            class="text-lg font-medium text-primary hover:cursor-pointer hover:underline"
+            href={href}
+          >
+            {title}
+          </a>
+        </h1>
+
+        <!-- Tabs -->
+        <div class="flex flex-row px-4">
+          {
+            tabs.map((tab) => (
+              <button
+                class="relative w-fit whitespace-nowrap rounded-t-md px-3 py-1.5 text-text hover:cursor-pointer hover:bg-background focus:bg-background"
+                class:list={
+                  tab.active
+                    ? "visible -mb-[1.5px] border-[1.5px] border-b-0 border-outline bg-background pb-[7.5px] hover:bg-background-tint"
+                    : "invisible"
+                }
+                type="button"
+              >
+                {tab.name}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="rounded-b-md border-t-[1.5px] border-outline bg-background text-sm text-text-muted"
+      >
+        <!-- Tab Body -->
+        <div class="p-4">
+          {description}
+        </div>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-1.5 p-4 pt-0">
+          {
+            technologies.map((technology) => (
+              <div class="rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-on-primary">
+                {technology}
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Footer -->
+        <div
+          class="flex items-center gap-x-2 border-t-[1.5px] border-outline p-4"
+        >
+          <div class="mt-1 size-2 rounded-full bg-[#41b883]"></div>
+          <span>{technologies[0]?.replace(".js", "")}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

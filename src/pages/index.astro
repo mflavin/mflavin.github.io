@@ -10,17 +10,18 @@ import Layout from "../layouts/Layout.astro";
 // Components
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import ProjectLink from "../components/ProjectLink.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import Section from "../components/Section.astro";
 
 // Images
-import cabinImage from "../images/cabin.webp";
-import daisyuiImage from "../images/daisyui.webp";
-import expenseImage from "../images/expense.webp";
 import meImage from "../images/me.webp";
-import nuxtImage from "../images/nuxt.webp";
-import tailwindImage from "../images/tailwind.webp";
-
+import bank from "../images/projects/bank.webp";
+import calendarviews from "../images/projects/calendarviews.webp";
+import expense from "../images/projects/expense.webp";
+import hr from "../images/projects/hr.webp";
+import nuxt3 from "../images/projects/nuxt3.webp";
+import timeoff from "../images/projects/timeoff.webp";
+import vuebase from "../images/projects/vuebase.webp";
 // Icons
 import javascriptIconImage from "../images/skillsIcons/javascript.png";
 import typescriptIconImage from "../images/skillsIcons/typescript.png";
@@ -30,51 +31,101 @@ import vuejsIconImage from "../images/skillsIcons/vuejs.png";
 import nuxtjsIconImage from "../images/skillsIcons/nuxtjs.png";
 import tailwindcssIconImage from "../images/skillsIcons/tailwindcss.png";
 import astroIconImage from "../images/skillsIcons/astro.png";
-import bootstrapIconImage from "../images/skillsIcons/bootstrap.png";
 import htmlIconImage from "../images/skillsIcons/html.png";
 import cssIconImage from "../images/skillsIcons/css.png";
 
 // Data
 const projects = [
   {
-    title: "Vue 3 + Tailwind CSS",
-    href: "https://guileless-jelly-8d3df3.netlify.app/v3tw",
-    alt: "Tailwind CSS Logo",
-    description: "Going through the Tailwind CSS documentation.",
-    src: tailwindImage,
-    className: "bg-cyan-700/25",
-  },
-  {
-    title: "Vue Firebase Notes App",
-    href: "https://guileless-jelly-8d3df3.netlify.app/vue-base",
-    alt: "Daisy UI Logo",
-    description: "Project to store notes and test firebase",
-    src: daisyuiImage,
-    className: "bg-indigo-700/25",
-  },
-  {
-    title: "Expense tracker",
+    title: "Expense Tracker",
     href: "https://guileless-jelly-8d3df3.netlify.app/daisyui",
-    alt: "Daisy UI Logo",
-    description: "Expense tracker app built using daisyui",
-    src: expenseImage,
-    className: "bg-purple-700/25",
+    alt: "Expense Tracker",
+    description:
+      "Easily record transactions, set up budgets, add recurring expenses, and view insightful reports. Plus, this uses AI that can create transactions for you automatically!",
+    src: expense,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Chart.js",
+      "Supabase",
+    ],
   },
   {
-    title: "Nuxt Firebase Notes App",
+    title: "HR App",
+    href: "https://guileless-jelly-8d3df3.netlify.app/hr-management",
+    alt: "HR App",
+    description:
+      "HR App that allows you join meetings, send messages, track employees, time attendance, and much more!",
+    src: hr,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Primevue",
+      "Tailwind CSS",
+      "Chart.js",
+      "vue-i18n",
+    ],
+  },
+  {
+    title: "Timeoff Calendar",
+    href: "https://timeoff-remaining-calc-app.netlify.app/",
+    alt: "Timeoff Calendar",
+    description: "Calendar app for planning timeoff / vacation days at work.",
+    src: timeoff,
+    technologies: ["Vue.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Banking App",
+    href: "https://guileless-jelly-8d3df3.netlify.app/bank-dashboard",
+    alt: "Banking App",
+    description:
+      "Mockup finance / bank app to track transactions, credit cards, bills, and saving goals.",
+    src: bank,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Primevue",
+      "Tailwind CSS",
+      "Chart.js",
+    ],
+  },
+  {
+    title: "Notes App (Nuxt Version)",
     href: "https://guileless-jelly-8d3df3.netlify.app/nuxt3",
-    alt: "Nuxt UI Logo",
-    description: "Personal project using Nuxt 3 and Nuxt UI.",
-    src: nuxtImage,
-    className: "bg-green-700/25",
+    alt: "Notes App (Nuxt Version)",
+    description: "Notes app to save notes and files.",
+    src: nuxt3,
+    technologies: [
+      "Nuxt.js",
+      "TypeScript",
+      "Nuxt UI",
+      "Tailwind CSS",
+      "Firebase",
+    ],
   },
   {
-    title: "Resturant Website",
-    href: "https://guileless-jelly-8d3df3.netlify.app/tallyho",
-    alt: "Cabin Logo",
-    description: "Resturant website using Bootstrap 5 and google APIs.",
-    src: cabinImage,
-    className: "bg-orange-700/25",
+    title: "Notes App (Vue Version)",
+    href: "https://guileless-jelly-8d3df3.netlify.app/vue-base",
+    alt: "Notes App (Vue Version)",
+    description: "Notes app to save notes and files.",
+    src: vuebase,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Daisy UI",
+      "Tailwind CSS",
+      "Firebase",
+    ],
+  },
+  {
+    title: "Tailwind CSS Calendar",
+    href: "https://jade-marigold-4f5593.netlify.app/",
+    alt: "Tailwind css calendar",
+    description:
+      "Tailwind css calendar that has daily, weekly, and month view. As well as events visible in each view.",
+    src: calendarviews,
+    technologies: ["Nuxt.js", "TypeScript", "Nuxt UI", "Tailwind CSS"],
   },
 ];
 
@@ -119,11 +170,6 @@ const badges = [
     name: "Astro",
     className: "hover:bg-indigo-700/25 hover:border-indigo-700 hover:scale-105",
     src: astroIconImage,
-  },
-  {
-    name: "Bootstrap",
-    className: "hover:bg-purple-700/25 hover:border-purple-700 hover:scale-105",
-    src: bootstrapIconImage,
   },
   {
     name: "HTML",
@@ -220,42 +266,17 @@ const badges = [
     </Section>
 
     <Section title="Projects">
-      <div>
-        <a
-          slot="title"
-          title="View all"
-          class="btn w-28"
-          aria-label="View all"
-          type="button"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/mflavin?tab=repositories"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            role="presentation"
-            class="size-5 fill-inherit"
-            aria-hidden="true"
-          >
-            <path
-              class="fill-current"
-              d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-            ></path>
-          </svg>
-          <span>View all</span>
-        </a>
-      </div>
-      <ul class="space-y-1">
+      <ul class="space-y-6">
         {
           projects.map((project) => (
             <li>
-              <ProjectLink
+              <ProjectCard
                 title={project.title}
                 href={project.href}
                 alt={project.alt}
                 description={project.description}
                 src={project.src}
-                className={project.className}
+                technologies={project.technologies}
               />
             </li>
           ))
