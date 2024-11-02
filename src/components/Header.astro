@@ -1,64 +1,64 @@
 <header
-  class='fixed left-0 right-0 top-0 z-10 h-full max-h-[5rem] w-full p-3 backdrop-blur'
+  class="fixed left-0 right-0 top-0 z-10 h-full max-h-[5rem] w-full p-3 backdrop-blur"
 >
   <nav
-    class='mx-auto flex h-full max-w-2xl items-center justify-end gap-x-2 rounded-md border-2 border-outline bg-background-tint px-2.5 py-1.5 opacity-60'
+    class="mx-auto flex h-full max-w-2xl items-center justify-end gap-x-2 rounded-md border-2 border-outline bg-background-tint px-2.5 py-1.5 opacity-60"
   >
-    <select class='badge' name='theme-selector' id='theme-selector'>
-      <option value='light'>Light</option>
-      <option value='brown'>Brown</option>
-      <option value='blue'>Blue</option>
-      <option value='green'>Green</option>
-      <option value='purple'>Purple</option>
-      <option value='red'>Red</option>
-      <option value='yellow'>Yellow</option>
-      <option value='dark'>Dark</option>
-      <option value='dark-brown'>Dark Brown</option>
-      <option value='dark-blue'>Dark Blue</option>
-      <option value='dark-green'>Dark Green</option>
-      <option value='dark-purple'>Dark Purple</option>
-      <option value='dark-red'>Dark Red</option>
-      <option value='dark-yellow'>Dark Yellow</option>
+    <select class="badge" name="theme-selector" id="theme-selector">
+      <option value="light">Light</option>
+      <option value="brown">Brown</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="purple">Purple</option>
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="dark">Dark</option>
+      <option value="dark-brown">Dark Brown</option>
+      <option value="dark-blue">Dark Blue</option>
+      <option value="dark-green">Dark Green</option>
+      <option value="dark-purple">Dark Purple</option>
+      <option value="dark-red">Dark Red</option>
+      <option value="dark-yellow">Dark Yellow</option>
     </select>
 
     <div
-      id='darkModeToggle'
-      role='switch'
-      aria-label='Dark Mode Toggle'
-      class='cursor-pointer rounded-md p-2 hover:bg-background hover:text-secondary'
+      id="darkModeToggle"
+      role="switch"
+      aria-label="Dark Mode Toggle"
+      class="cursor-pointer rounded-md p-2 hover:bg-background hover:text-secondary"
     >
       <svg
-        class='hidden size-5'
-        id='moon'
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        class="hidden size-5"
+        id="moon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
         <path
-          d='M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z'
+          d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
         ></path>
       </svg>
       <svg
-        class='block size-5'
-        id='sun'
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        class="block size-5"
+        id="sun"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
         <path
-          d='M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z'
+          d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
         ></path>
       </svg>
     </div>
   </nav>
 </header>
 
-<script src='../scripts/darkMode.ts'></script>
+<script src="../scripts/darkMode.ts"></script>

@@ -5,19 +5,19 @@
 @tailwind utilities;
 
 .badge {
-  @apply border-outline text-text bg-background flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md  border px-3 py-1.5 text-sm font-medium transition;
+  @apply flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-outline bg-background  px-3 py-1.5 text-sm font-medium text-text transition;
 }
 
 .btn {
-  @apply hover:bg-tertiary text-on-primary inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 pr-3.5 text-sm font-semibold xs:justify-start xs:self-start;
+  @apply inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 pr-3.5 text-sm font-semibold text-on-primary hover:bg-tertiary xs:justify-start xs:self-start;
 }
 
 .footer-icon-base {
-  @apply text-text hover:bg-background-tint flex size-11 items-center justify-center rounded-md p-2 font-medium;
+  @apply flex size-11 items-center justify-center rounded-md p-2 font-medium text-text hover:bg-background-tint;
 }
 
 .footer-link {
-  @apply text-text-muted hover:text-text relative text-sm hover:underline;
+  @apply relative text-sm text-text-muted hover:text-text hover:underline;
 }
 
 [type="button"] {
