@@ -4,16 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
-.badge {
-  @apply flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-outline bg-background px-3 py-1.5 text-sm font-medium text-text transition;
+.base-disabled {
+  @apply disabled:pointer-events-none disabled:opacity-50;
+}
+
+.base-ring {
+  @apply ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1;
+}
+
+.btn-svg {
+  @apply pointer-events-none -ml-1 mr-2 size-4;
 }
 
 .btn {
-  @apply inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-on-primary shadow-sm ring-offset-background transition-colors hover:bg-primary-tint hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-tint focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:-ml-1 [&_svg]:mr-2;
+  @apply base-ring base-disabled inline-flex min-h-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors;
 }
 
-.footer-icon-base {
-  @apply flex size-11 items-center justify-center rounded-md p-2 font-medium text-text hover:bg-background-tint;
+.btn-sm {
+  @apply px-3 py-1.5;
+}
+
+.btn-ghost {
+  @apply bg-transparent text-text hover:bg-secondary-tint hover:text-gray-700 focus-visible:ring-secondary-tint;
+}
+
+.btn-primary {
+  @apply bg-primary text-on-primary hover:bg-primary-tint hover:text-gray-700 focus-visible:ring-primary-tint;
 }
 
 .footer-link {
@@ -21,7 +37,7 @@
 }
 
 .input {
-  @apply flex min-h-9 w-full rounded-md border border-outline bg-background px-3 py-2 text-sm text-text shadow-sm ring-offset-background transition-shadow focus-visible:border-outline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-tint focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50;
+  @apply base-ring base-disabled flex min-h-9 w-full rounded-md bg-background px-3 py-2 text-sm text-text shadow-sm;
 }
 
 [type="button"] {

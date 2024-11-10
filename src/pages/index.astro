@@ -207,7 +207,7 @@ const badges = [
 
         <a
           title="More about me"
-          class="btn mt-2 w-full no-underline sm:w-40"
+          class="btn btn-primary mt-2 w-full no-underline sm:w-40"
           aria-label="More about me"
           type="button"
           target="_blank"
@@ -217,7 +217,7 @@ const badges = [
           <svg
             viewBox="0 0 24 24"
             role="presentation"
-            class="size-5 fill-inherit"
+            class="btn-svg"
             aria-hidden="true"
           >
             <path
@@ -245,8 +245,9 @@ const badges = [
         {
           badges.map((badge) => (
             <li
+              tabindex="0"
               class:list={[
-                "flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-outline px-3 py-1.5 text-sm font-medium text-text transition",
+                "flex min-h-9 transform cursor-default items-center gap-2 rounded-md border border-outline px-3 py-1.5 text-sm font-medium text-text outline-none transition focus:outline-none focus:ring-2 focus:ring-primary",
                 [badge.className],
               ]}
             >
@@ -258,7 +259,9 @@ const badges = [
                 class="aspect-square object-contain object-center"
                 src={badge.src}
               />
-              <button class="cursor-default">{badge.name}</button>
+              <button tabindex="-1" class="cursor-default">
+                {badge.name}
+              </button>
             </li>
           ))
         }

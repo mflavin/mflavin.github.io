@@ -4,7 +4,11 @@
   <nav
     class="mx-auto flex h-full max-w-2xl items-center justify-end gap-x-2 rounded-md border-2 border-outline bg-background-tint px-2.5 py-1.5 opacity-60"
   >
-    <select class="input max-w-32" name="theme-selector" id="theme-selector">
+    <select
+      class="input max-w-32 !border-r-8 !border-transparent"
+      name="theme-selector"
+      id="theme-selector"
+    >
       <option value="light">Light</option>
       <option value="brown">Brown</option>
       <option value="blue">Blue</option>
@@ -26,7 +30,7 @@
       id="darkModeToggle"
       role="switch"
       aria-label="Dark Mode Toggle"
-      class="cursor-pointer rounded-md p-2 hover:bg-background hover:text-secondary outline-outline"
+      class="btn btn-ghost btn-sm"
     >
       <svg
         class="hidden size-5"
