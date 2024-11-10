@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 .badge {
-  @apply flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-outline bg-background  px-3 py-1.5 text-sm font-medium text-text transition;
+  @apply flex min-h-9 transform cursor-default items-center gap-1.5 rounded-md border border-outline bg-background px-3 py-1.5 text-sm font-medium text-text transition;
 }
 
 .btn {
-  @apply inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 pr-3.5 text-sm font-semibold text-on-primary hover:bg-tertiary xs:justify-start xs:self-start;
+  @apply inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 pr-3.5 text-sm font-semibold text-on-primary hover:bg-primary-tint hover:text-gray-800 xs:justify-start xs:self-start;
 }
 
 .footer-icon-base {
