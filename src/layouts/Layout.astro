@@ -1,5 +1,7 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import AppFooter from "@/components/AppFooter.astro";
+import AppHead from "@/components/AppHead.astro";
+import AppNav from "@/components/AppNav.astro";
 
 interface Props {
   title: string;
@@ -11,11 +13,15 @@ const { title, description } = Astro.props;
 
 <html lang="en" data-theme="dark">
   <head>
-    <BaseHead title={title} description={description} />
+    <AppHead title={title} description={description} />
   </head>
   <body
     class="flex min-h-screen flex-col justify-around bg-background text-text"
   >
+    <AppNav />
+
     <slot />
+
+    <AppFooter />
   </body>
 </html>
