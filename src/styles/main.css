@@ -31,7 +31,7 @@
   }
 
   .btn-ghost {
-    @apply bg-transparent text-text hover:bg-secondary-tint hover:text-gray-700 focus-visible:ring-secondary-tint;
+    @apply bg-transparent text-default hover:bg-secondary-tint hover:text-gray-700 focus-visible:ring-secondary-tint;
   }
 
   .btn-primary {
@@ -39,11 +39,11 @@
   }
 
   .footer-link {
-    @apply relative text-sm text-text-muted hover:text-text hover:underline;
+    @apply relative text-sm text-muted hover:text-default hover:underline;
   }
 
   .input {
-    @apply base-ring base-disabled flex min-h-9 w-full rounded-md border bg-background px-3 py-2 text-sm text-text;
+    @apply base-ring base-disabled flex min-h-9 w-full rounded-md border bg-background px-3 py-2 text-sm text-default;
   }
 }
 

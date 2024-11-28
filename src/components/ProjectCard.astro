@@ -49,7 +49,7 @@ const tabs = [{ name: "Overview", active: true }];
         {
           tabs.map((tab) => (
             <button
-              class="relative w-fit whitespace-nowrap rounded-t-md px-3 py-1.5 text-text hover:cursor-pointer hover:bg-background focus:bg-background"
+              class="relative w-fit whitespace-nowrap rounded-t-md px-3 py-1.5 text-default hover:cursor-pointer hover:bg-background focus:bg-background"
               class:list={
                 tab.active
                   ? "visible -mb-[1.5px] border-[1.5px] border-b-0 border-outline bg-background pb-[7.5px] hover:bg-background-tint"
@@ -66,7 +66,7 @@ const tabs = [{ name: "Overview", active: true }];
 
     <!-- Tab Content -->
     <div
-      class="border-t-[1.5px] border-outline bg-background text-sm text-text-muted"
+      class="border-t-[1.5px] border-outline bg-background text-sm text-muted"
     >
       <!-- Tab Body -->
       <div class="p-4">
