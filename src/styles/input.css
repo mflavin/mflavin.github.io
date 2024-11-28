@@ -5,12 +5,15 @@
 @tailwind utilities;
 
 @layer base {
-  [type="button"] {
-    animation: button-pop 0.25s ease-out;
+  * {
     transition-property: color, background-color, border-color, opacity,
       box-shadow, transform;
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  [type="button"] {
+    animation: button-pop 0.25s ease-out;
   }
 }
 
@@ -40,7 +43,7 @@
   }
 
   .input {
-    @apply base-ring base-disabled flex min-h-9 w-full rounded-md bg-background px-3 py-2 text-sm text-text border;
+    @apply base-ring base-disabled flex min-h-9 w-full rounded-md border bg-background px-3 py-2 text-sm text-text;
   }
 }
 
