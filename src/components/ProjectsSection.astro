@@ -1,0 +1,127 @@
+---
+// Components
+import ProjectCard from "@/components/ProjectCard.astro";
+
+// Images
+import bank from "@/images/projects/bank.webp";
+import calendarviews from "@/images/projects/calendarviews.webp";
+import expense from "@/images/projects/expense.webp";
+import hr from "@/images/projects/hr.webp";
+import nuxt3 from "@/images/projects/nuxt3.webp";
+import timeoff from "@/images/projects/timeoff.webp";
+import vuebase from "@/images/projects/vuebase.webp";
+
+const projects = [
+  {
+    title: "Expense Tracker",
+    href: "https://guileless-jelly-8d3df3.netlify.app/daisyui",
+    alt: "Expense Tracker",
+    description:
+      "Easily record transactions, set up budgets, add recurring expenses, and view insightful reports. Plus, this uses AI that can create transactions for you automatically!",
+    src: expense,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Chart.js",
+      "Supabase",
+    ],
+  },
+  {
+    title: "HR App",
+    href: "https://guileless-jelly-8d3df3.netlify.app/hr-management",
+    alt: "HR App",
+    description:
+      "HR App that allows you join meetings, send messages, track employees, time attendance, and much more!",
+    src: hr,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Primevue",
+      "Tailwind CSS",
+      "Chart.js",
+      "vue-i18n",
+    ],
+  },
+  {
+    title: "Timeoff Calendar",
+    href: "https://timeoff-remaining-calc-app.netlify.app/",
+    alt: "Timeoff Calendar",
+    description: "Calendar app for planning timeoff / vacation days at work.",
+    src: timeoff,
+    technologies: ["Vue.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Banking App",
+    href: "https://guileless-jelly-8d3df3.netlify.app/bank-dashboard",
+    alt: "Banking App",
+    description:
+      "Mockup finance / bank app to track transactions, credit cards, bills, and saving goals.",
+    src: bank,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Primevue",
+      "Tailwind CSS",
+      "Chart.js",
+    ],
+  },
+  {
+    title: "Notes App (Nuxt Version)",
+    href: "https://guileless-jelly-8d3df3.netlify.app/nuxt3",
+    alt: "Notes App (Nuxt Version)",
+    description: "Notes app to save notes and files.",
+    src: nuxt3,
+    technologies: [
+      "Nuxt.js",
+      "TypeScript",
+      "Nuxt UI",
+      "Tailwind CSS",
+      "Firebase",
+    ],
+  },
+  {
+    title: "Notes App (Vue Version)",
+    href: "https://guileless-jelly-8d3df3.netlify.app/vue-base",
+    alt: "Notes App (Vue Version)",
+    description: "Notes app to save notes and files.",
+    src: vuebase,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Daisy UI",
+      "Tailwind CSS",
+      "Firebase",
+    ],
+  },
+  {
+    title: "Tailwind CSS Calendar",
+    href: "https://jade-marigold-4f5593.netlify.app/",
+    alt: "Tailwind css calendar",
+    description:
+      "Tailwind css calendar that has daily, weekly, and month view. As well as events visible in each view.",
+    src: calendarviews,
+    technologies: ["Nuxt.js", "TypeScript", "Nuxt UI", "Tailwind CSS"],
+  },
+];
+---
+
+<section>
+  <h2 class="mb-6 text-2xl">Projects</h2>
+  <ul class="space-y-6">
+    {
+      projects.map((project) => (
+        <li>
+          <ProjectCard
+            title={project.title}
+            href={project.href}
+            alt={project.alt}
+            description={project.description}
+            src={project.src}
+            technologies={project.technologies}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</section>

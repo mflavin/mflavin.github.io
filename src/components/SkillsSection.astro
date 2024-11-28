@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+
+// Icons
+import javascriptIconImage from "@/images/skillsIcons/javascript.png";
+import typescriptIconImage from "@/images/skillsIcons/typescript.png";
+import pythonIconImage from "@/images/skillsIcons/python.png";
+import nodejsIconImage from "@/images/skillsIcons/nodejs.png";
+import vuejsIconImage from "@/images/skillsIcons/vuejs.png";
+import nuxtjsIconImage from "@/images/skillsIcons/nuxtjs.png";
+import tailwindcssIconImage from "@/images/skillsIcons/tailwindcss.png";
+import astroIconImage from "@/images/skillsIcons/astro.png";
+import htmlIconImage from "@/images/skillsIcons/html.png";
+import cssIconImage from "@/images/skillsIcons/css.png";
+
+const badges = [
+  {
+    name: "JavaScript",
+    className: "hover:bg-yellow-700/25 hover:border-yellow-700 hover:scale-105",
+    src: javascriptIconImage,
+  },
+  {
+    name: "TypeScript",
+    className: "hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105",
+    src: typescriptIconImage,
+  },
+  {
+    name: "Python",
+    className: "hover:bg-sky-700/25 hover:border-sky-700 hover:scale-105",
+    src: pythonIconImage,
+  },
+  {
+    name: "Node.js",
+    className:
+      "hover:bg-emerald-700/25 hover:border-emerald-700 hover:scale-105",
+    src: nodejsIconImage,
+  },
+  {
+    name: "Vue.js",
+    className: "hover:bg-green-700/25 hover:border-green-700 hover:scale-105",
+    src: vuejsIconImage,
+  },
+  {
+    name: "Nuxt.js",
+    className: "hover:bg-green-700/25 hover:border-green-700 hover:scale-105",
+    src: nuxtjsIconImage,
+  },
+  {
+    name: "Tailwind CSS",
+    className: "hover:bg-cyan-700/25 hover:border-cyan-700 hover:scale-105",
+    src: tailwindcssIconImage,
+  },
+  {
+    name: "Astro",
+    className: "hover:bg-indigo-700/25 hover:border-indigo-700 hover:scale-105",
+    src: astroIconImage,
+  },
+  {
+    name: "HTML",
+    className: "hover:bg-orange-700/25 hover:border-orange-700 hover:scale-105",
+    src: htmlIconImage,
+  },
+  {
+    name: "CSS",
+    className: "hover:bg-blue-700/25 hover:border-blue-700 hover:scale-105",
+    src: cssIconImage,
+  },
+];
+---
+
+<section>
+  <h2 class="mb-6 text-2xl">Skiils</h2>
+  <ul class="flex flex-wrap gap-2">
+    {
+      badges.map((badge) => (
+        <li
+          tabindex="0"
+          class:list={[
+            "flex min-h-9 transform cursor-default items-center gap-2 rounded-md border border-outline px-3 py-1.5 text-sm font-medium text-text outline-none transition focus:outline-none focus:ring-2 focus:ring-primary",
+            [badge.className],
+          ]}
+        >
+          <Image
+            alt="Badge for skill"
+            loading="eager"
+            width="24"
+            height="24"
+            class="aspect-square object-contain object-center"
+            src={badge.src}
+          />
+          <button tabindex="-1" class="cursor-default">
+            {badge.name}
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+</section>
