@@ -1,8 +1,33 @@
-@import "./theme.css";
+@import './theme.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-xs: 420px;
+
+  --color-background: var(--color-background);
+  --color-background-tint: var(--color-background-tint);
+  --color-primary: var(--color-primary);
+  --color-primary-tint: var(--color-primary-tint);
+  --color-on-primary: var(--color-on-primary);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-tint: var(--color-secondary-tint);
+  --color-on-secondary: var(--color-on-secondary);
+  --color-tertiary: var(--color-tertiary);
+  --color-tertiary-tint: var(--color-tertiary-tint);
+  --color-on-tertiary: var(--color-on-tertiary);
+  --color-outline: var(--color-outline);
+  --color-default: var(--color-text);
+  --color-muted: var(--color-text-muted);
+}
+
+@utility base-disabled {
+  @apply disabled:pointer-events-none disabled:opacity-50;
+}
+
+@utility base-ring {
+  @apply ring-offset-background ring-1 ring-offset-1;
+}
 
 @layer base {
   * {
@@ -12,54 +37,12 @@
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 
-  [type="button"] {
+  [type='button'] {
     animation: button-pop 0.25s ease-out;
   }
-}
 
-@layer components {
-  .btn {
-    @apply base-ring base-disabled inline-flex min-h-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors;
-  }
-
-  .btn-svg {
-    @apply pointer-events-none -ml-1 mr-2 size-4;
-  }
-
-  .btn-sm {
-    @apply px-3 py-1.5;
-  }
-
-  .btn-ghost {
-    @apply bg-transparent text-default hover:bg-secondary-tint hover:text-gray-700 focus-visible:ring-secondary-tint;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-on-primary hover:bg-primary-tint hover:text-gray-700 focus-visible:ring-primary-tint;
-  }
-
-  .footer-link {
-    @apply relative text-sm text-muted hover:text-default hover:underline;
-  }
-
-  .input {
-    @apply base-ring base-disabled flex min-h-9 w-full rounded-md border bg-background px-3 py-2 text-sm text-default;
-  }
-}
-
-@layer utilities {
-  .base-disabled {
-    @apply disabled:pointer-events-none disabled:opacity-50;
-  }
-
-  .base-ring {
-    @apply ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1;
-  }
-}
-
-@layer variants {
-  [type="button"]:not([disabled]):active:hover,
-  [type="button"]:not([disabled]):active:focus {
+  [type='button']:not([disabled]):active:hover,
+  [type='button']:not([disabled]):active:focus {
     animation: button-pop 0s ease-out;
     transform: scale(0.98);
   }
@@ -74,5 +57,35 @@
     to {
       transform: scale(1);
     }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply base-ring base-disabled inline-flex min-h-9 cursor-pointer items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors;
+  }
+
+  .btn-svg {
+    @apply pointer-events-none mr-2 -ml-1 size-4;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5;
+  }
+
+  .btn-ghost {
+    @apply text-default hover:bg-secondary-tint focus-visible:ring-secondary-tint bg-transparent hover:text-gray-700;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-on-primary hover:bg-primary-tint focus-visible:ring-primary-tint hover:text-gray-700;
+  }
+
+  .footer-link {
+    @apply text-muted hover:text-default relative text-sm hover:underline;
+  }
+
+  .input {
+    @apply base-ring base-disabled bg-background text-default flex min-h-9 w-full rounded-md border px-3 py-2 text-sm;
   }
 }

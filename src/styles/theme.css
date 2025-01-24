@@ -15,7 +15,7 @@
   --color-outline: rgb(195 198 207);
 }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --color-background: rgb(17 19 24);
   --color-background-tint: rgb(29 32 36);
   --color-text: rgb(225 226 232);
@@ -32,7 +32,7 @@
   --color-outline: rgb(67 71 78);
 }
 
-:root[data-theme="blue"] {
+:root[data-theme='blue'] {
   --color-primary: rgb(0 104 119);
   --color-on-primary: rgb(255 255 255);
   --color-secondary: rgb(75 98 104);
@@ -49,7 +49,7 @@
   --color-background-tint: rgb(233 239 240);
 }
 
-:root[data-theme="dark-blue"] {
+:root[data-theme='dark-blue'] {
   --color-primary: rgb(131 210 228);
   --color-on-primary: rgb(0 54 63);
   --color-secondary: rgb(178 203 209);
@@ -66,7 +66,7 @@
   --color-background-tint: rgb(27 33 34);
 }
 
-:root[data-theme="red"] {
+:root[data-theme='red'] {
   --color-primary: rgb(143 74 80);
   --color-on-primary: rgb(255 255 255);
   --color-secondary: rgb(118 86 88);
@@ -83,7 +83,7 @@
   --color-background-tint: rgb(252 234 234);
 }
 
-:root[data-theme="dark-red"] {
+:root[data-theme='dark-red'] {
   --color-primary: rgb(255 178 183);
   --color-on-primary: rgb(86 29 36);
   --color-secondary: rgb(230 189 190);
@@ -100,7 +100,7 @@
   --color-background-tint: rgb(39 29 30);
 }
 
-:root[data-theme="green"] {
+:root[data-theme='green'] {
   --color-primary: rgb(38 106 74);
   --color-on-primary: rgb(255 255 255);
   --color-secondary: rgb(78 99 86);
@@ -117,7 +117,7 @@
   --color-background-tint: rgb(234 239 233);
 }
 
-:root[data-theme="dark-green"] {
+:root[data-theme='dark-green'] {
   --color-primary: rgb(144 213 173);
   --color-on-primary: rgb(0 56 34);
   --color-secondary: rgb(180 204 187);
@@ -134,7 +134,7 @@
   --color-background-tint: rgb(27 33 29);
 }
 
-:root[data-theme="brown"] {
+:root[data-theme='brown'] {
   --color-primary: rgb(141 78 44);
   --color-on-primary: rgb(255 255 255);
   --color-secondary: rgb(118 88 73);
@@ -151,7 +151,7 @@
   --color-background-tint: rgb(252 234 227);
 }
 
-:root[data-theme="dark-brown"] {
+:root[data-theme='dark-brown'] {
   --color-primary: rgb(255 182 146);
   --color-on-primary: rgb(84 33 3);
   --color-secondary: rgb(230 190 172);
@@ -168,7 +168,7 @@
   --color-background-tint: rgb(39 30 25);
 }
 
-:root[data-theme="purple"] {
+:root[data-theme='purple'] {
   --color-primary: rgb(106 84 141);
   --color-on-primary: rgb(255 255 255);
   --color-secondary: rgb(100 90 112);
@@ -185,7 +185,7 @@
   --color-background-tint: rgb(243 236 244);
 }
 
-:root[data-theme="dark-purple"] {
+:root[data-theme='dark-purple'] {
   --color-primary: rgb(213 187 252);
   --color-on-primary: rgb(58 37 91);
   --color-secondary: rgb(206 194 219);
@@ -202,7 +202,7 @@
   --color-background-tint: rgb(33 30 36);
 }
 
-:root[data-theme="yellow"] {
+:root[data-theme='yellow'] {
   --color-primary: rgb(95 98 26);
   --color-on-primary: rgb(255 255 255);
   --color-secondary: rgb(95 96 67);
@@ -219,7 +219,7 @@
   --color-background-tint: rgb(241 238 225);
 }
 
-:root[data-theme="dark-yellow"] {
+:root[data-theme='dark-yellow'] {
   --color-primary: rgb(200 204 120);
   --color-on-primary: rgb(48 51 0);
   --color-secondary: rgb(201 201 165);
