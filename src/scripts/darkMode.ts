@@ -1,64 +1,64 @@
-function toggleDarkMode(toggleElement: HTMLElement, isDarkMode: boolean) {
-  toggleElement.setAttribute('aria-checked', String(isDarkMode));
-
-  const moon = toggleElement.querySelector('#moon');
-  const sun = toggleElement.querySelector('#sun');
-
-  if (isDarkMode) {
-    moon?.setAttribute('style', 'display: none;');
-    sun?.setAttribute('style', 'display: block;');
-  } else {
-    moon?.setAttribute('style', 'display: block;');
-    sun?.setAttribute('style', 'display: none;');
-  }
+function setTheme(
+  theme: string,
+  toggleElement: HTMLElement,
+  themeSelector: HTMLSelectElement,
+) {
+  const doc = document.documentElement;
+  doc.setAttribute('data-theme', theme);
+  localStorage.setItem('data-theme', theme);
+  toggleDarkMode(toggleElement, theme.includes('dark'));
+  themeSelector.value = theme;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeTheme(
+  toggleElement: HTMLElement,
+  themeSelector: HTMLSelectElement,
+) {
   const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)')
     .matches
     ? 'dark'
     : 'light';
-  const doc = document.documentElement;
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const themeSelector = document.getElementById('theme-selector');
-  if (!darkModeToggle) return;
-  if (!themeSelector) return;
+  const savedTheme = localStorage.getItem('data-theme') || preferredTheme;
+  setTheme(savedTheme, toggleElement, themeSelector);
+}
 
-  const savedTheme = localStorage.getItem('data-theme');
-  if (savedTheme) {
-    doc.setAttribute('data-theme', savedTheme);
-    toggleDarkMode(darkModeToggle, savedTheme?.includes('dark'));
-    (themeSelector as HTMLSelectElement).value = savedTheme;
-  } else {
-    // Set preferred theme to themeSelector.value
-    doc.setAttribute('data-theme', preferredTheme);
-    (themeSelector as HTMLSelectElement).value = preferredTheme;
-  }
+function toggleDarkMode(toggleElement: HTMLElement, isDarkMode: boolean) {
+  toggleElement.setAttribute('aria-checked', String(isDarkMode));
+  const moon = toggleElement.querySelector('#moon');
+  const sun = toggleElement.querySelector('#sun');
+  moon?.setAttribute('style', `display: ${isDarkMode ? 'none' : 'block'};`);
+  sun?.setAttribute('style', `display: ${isDarkMode ? 'block' : 'none'};`);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const themeSelector = document.getElementById(
+    'theme-selector',
+  ) as HTMLSelectElement;
+  if (!darkModeToggle || !themeSelector) return;
+
+  initializeTheme(darkModeToggle, themeSelector);
 
   darkModeToggle.addEventListener('click', () => {
-    const currentDataTheme = doc.getAttribute('data-theme');
-    let newTheme = 'dark';
+    const currentTheme =
+      document.documentElement.getAttribute('data-theme') || 'light';
 
-    if (currentDataTheme === 'dark') {
+    let newTheme = 'dark';
+    if (currentTheme === 'dark') {
       newTheme = 'light';
-    } else if (currentDataTheme === 'light') {
+    } else if (currentTheme === 'light') {
       newTheme = 'dark';
     } else {
-      newTheme = currentDataTheme?.includes('dark')
-        ? currentDataTheme?.replace('dark-', '')
-        : `dark-${currentDataTheme}`;
+      newTheme = currentTheme?.includes('dark')
+        ? currentTheme?.replace('dark-', '')
+        : `dark-${currentTheme}`;
     }
 
-    doc.setAttribute('data-theme', newTheme);
-    localStorage.setItem('data-theme', newTheme);
-    toggleDarkMode(darkModeToggle, newTheme?.includes('dark'));
-
-    (themeSelector as HTMLSelectElement).value = newTheme;
+    setTheme(newTheme, darkModeToggle, themeSelector);
   });
 
   themeSelector.addEventListener('change', (event) => {
     const selectedTheme = (event.target as HTMLSelectElement).value;
-    doc.setAttribute('data-theme', selectedTheme);
-    localStorage.setItem('data-theme', selectedTheme);
+    setTheme(selectedTheme, darkModeToggle, themeSelector);
   });
 });
