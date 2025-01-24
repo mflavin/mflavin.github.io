@@ -3,13 +3,13 @@
 import ProjectCard from "@/components/ProjectCard.astro";
 
 // Images
-import bank from "@/images/projects/bank.webp";
-import calendarviews from "@/images/projects/calendarviews.webp";
-import expense from "@/images/projects/expense.webp";
-import hr from "@/images/projects/hr.webp";
-import nuxt3 from "@/images/projects/nuxt3.webp";
-import timeoff from "@/images/projects/timeoff.webp";
-import vuebase from "@/images/projects/vuebase.webp";
+import bank from "@/images/projects/bank.png";
+import daisy from "@/images/projects/daisy.png";
+import hr from "@/images/projects/hr.png";
+import nuxt3 from "@/images/projects/nuxt3.png";
+import pigtracks from "@/images/projects/pigtracks.png";
+import timeoff from "@/images/projects/timeoff.png";
+import vuebase from "@/images/projects/vuebase.png";
 
 const projects = [
   {
@@ -18,7 +18,7 @@ const projects = [
     alt: "Expense Tracker",
     description:
       "Easily record transactions, set up budgets, add recurring expenses, and view insightful reports. Plus, this uses AI that can create transactions for you automatically!",
-    src: expense,
+    src: daisy,
     technologies: [
       "Vue.js",
       "TypeScript",
@@ -95,13 +95,19 @@ const projects = [
     ],
   },
   {
-    title: "Tailwind CSS Calendar",
-    href: "https://jade-marigold-4f5593.netlify.app/",
-    alt: "Tailwind css calendar",
+    title: "Pig Tracks",
+    href: "https://pigtracks.netlify.app/",
+    alt: "Pig Tracks",
     description:
-      "Tailwind css calendar that has daily, weekly, and month view. As well as events visible in each view.",
-    src: calendarviews,
-    technologies: ["Nuxt.js", "TypeScript", "Nuxt UI", "Tailwind CSS"],
+      "Pig Tracks is a simple and easy-to-use expense tracker app that helps you manage your finances.",
+    src: pigtracks,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PrimeVue",
+      "Chart.js",
+    ],
   },
 ];
 ---

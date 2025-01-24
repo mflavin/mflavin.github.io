@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 
 interface Props {
   title: string;
@@ -19,19 +19,17 @@ const tabs = [{ name: "Overview", active: true }];
   class="mx-auto max-w-sm overflow-hidden rounded-md border-[1.5px] border-outline lg:flex lg:max-w-2xl"
 >
   <a href={href}>
-    <Image
+    <Picture
       decoding="async"
       loading="lazy"
       format="webp"
       alt={alt}
-      width="400"
-      height="300"
-      class="max-h-64 object-cover transition-transform duration-500 hover:scale-105 hover:cursor-pointer lg:h-full lg:max-h-none lg:max-w-xs lg:object-cover"
+      class="max-h-80 object-fill transition-transform duration-500 hover:scale-105 hover:cursor-pointer lg:h-full lg:max-h-none lg:max-w-xs lg:object-cover"
       src={src}
     />
   </a>
 
-  <div>
+  <div class="flex flex-col">
     <!-- Title / Middle Section -->
     <div class="bg-background-tint">
       <!-- Title -->
@@ -66,7 +64,7 @@ const tabs = [{ name: "Overview", active: true }];
 
     <!-- Tab Content -->
     <div
-      class="border-t-[1.5px] border-outline bg-background text-sm text-muted"
+      class="border-t-[1.5px] border-outline bg-background text-sm text-muted h-full"
     >
       <!-- Tab Body -->
       <div class="p-4">
@@ -83,14 +81,12 @@ const tabs = [{ name: "Overview", active: true }];
           ))
         }
       </div>
+    </div>
 
-      <!-- Footer -->
-      <div
-        class="flex items-center gap-x-2 border-t-[1.5px] border-outline p-4"
-      >
-        <div class="mt-1 size-2 rounded-full bg-[#41b883]"></div>
-        <span>{technologies[0]?.replace(".js", "")}</span>
-      </div>
+    <!-- Footer -->
+    <div class="flex items-center gap-x-2 border-t-[1.5px] border-outline p-4">
+      <div class="mt-1 size-2 rounded-full bg-[#41b883]"></div>
+      <span>{technologies[0]?.replace(".js", "")}</span>
     </div>
   </div>
 </div>
