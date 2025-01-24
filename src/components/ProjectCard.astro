@@ -8,9 +8,11 @@ interface Props {
   description: string;
   src: ImageMetadata;
   technologies: string[];
+  lastUpdated: string;
 }
 
-const { title, href, alt, description, src, technologies } = Astro.props;
+const { title, href, alt, description, src, technologies, lastUpdated } =
+  Astro.props;
 
 const tabs = [{ name: "Overview", active: true }];
 ---
@@ -87,6 +89,10 @@ const tabs = [{ name: "Overview", active: true }];
     <div class="flex items-center gap-x-2 border-t-[1.5px] border-outline p-4">
       <div class="mt-1 size-2 rounded-full bg-[#41b883]"></div>
       <span>{technologies[0]?.replace(".js", "")}</span>
+      <span class="ml-auto text-muted"> Last updated: </span>
+      <span class="text-default">
+        {lastUpdated}
+      </span>
     </div>
   </div>
 </div>

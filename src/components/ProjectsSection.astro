@@ -13,6 +13,31 @@ import vuebase from "@/images/projects/vuebase.png";
 
 const projects = [
   {
+    title: "Pig Tracks",
+    href: "https://pigtracks.netlify.app/",
+    alt: "Pig Tracks",
+    description:
+      "Pig Tracks is a simple and easy-to-use expense tracker app that helps you manage your finances.",
+    src: pigtracks,
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PrimeVue",
+      "Chart.js",
+    ],
+    lastUpdated: "January 2025",
+  },
+  {
+    title: "Timeoff Calendar",
+    href: "https://timeoff-remaining-calc-app.netlify.app/",
+    alt: "Timeoff Calendar",
+    description: "Calendar app for planning timeoff / vacation days at work.",
+    src: timeoff,
+    technologies: ["Vue.js", "TypeScript", "Tailwind CSS"],
+    lastUpdated: "January 2025",
+  },
+  {
     title: "Expense Tracker",
     href: "https://guileless-jelly-8d3df3.netlify.app/daisyui",
     alt: "Expense Tracker",
@@ -26,6 +51,7 @@ const projects = [
       "Chart.js",
       "Supabase",
     ],
+    lastUpdated: "November 2024",
   },
   {
     title: "HR App",
@@ -42,15 +68,9 @@ const projects = [
       "Chart.js",
       "vue-i18n",
     ],
+    lastUpdated: "October 2024",
   },
-  {
-    title: "Timeoff Calendar",
-    href: "https://timeoff-remaining-calc-app.netlify.app/",
-    alt: "Timeoff Calendar",
-    description: "Calendar app for planning timeoff / vacation days at work.",
-    src: timeoff,
-    technologies: ["Vue.js", "TypeScript", "Tailwind CSS"],
-  },
+
   {
     title: "Banking App",
     href: "https://guileless-jelly-8d3df3.netlify.app/bank-dashboard",
@@ -65,6 +85,7 @@ const projects = [
       "Tailwind CSS",
       "Chart.js",
     ],
+    lastUpdated: "September 2024",
   },
   {
     title: "Notes App (Nuxt Version)",
@@ -79,6 +100,7 @@ const projects = [
       "Tailwind CSS",
       "Firebase",
     ],
+    lastUpdated: "June 2024",
   },
   {
     title: "Notes App (Vue Version)",
@@ -93,21 +115,7 @@ const projects = [
       "Tailwind CSS",
       "Firebase",
     ],
-  },
-  {
-    title: "Pig Tracks",
-    href: "https://pigtracks.netlify.app/",
-    alt: "Pig Tracks",
-    description:
-      "Pig Tracks is a simple and easy-to-use expense tracker app that helps you manage your finances.",
-    src: pigtracks,
-    technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "PrimeVue",
-      "Chart.js",
-    ],
+    lastUpdated: "February 2024",
   },
 ];
 ---
@@ -125,6 +133,7 @@ const projects = [
             description={project.description}
             src={project.src}
             technologies={project.technologies}
+            lastUpdated={project.lastUpdated}
           />
         </li>
       ))
