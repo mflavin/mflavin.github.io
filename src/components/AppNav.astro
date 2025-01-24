@@ -1,48 +1,48 @@
 ---
-import MoonSvg from 'public/images/moon.svg';
-import SunSvg from 'public/images/sun.svg';
+import MoonSvg from "public/images/moon.svg";
+import SunSvg from "public/images/sun.svg";
 ---
 
 <header
-  class='fixed top-0 right-0 left-0 z-10 h-full max-h-[5rem] w-full p-3 backdrop-blur'
+  class="fixed top-0 right-0 left-0 z-10 h-full max-h-[5rem] w-full p-3 backdrop-blur"
 >
   <nav
-    class='border-outline bg-background-tint mx-auto flex h-full max-w-2xl items-center justify-end gap-x-2 rounded-md border-2 px-2.5 py-1.5 opacity-60'
+    class="border-outline bg-background-tint mx-auto flex h-full max-w-2xl items-center justify-end gap-x-2 rounded-md border-2 px-2.5 py-1.5 opacity-60"
   >
-    <label for='theme-selector' class='sr-only'>Select Theme</label>
+    <label for="theme-selector" class="sr-only">Select Theme</label>
     <select
-      class='input max-w-32 !border-r-8 !border-transparent'
-      name='theme-selector'
-      id='theme-selector'
+      class="input max-w-32 !border-r-8 !border-transparent"
+      name="theme-selector"
+      id="theme-selector"
     >
-      <option value='light'>Light</option>
-      <option value='brown'>Brown</option>
-      <option value='blue'>Blue</option>
-      <option value='green'>Green</option>
-      <option value='purple'>Purple</option>
-      <option value='red'>Red</option>
-      <option value='yellow'>Yellow</option>
-      <option value='dark'>Dark</option>
-      <option value='dark-brown'>Dark Brown</option>
-      <option value='dark-blue'>Dark Blue</option>
-      <option value='dark-green'>Dark Green</option>
-      <option value='dark-purple'>Dark Purple</option>
-      <option value='dark-red'>Dark Red</option>
-      <option value='dark-yellow'>Dark Yellow</option>
+      <option value="light">Light</option>
+      <option value="brown">Brown</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="purple">Purple</option>
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="dark">Dark</option>
+      <option value="dark-brown">Dark Brown</option>
+      <option value="dark-blue">Dark Blue</option>
+      <option value="dark-green">Dark Green</option>
+      <option value="dark-purple">Dark Purple</option>
+      <option value="dark-red">Dark Red</option>
+      <option value="dark-yellow">Dark Yellow</option>
     </select>
 
     <div
-      tabindex='0'
-      id='darkModeToggle'
-      role='switch'
-      aria-label='Dark Mode Toggle'
-      class='btn btn-ghost btn-sm'
-      aria-checked='false'
+      tabindex="0"
+      id="darkModeToggle"
+      role="switch"
+      aria-label="Dark Mode Toggle"
+      class="btn btn-ghost btn-sm"
+      aria-checked="false"
     >
-      <MoonSvg class='hidden size-5' id='moon' />
-      <SunSvg class='block size-5' id='sun' />
+      <MoonSvg class="hidden size-5" id="moon" />
+      <SunSvg class="block size-5" id="sun" />
     </div>
   </nav>
 </header>
 
-<script src='../scripts/darkMode.ts'></script>
+<script src="../scripts/darkMode.ts"></script>
