@@ -73,6 +73,10 @@
     @apply bg-primary text-on-primary hover:bg-primary-tint focus-visible:ring-primary-tint hover:text-gray-700;
   }
 
+  .btn-secondary {
+    @apply bg-secondary text-on-secondary hover:bg-secondary-tint focus-visible:ring-secondary-tint hover:text-gray-700;
+  }
+
   .footer-link {
     @apply text-muted hover:text-default relative text-sm hover:underline;
   }

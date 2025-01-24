@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import GithubSvg from "public/images/github.svg";
+import LinkedinSvg from "public/images/linkedin.svg";
 
 // Images
 import profileImage from "@/images/me.webp";
@@ -30,6 +31,19 @@ import profileImage from "@/images/me.webp";
     >
       <GithubSvg class="btn-svg size-5" />
       <span>More about me</span>
+    </a>
+
+    <a
+      title="Connect with me"
+      class="btn btn-secondary mt-2 w-full no-underline sm:w-40"
+      aria-label="Connect with me"
+      type="button"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.linkedin.com/in/mflavin/"
+    >
+      <LinkedinSvg class="btn-svg size-5" />
+      <span>Connect with me</span>
     </a>
   </div>
 
