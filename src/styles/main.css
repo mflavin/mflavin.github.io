@@ -3,7 +3,8 @@
 @import 'tailwindcss';
 
 @theme {
-  --breakpoint-xs: 420px;
+  --breakpoint-xs: 26.25rem;
+  --container-limit: 64rem;
 
   --color-background: var(--color-background);
   --color-background-tint: var(--color-background-tint);
@@ -53,6 +54,14 @@
 }
 
 @layer components {
+  .badge {
+    @apply bg-background-tint text-default inline-flex items-center justify-center rounded-md px-2.5 py-1 text-base font-normal;
+  }
+
+  .badge-primary {
+    @apply bg-primary text-on-primary;
+  }
+
   .btn {
     @apply inline-flex min-h-9 cursor-pointer items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors;
   }
