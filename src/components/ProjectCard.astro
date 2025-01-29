@@ -1,6 +1,8 @@
 ---
 import { Picture } from "astro:assets";
 
+import SkillsSvgList from "@/components/SkillsSvgList.astro";
+
 interface Props {
   title: string;
   href: string;
@@ -18,26 +20,28 @@ const tabs = [{ name: "Overview", active: true }];
 ---
 
 <div
-  class="mx-auto max-w-sm overflow-hidden rounded-md border-[1.5px] border-outline lg:flex lg:max-w-2xl"
+  class="mx-auto overflow-hidden rounded-md border-[1.5px] border-outline h-fit"
 >
   <a href={href}>
     <Picture
       decoding="async"
       loading="lazy"
       format="webp"
+      height={src.height}
+      width={src.width}
       alt={alt}
-      class="max-h-80 object-fill transition-transform duration-500 hover:scale-105 hover:cursor-pointer lg:h-full lg:max-h-none lg:max-w-xs lg:object-cover"
+      class="transition-transform hover:scale-101 hover:cursor-pointer"
       src={src}
     />
   </a>
 
-  <div class="flex flex-col">
+  <div class="flex flex-col z-10 relative">
     <!-- Title / Middle Section -->
     <div class="bg-background-tint">
       <!-- Title -->
       <h1 class="p-4">
         <a
-          class="text-lg font-medium text-primary hover:cursor-pointer hover:underline"
+          class="text-lg font-medium text-primary hover:cursor-pointer hover:underline underline lg:no-underline"
           href={href}
         >
           {title}
@@ -66,33 +70,20 @@ const tabs = [{ name: "Overview", active: true }];
 
     <!-- Tab Content -->
     <div
-      class="border-t-[1.5px] border-outline bg-background text-sm text-muted h-full"
+      class="border-t-[1.5px] border-outline bg-background text-sm text-muted p-4"
     >
       <!-- Tab Body -->
-      <div class="p-4">
+      <p class="text-base mb-5">
         {description}
-      </div>
+      </p>
 
       <!-- Tags -->
-      <div class="flex flex-wrap gap-1.5 p-4 pt-0">
-        {
-          technologies.map((technology) => (
-            <div class="rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-on-primary">
-              {technology}
-            </div>
-          ))
-        }
-      </div>
+      <SkillsSvgList svgIds={technologies} class="hover:!scale-100" />
     </div>
 
     <!-- Footer -->
-    <div class="flex items-center gap-x-2 border-t-[1.5px] border-outline p-4">
-      <div class="mt-1 size-2 rounded-full bg-[#41b883]"></div>
-      <span>{technologies[0]?.replace(".js", "")}</span>
-      <span class="ml-auto text-muted"> Last updated: </span>
-      <span class="text-default">
-        {lastUpdated}
-      </span>
+    <div class="text-muted text-sm border-t-[1.5px] border-outline p-3.5">
+      {lastUpdated}
     </div>
   </div>
 </div>

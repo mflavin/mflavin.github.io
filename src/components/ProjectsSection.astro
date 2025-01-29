@@ -19,13 +19,7 @@ const projects = [
     description:
       "Pig Tracks is a simple and easy-to-use expense tracker app that helps you manage your finances.",
     src: pigtracks,
-    technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "PrimeVue",
-      "Chart.js",
-    ],
+    technologies: ["vue", "typescript", "tailwindcss", "primevue", "chartjs"],
     lastUpdated: "January 2025",
   },
   {
@@ -34,7 +28,7 @@ const projects = [
     alt: "Timeoff Calendar",
     description: "Calendar app for planning timeoff / vacation days at work.",
     src: timeoff,
-    technologies: ["Vue.js", "TypeScript", "Tailwind CSS"],
+    technologies: ["vue", "typescript", "tailwindcss"],
     lastUpdated: "January 2025",
   },
   {
@@ -44,13 +38,7 @@ const projects = [
     description:
       "Easily record transactions, set up budgets, add recurring expenses, and view insightful reports. Plus, this uses AI that can create transactions for you automatically!",
     src: daisy,
-    technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Chart.js",
-      "Supabase",
-    ],
+    technologies: ["vue", "typescript", "tailwindcss", "chartjs", "supabase"],
     lastUpdated: "November 2024",
   },
   {
@@ -61,11 +49,11 @@ const projects = [
       "HR App that allows you join meetings, send messages, track employees, time attendance, and much more!",
     src: hr,
     technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Primevue",
-      "Tailwind CSS",
-      "Chart.js",
+      "vue",
+      "typescript",
+      "primevue",
+      "tailwindcss",
+      "chartjs",
       "vue-i18n",
     ],
     lastUpdated: "October 2024",
@@ -78,13 +66,7 @@ const projects = [
     description:
       "Mockup finance / bank app to track transactions, credit cards, bills, and saving goals.",
     src: bank,
-    technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Primevue",
-      "Tailwind CSS",
-      "Chart.js",
-    ],
+    technologies: ["vue", "typescript", "primevue", "tailwindcss", "chartjs"],
     lastUpdated: "September 2024",
   },
   {
@@ -93,13 +75,7 @@ const projects = [
     alt: "Notes App (Nuxt Version)",
     description: "Notes app to save notes and files.",
     src: nuxt3,
-    technologies: [
-      "Nuxt.js",
-      "TypeScript",
-      "Nuxt UI",
-      "Tailwind CSS",
-      "Firebase",
-    ],
+    technologies: ["nuxt", "typescript", "nuxt", "tailwindcss", "firebase"],
     lastUpdated: "June 2024",
   },
   {
@@ -108,13 +84,7 @@ const projects = [
     alt: "Notes App (Vue Version)",
     description: "Notes app to save notes and files.",
     src: vuebase,
-    technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Daisy UI",
-      "Tailwind CSS",
-      "Firebase",
-    ],
+    technologies: ["vue", "javascript", "Daisy UI", "tailwindcss", "firebase"],
     lastUpdated: "February 2024",
   },
 ];
@@ -122,21 +92,19 @@ const projects = [
 
 <section>
   <h2 class="mb-6 text-2xl">Projects</h2>
-  <ul class="space-y-6">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
     {
       projects.map((project) => (
-        <li>
-          <ProjectCard
-            title={project.title}
-            href={project.href}
-            alt={project.alt}
-            description={project.description}
-            src={project.src}
-            technologies={project.technologies}
-            lastUpdated={project.lastUpdated}
-          />
-        </li>
+        <ProjectCard
+          title={project.title}
+          href={project.href}
+          alt={project.alt}
+          description={project.description}
+          src={project.src}
+          technologies={project.technologies}
+          lastUpdated={project.lastUpdated}
+        />
       ))
     }
-  </ul>
+  </div>
 </section>
