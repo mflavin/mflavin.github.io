@@ -4,7 +4,7 @@
 
 @theme {
   --breakpoint-xs: 26.25rem;
-  --container-limit: 64rem;
+  --container-limit: var(--container-7xl);
 
   --color-background: var(--color-background);
   --color-background-tint: var(--color-background-tint);
@@ -88,6 +88,10 @@
 
   .footer-link {
     @apply text-muted hover:text-default relative text-sm hover:underline;
+  }
+
+  .header {
+    @apply text-2xl leading-6 font-semibold;
   }
 
   .input {
