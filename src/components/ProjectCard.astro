@@ -53,10 +53,10 @@ const tabs = [{ name: "Overview", active: true }];
         {
           tabs.map((tab) => (
             <button
-              class="relative w-fit whitespace-nowrap rounded-t-md px-3 py-1.5 text-default hover:cursor-pointer hover:bg-background focus:bg-background"
+              class="relative w-fit whitespace-nowrap rounded-t-md px-3 py-1.5 text-default hover:cursor-pointer hover:bg-background-tint focus:bg-background"
               class:list={
                 tab.active
-                  ? "visible -mb-[1.5px] border-[1.5px] border-b-0 border-outline bg-background pb-[7.5px] hover:bg-background-tint"
+                  ? "visible -mb-[1.5px] border-[1.5px] border-b-0 border-outline bg-background pb-[7.5px]"
                   : "invisible"
               }
               type="button"
