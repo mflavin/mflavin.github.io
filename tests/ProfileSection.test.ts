@@ -31,8 +31,22 @@ test('leads to linkedin profile', async ({ page }) => {
   });
 });
 
-// Check to see if my profile image loaded
 test('has profile image', async ({ page }) => {
   await page.goto('http://localhost:4321/');
   await expect(page.locator('img[alt="mflavin"]')).toBeVisible();
+});
+
+test('has skills list', async ({ page }) => {
+  await page.goto('http://localhost:4321/');
+  await expect(
+    page.locator('ul[aria-label="List of skills"]').first(),
+  ).toBeAttached();
+  await expect(page.locator('li[aria-label="Vue"]').first()).toBeAttached();
+});
+
+test('has project list', async ({ page }) => {
+  await page.goto('http://localhost:4321/');
+  await expect(
+    page.locator('a[href="https://pigtracks.netlify.app/"]').first(),
+  ).toBeAttached();
 });
