@@ -77,26 +77,24 @@ if (svgIds.length > 0) {
 }
 ---
 
-<section>
-  <ul class="flex flex-wrap gap-2" aria-label="List of skills">
-    {
-      icons.map((svg) => (
-        <li
-          class={`badge hover:-translate-y-0.5 transition-transform ease-in-out ${className}`}
-          title={svg.title}
-          aria-label={svg.title}
-        >
-          {svg.src.src.split("/").pop()?.split(".")[0] === "unknown" ? (
-            <svg.src height="0" width="0" />
-          ) : (
-            <svg.src height="18" width="18" />
-          )}
-          <span class="ml-1">{svg.title}</span>
-        </li>
-      ))
-    }
-  </ul>
-</section>
+<ul class="flex flex-wrap gap-2" aria-label="List of skills">
+  {
+    icons.map((svg) => (
+      <li
+        class={`badge hover:-translate-y-0.5 transition-transform ease-in-out ${className}`}
+        title={svg.title}
+        aria-label={svg.title}
+      >
+        {svg.src.src.split("/").pop()?.split(".")[0] === "unknown" ? (
+          <svg.src height="0" width="0" />
+        ) : (
+          <svg.src height="18" width="18" />
+        )}
+        <span class="ml-1">{svg.title}</span>
+      </li>
+    ))
+  }
+</ul>
 
 <script>
   // TODO: Maybe add a click to have an active skill and how related projects
