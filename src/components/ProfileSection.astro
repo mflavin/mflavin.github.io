@@ -8,44 +8,44 @@ import LinkedinSvg from "public/images/linkedin.svg";
 import profileImage from "@/images/profileImage.png";
 ---
 
-<section class="flex flex-col-reverse md:flex-row md:justify-between">
-  <div>
-    <h3 class="my-8 md:mb-6 md:mt-0 header">
+<section class="flex md:flex-row md:justify-between">
+  <section>
+    <h3 class="header">
       <span class="text-default">I am</span>
       <span class="text-primary">mflavin</span>
     </h3>
+    <p class="text-base">
+      Passionate and creative full-stack software engineer from Illinois
+    </p>
+
     <div>
-      <p class="mb-4 max-w-sm text-default">
-        Passionate and creative full-stack software engineer from Illinois
-      </p>
+      <a
+        title="More about me"
+        class="btn btn-primary mt-2 w-full no-underline sm:w-40"
+        aria-label="More about me"
+        type="button"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/mflavin"
+      >
+        <GithubSvg class="btn-svg size-5" />
+        <span>More about me</span>
+      </a>
+
+      <a
+        title="Connect with me"
+        class="btn btn-secondary mt-2 w-full no-underline sm:w-40"
+        aria-label="Connect with me"
+        type="button"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.linkedin.com/in/mflavin/"
+      >
+        <LinkedinSvg class="btn-svg size-5" />
+        <span>Connect with me</span>
+      </a>
     </div>
-
-    <a
-      title="More about me"
-      class="btn btn-primary mt-2 w-full no-underline sm:w-40"
-      aria-label="More about me"
-      type="button"
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://github.com/mflavin"
-    >
-      <GithubSvg class="btn-svg size-5" />
-      <span>More about me</span>
-    </a>
-
-    <a
-      title="Connect with me"
-      class="btn btn-secondary mt-2 w-full no-underline sm:w-40"
-      aria-label="Connect with me"
-      type="button"
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://www.linkedin.com/in/mflavin/"
-    >
-      <LinkedinSvg class="btn-svg size-5" />
-      <span>Connect with me</span>
-    </a>
-  </div>
+  </section>
 
   <Image
     alt="mflavin"
@@ -53,7 +53,7 @@ import profileImage from "@/images/profileImage.png";
     fetchpriority="high"
     width="160"
     height="160"
-    class="aspect-square h-fit max-w-28 rounded-full object-cover object-center sm:float-right sm:max-w-36 md:max-w-40"
+    class="aspect-square order-[-1] md:order-1 h-fit max-w-28 rounded-full object-cover object-center sm:float-right sm:max-w-36 md:max-w-40"
     src={profileImage}
   />
 </section>
