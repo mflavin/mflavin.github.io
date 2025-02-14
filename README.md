@@ -1,1 +1,1 @@
-- Passionate and creative full-stack software engineer from Illinois
+Experienced Web Developer | Specialized in Vue.js, JavaScript, TypeScript, and AWS | Passionate about Building Scalable Applications
