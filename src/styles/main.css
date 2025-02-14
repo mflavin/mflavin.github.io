@@ -23,13 +23,6 @@
 }
 
 @layer base {
-  * {
-    transition-property: color, background-color, border-color, opacity,
-      box-shadow, transform;
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-
   body {
     font-family:
       Inter,
@@ -54,6 +47,11 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    transition-property: color, background-color, border-color, outline-color,
+      opacity, box-shadow, transform !important;
+    transition-duration: 0.4s !important;
+    transition-timing-function: ease-in-out;
   }
 
   section {
