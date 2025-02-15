@@ -4,7 +4,7 @@
 
 @theme {
   --breakpoint-xs: 26.25rem;
-  --container-limit: var(--container-7xl);
+  --container-limit: var(--container-3xl);
 
   --color-background: var(--color-background);
   --color-background-tint: var(--color-background-tint);
