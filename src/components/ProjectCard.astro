@@ -20,7 +20,7 @@ const tabs = [{ name: "Overview", active: true }];
 ---
 
 <div
-  class="mx-auto overflow-hidden rounded-md border-[1.5px] border-outline h-fit"
+  class="mx-auto overflow-hidden rounded-md border-[1.5px] border-outline h-fit md:flex"
 >
   <a href={href}>
     <Picture
@@ -30,7 +30,7 @@ const tabs = [{ name: "Overview", active: true }];
       height={src.height}
       width={src.width}
       alt={alt}
-      class="transition-transform hover:scale-101 hover:cursor-pointer max-h-56 lg:max-h-96 object-cover object-top"
+      class="transition-transform hover:scale-101 hover:cursor-pointer max-h-56 md:max-h-96 object-cover object-top md:max-w-sm"
       src={src}
     />
   </a>
