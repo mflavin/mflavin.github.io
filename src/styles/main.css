@@ -125,7 +125,7 @@
   }
 
   .header {
-    @apply text-2xl font-semibold;
+    @apply text-xl font-semibold tracking-wide;
   }
 
   .input {
