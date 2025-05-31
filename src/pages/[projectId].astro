@@ -7,6 +7,7 @@ import { ArrowLeftFromLine } from "@lucide/astro";
 import { projects } from "@/data/projects.js";
 
 import Layout from "@/layouts/Layout.astro";
+import SkillsList from "@/components/SkillsList.astro";
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -63,23 +64,7 @@ if (!selectedProject) {
       {selectedProject.description}
     </p>
 
-    <ul class='inline-flex flex-wrap gap-y-1 gap-x-1'>
-      {
-        selectedProject.technologies.map((technology, index) => (
-          <li
-            class='inline-flex items-center text-sm text-foreground me-1 last:me-0'
-            class:list={
-              index !== selectedProject.technologies.length - 1
-                ? 'after:content-[","]'
-                : ""
-            }
-          >
-            <span>{<technology.icon height='12' width='12' />}</span>
-            <span class='ml-1'>{technology.name}</span>
-          </li>
-        ))
-      }
-    </ul>
+    <SkillsList skills={selectedProject.technologies} />
 
     <p class='text-xs text-muted-foreground'>
       Last Updated:

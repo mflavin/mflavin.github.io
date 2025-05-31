@@ -1,5 +1,6 @@
 ---
 import { groupedSkills } from "@data/skills";
+import SkillsList from "@/components/SkillsList.astro";
 ---
 
 <div>
@@ -7,29 +8,15 @@ import { groupedSkills } from "@data/skills";
 
   <div class='space-y-3'>
     {
-      groupedSkills.map((skill) => (
+      groupedSkills.map((groupedSkill) => (
         <dl class='flex flex-col sm:flex-row gap-1'>
           <dt class='min-w-40'>
             <span class='block text-sm text-muted-foreground'>
-              {skill.categoryName}:
+              {groupedSkill.categoryName}:
             </span>
           </dt>
           <dd class='inline-flex'>
-            <ul class='inline-flex flex-wrap gap-y-1 gap-x-1'>
-              {skill.skills.map((item, index) => (
-                <li
-                  class='inline-flex items-center text-sm text-foreground me-1 last:me-0'
-                  class:list={
-                    index !== skill.skills.length - 1
-                      ? 'after:content-[","]'
-                      : ""
-                  }
-                >
-                  <span>{<item.icon height='12' width='12' />}</span>
-                  <span class='ml-1'>{item.name}</span>
-                </li>
-              ))}
-            </ul>
+            <SkillsList skills={groupedSkill.skills} />
           </dd>
         </dl>
       ))
