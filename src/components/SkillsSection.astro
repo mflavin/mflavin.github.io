@@ -1,89 +1,5 @@
 ---
-import { MonitorSmartphone, Palette, Pencil } from "@lucide/astro";
-
-import AstroSvg from "public/images/astro.svg";
-import AwsSvg from "public/images/aws.svg";
-import ChartJsSvg from "public/images/chartjs.svg";
-import CssSvg from "public/images/css.svg";
-import CypressSvg from "public/images/cypress.svg";
-import DjangoSvg from "public/images/django.svg";
-import FigmaSvg from "public/images/figma.svg";
-import FirebaseSvg from "public/images/firebase.svg";
-import GraphqlSvg from "public/images/graphql.svg";
-import Html5Svg from "public/images/html.svg";
-import JavascriptSvg from "public/images/javascript.svg";
-import JestSvg from "public/images/jest.svg";
-import MysqlSvg from "public/images/mysql.svg";
-import NodejsSvg from "public/images/nodejs.svg";
-import NuxtSvg from "public/images/nuxt.svg";
-import PlaywrightSvg from "public/images/playwright.svg";
-import PrimeVueSvg from "public/images/primevue.svg";
-import PythonSvg from "public/images/python.svg";
-import ShadcnSvg from "public/images/shadcn.svg";
-import SupabaseSvg from "public/images/supabase.svg";
-import TailwindcssSvg from "public/images/tailwindcss.svg";
-import TypescriptSvg from "public/images/typescript.svg";
-import UnovisSvg from "public/images/unovis.svg";
-import VitestSvg from "public/images/vitest.svg";
-import VueSvg from "public/images/vue.svg";
-import VuetifySvg from "public/images/vuetify.svg";
-
-const skills = [
-  {
-    categoryName: "Programming Languages",
-    skills: [
-      { icon: JavascriptSvg, name: "JavaScript" },
-      { icon: TypescriptSvg, name: "TypeScript" },
-      { icon: PythonSvg, name: "Python" },
-    ],
-  },
-  {
-    categoryName: "Frontend Technologies",
-    skills: [
-      { icon: Html5Svg, name: "HTML5" },
-      { icon: CssSvg, name: "CSS" },
-      { icon: VueSvg, name: "Vue" },
-      { icon: NuxtSvg, name: "Nuxt" },
-      { icon: AstroSvg, name: "Astro" },
-      { icon: DjangoSvg, name: "Django" },
-      { icon: TailwindcssSvg, name: "Tailwind CSS" },
-      { icon: VuetifySvg, name: "Vuetify" },
-      { icon: ShadcnSvg, name: "ShadcnVue" },
-      { icon: PrimeVueSvg, name: "PrimeVue" },
-      { icon: ChartJsSvg, name: "Chart.js" },
-      { icon: UnovisSvg, name: "Unovis" },
-    ],
-  },
-  {
-    categoryName: "Backend Technologies",
-    skills: [
-      { icon: NodejsSvg, name: "Node" },
-      { icon: AwsSvg, name: "AWS" },
-      { icon: GraphqlSvg, name: "GraphQL" },
-      { icon: FirebaseSvg, name: "Firebase" },
-      { icon: SupabaseSvg, name: "Supabase" },
-      { icon: MysqlSvg, name: "MySQL" },
-    ],
-  },
-  {
-    categoryName: "Testing Tools",
-    skills: [
-      { icon: VitestSvg, name: "Vitest" },
-      { icon: JestSvg, name: "Jest" },
-      { icon: CypressSvg, name: "Cypress" },
-      { icon: PlaywrightSvg, name: "Playwright" },
-    ],
-  },
-  {
-    categoryName: "Design & UX Tools",
-    skills: [
-      { icon: FigmaSvg, name: "Figma" },
-      { icon: Pencil, split: false, name: "UI/UX Design" },
-      { icon: Palette, split: false, name: "Design Systems" },
-      { icon: MonitorSmartphone, split: false, name: "Responsive Design" },
-    ],
-  },
-];
+import { groupedSkills } from "@data/skills";
 ---
 
 <div>
@@ -91,7 +7,7 @@ const skills = [
 
   <div class='space-y-3'>
     {
-      skills.map((skill) => (
+      groupedSkills.map((skill) => (
         <dl class='flex flex-col sm:flex-row gap-1'>
           <dt class='min-w-40'>
             <span class='block text-sm text-muted-foreground'>
