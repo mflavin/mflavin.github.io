@@ -1,0 +1,89 @@
+---
+// Styles
+import "@/styles/main.css";
+
+import { Image } from "astro:assets";
+import { ArrowLeftFromLine } from "@lucide/astro";
+import { projects } from "@/data/projects.js";
+
+import Layout from "@/layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { projectId: project.id },
+    props: { selectedProject: project },
+  }));
+}
+
+const { projectId } = Astro.params;
+const { selectedProject } = Astro.props;
+
+if (!selectedProject) {
+  throw new Error(`Project with id "${projectId}" not found.`);
+}
+---
+
+<Layout
+  title={selectedProject.title}
+  description={`Details about the project: ${selectedProject.title}`}
+>
+  <div
+    class='flex flex-col gap-y-5'
+    style={`view-transition-name: ${projectId};`}
+  >
+    <a
+      class='footer-btn'
+      title='Back to projects'
+      aria-label='Back to projects'
+      type='button'
+      rel='noopener noreferrer'
+      href='/'
+    >
+      <span class='sr-only'>Back to projects</span>
+      <ArrowLeftFromLine class='size-4' />
+    </a>
+
+    <h1 class='text-lg font-medium text-foreground'>
+      {selectedProject.title}
+    </h1>
+
+    <Image
+      class='w-full object-cover rounded-lg'
+      src={selectedProject.src}
+      alt={selectedProject.alt}
+      loading='lazy'
+      fetchpriority='high'
+      width='1130'
+      height='1100'
+      decoding='async'
+      format='webp'
+    />
+
+    <p class='text-sm text-muted-foreground'>
+      {selectedProject.description}
+    </p>
+
+    <ul class='inline-flex flex-wrap gap-y-1 gap-x-1'>
+      {
+        selectedProject.technologies.map((technology, index) => (
+          <li
+            class='inline-flex items-center text-sm text-foreground me-1 last:me-0'
+            class:list={
+              index !== selectedProject.technologies.length - 1
+                ? 'after:content-[","]'
+                : ""
+            }
+          >
+            <span>{<technology.icon height='12' width='12' />}</span>
+            <span class='ml-1'>{technology.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class='text-xs text-muted-foreground'>
+      Last Updated:
+      {selectedProject.lastUpdated}
+    </p>
+  </div>
+</Layout>

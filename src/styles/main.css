@@ -143,6 +143,10 @@
   button {
     @apply cursor-pointer;
   }
+
+  @view-transition {
+    navigation: auto; /* enabled! */
+  }
 }
 
 @layer components {
