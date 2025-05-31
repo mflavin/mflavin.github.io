@@ -1,8 +1,7 @@
 ---
-// Components
-import ProjectCard from "@/components/ProjectCard.astro";
+import { Image } from "astro:assets";
 
-// Images
+import { Eye } from "@lucide/astro";
 import bank from "@/images/projects/bank.png";
 import daisy from "@/images/projects/daisy.png";
 import hr from "@/images/projects/hr.png";
@@ -90,21 +89,64 @@ const projects = [
 ];
 ---
 
-<section>
-  <h3 class="header">Projects</h3>
-  <article class="grid grid-cols-1 gap-4">
+<div>
+  <h2 class='mb-5 font-medium text-foreground'>Projects</h2>
+
+  <div class='grid grid-cols-2 sm:grid-cols-3 gap-2'>
     {
       projects.map((project) => (
-        <ProjectCard
-          title={project.title}
+        <a
+          class='group block relative overflow-hidden rounded-lg'
           href={project.href}
-          alt={project.alt}
-          description={project.description}
-          src={project.src}
-          technologies={project.technologies}
-          lastUpdated={project.lastUpdated}
-        />
+          target='_blank'
+          rel='noopener noreferrer'
+          title={project.title}
+        >
+          <Image
+            class='w-full size-40 object-cover rounded-lg object-top project-image'
+            src={project.src}
+            alt={project.alt}
+            loading='lazy'
+            fetchpriority='low'
+            width='720'
+            height='160'
+            decoding='async'
+            format='webp'
+          />
+          <div class='absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition'>
+            <div class='flex items-center gap-x-1 py-1 px-2 bg-background border rounded-lg border-input text-foreground'>
+              <Eye class='size-4' />
+              <span class='text-xs'>View</span>
+            </div>
+          </div>
+        </a>
       ))
     }
-  </article>
-</section>
+  </div>
+</div>
+
+<script>
+  const updateImages = () => {
+    const htmlClass = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+    const images = document.querySelectorAll(".project-image");
+    images.forEach((img) => {
+      const image = img as HTMLImageElement;
+
+      // const baseSrc = image.getAttribute('src').replace(/-(light|dark)\.png$/, '');
+      // image.src = `${baseSrc}-${htmlClass}.png`;
+
+      console.log(`Updated image source to: ${image.src}`);
+    });
+  };
+
+  updateImages();
+
+  // Watch for theme changes, then update images variant
+  const observer = new MutationObserver(updateImages);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+</script>
