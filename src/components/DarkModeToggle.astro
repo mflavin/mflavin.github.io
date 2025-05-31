@@ -1,0 +1,47 @@
+---
+import { Moon, Sun } from "@lucide/astro";
+---
+
+<button
+  id='dark-mode-toggle'
+  type='button'
+  class='footer-btn'
+  title='Dark mode toggle'
+  aria-label='Dark mode toggle'
+>
+  <div data-toggle='dark'>
+    <span class='sr-only'>Dark</span>
+    <Moon class='size-4' />
+  </div>
+  <div data-toggle='light' class='hidden'>
+    <span class='sr-only'>Light</span>
+    <Sun class='size-4' />
+  </div>
+</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById(
+      "dark-mode-toggle"
+    ) as HTMLElement;
+    const darkModeToggle = document.querySelector(
+      "[data-toggle='dark']"
+    ) as HTMLElement;
+    const lightModeToggle = document.querySelector(
+      "[data-toggle='light']"
+    ) as HTMLElement;
+
+    // Apply the initial theme based on user preference
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    document.documentElement.classList.toggle("dark", isDarkMode);
+
+    // Toggle theme on button click
+    toggleButton.addEventListener("click", () => {
+      const isDarkMode = document.documentElement.classList.toggle("dark");
+      darkModeToggle.style.display = isDarkMode ? "block" : "none";
+      lightModeToggle.style.display = isDarkMode ? "none" : "block";
+    });
+  });
+</script>

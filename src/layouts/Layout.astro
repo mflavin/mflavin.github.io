@@ -1,6 +1,6 @@
 ---
-import AppHead from "@/components/AppHead.astro";
-import AppNav from "@/components/AppNav.astro";
+import Footer from "@components/Footer.astro";
+import Head from "@/components/Head.astro";
 
 interface Props {
   title: string;
@@ -10,15 +10,17 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en" data-theme="dark">
+<html lang='en' class='dark'>
   <head>
-    <AppHead title={title} description={description} />
+    <Head title={title} description={description} />
   </head>
-  <body
-    class="bg-background text-default flex min-h-screen flex-col justify-around"
-  >
-    <AppNav />
+  <body class='max-w-2xl w-full mx-auto'>
+    <main
+      class='pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-10 sm:gap-y-14'
+    >
+      <slot />
+    </main>
 
-    <slot />
+    <Footer />
   </body>
 </html>
