@@ -29,7 +29,7 @@ if (!selectedProject) {
   description={`Details about the project: ${selectedProject.title}`}
 >
   <div
-    class="flex flex-col gap-y-6"
+    class="flex flex-col gap-y-3"
     style={`view-transition-name: ${projectId};`}
   >
     <a
@@ -44,11 +44,11 @@ if (!selectedProject) {
       <span class="text-sm">Back to projects</span>
     </a>
 
-    <h1 class="text-4xl font-medium text-foreground text-center">
+    <h1 class="text-2xl font-medium text-foreground text-center mt-2">
       {selectedProject.title}
     </h1>
 
-    <p class="text-base text-muted-foreground text-center">
+    <p class="text-sm text-muted-foreground text-center mb-2">
       {selectedProject.description}
     </p>
 
@@ -60,7 +60,7 @@ if (!selectedProject) {
       </div>
 
       <Image
-        class="w-full h-auto object-cover"
+        class="w-full h-96 object-cover object-top"
         src={selectedProject.src}
         alt={selectedProject.alt}
         loading="lazy"
@@ -76,7 +76,7 @@ if (!selectedProject) {
     {
       selectedProject.features && (
         <div class="mt-4">
-          <h2 class="text-xl font-medium text-foreground mb-3">Key Features</h2>
+          <h2 class="text-lg font-medium text-foreground mb-3">Key Features</h2>
           <ul class="text-left text-foreground space-y-2.5">
             {selectedProject.features.map((feature) => (
               <li class="flex items-start gap-3">
@@ -113,12 +113,8 @@ if (!selectedProject) {
     </div>
 
     <div class="mt-4">
-      <h2 class="text-xl font-medium text-foreground mb-3">Built With</h2>
-      <SkillsList
-        skills={selectedProject.technologies}
-        size={20}
-        textClass="text-base"
-      />
+      <h2 class="text-lg font-medium text-foreground mb-3">Built With</h2>
+      <SkillsList skills={selectedProject.technologies} size={20} />
     </div>
 
     <p class="text-sm text-muted-foreground mt-2 self-center sm:self-end">
