@@ -10,12 +10,12 @@ import {
   chartjs,
   firebase,
   supabase,
-  unovis as vueI18n,
-  unovis as daisyui,
+  i18n,
+  daisyUI,
 } from '@data/skills';
 
 import bank from '@/images/projects/bank.png';
-import daisy from '@/images/projects/daisy.png';
+import expenseTracker from '@/images/projects/expense_tracker.png';
 import hr from '@/images/projects/hr.png';
 import nuxt3 from '@/images/projects/nuxt3.png';
 import pigtracks from '@/images/projects/pigtracks.png';
@@ -45,13 +45,13 @@ export const projects: Project[] = [
     lastUpdated: 'January 2025',
   },
   {
-    id: 'daisyui',
+    id: 'expenseTracker',
     title: 'Expense Tracker',
     href: 'https://guileless-jelly-8d3df3.netlify.app/daisyui',
     alt: 'Expense Tracker',
     description:
       'Easily record transactions, set up budgets, add recurring expenses, and view insightful reports. Plus, this uses AI that can create transactions for you automatically!',
-    src: daisy,
+    src: expenseTracker,
     technologies: [vue, typescript, tailwindcss, chartjs, supabase],
     lastUpdated: 'November 2024',
   },
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     description:
       'HR App that allows you join meetings, send messages, track employees, time attendance, and much more!',
     src: hr,
-    technologies: [vue, typescript, primevue, tailwindcss, chartjs, vueI18n],
+    technologies: [vue, typescript, primevue, tailwindcss, chartjs, i18n],
     lastUpdated: 'October 2024',
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     alt: 'Notes App (Nuxt Version)',
     description: 'Notes app to save notes and files.',
     src: nuxt3,
-    technologies: [nuxt, typescript, nuxt, tailwindcss, firebase],
+    technologies: [nuxt, typescript, tailwindcss, firebase],
     lastUpdated: 'June 2024',
   },
   {
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     alt: 'Notes App (Vue Version)',
     description: 'Notes app to save notes and files.',
     src: vuebase,
-    technologies: [vue, javascript, daisyui, tailwindcss, firebase],
+    technologies: [vue, javascript, daisyUI, tailwindcss, firebase],
     lastUpdated: 'February 2024',
   },
 ];

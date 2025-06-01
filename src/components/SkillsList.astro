@@ -13,7 +13,7 @@ const { skills, size = 12 } = Astro.props;
   {
     skills.map((skill, index) => (
       <li
-        class="inline-flex items-center text-sm text-foreground me-1 last:me-0"
+        class="inline-flex items-center justify-end text-sm text-foreground me-1 last:me-0"
         class:list={[index !== skills.length - 1 ? 'after:content-[","]' : ""]}
       >
         <span>{<skill.icon height={size} width={size} />}</span>

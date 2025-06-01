@@ -7,11 +7,13 @@ import AwsSvg from 'public/images/aws.svg';
 import ChartJsSvg from 'public/images/chartjs.svg';
 import CssSvg from 'public/images/css.svg';
 import CypressSvg from 'public/images/cypress.svg';
+import DaisyUISvg from 'public/images/daisyui.svg';
 import DjangoSvg from 'public/images/django.svg';
 import FigmaSvg from 'public/images/figma.svg';
 import FirebaseSvg from 'public/images/firebase.svg';
 import GraphqlSvg from 'public/images/graphql.svg';
 import Html5Svg from 'public/images/html.svg';
+import I18nSvg from 'public/images/i18n.svg';
 import JavascriptSvg from 'public/images/javascript.svg';
 import JestSvg from 'public/images/jest.svg';
 import MysqlSvg from 'public/images/mysql.svg';
@@ -48,8 +50,10 @@ export const tailwindcss: Skill = {
 export const vuetify: Skill = { icon: VuetifySvg, name: 'Vuetify' };
 export const shadcn: Skill = { icon: ShadcnSvg, name: 'ShadcnVue' };
 export const primevue: Skill = { icon: PrimeVueSvg, name: 'PrimeVue' };
+export const daisyUI: Skill = { icon: DaisyUISvg, name: 'DaisyUI' };
 export const chartjs: Skill = { icon: ChartJsSvg, name: 'Chart.js' };
 export const unovis: Skill = { icon: UnovisSvg, name: 'Unovis' };
+export const i18n: Skill = { icon: I18nSvg, name: 'i18n' };
 
 // Backend Technologies
 export const node: Skill = { icon: NodejsSvg, name: 'Node' };
