@@ -1,3 +1,5 @@
+import type { Project } from '@/types';
+
 import {
   typescript,
   vue,
@@ -20,7 +22,7 @@ import pigtracks from '@/images/projects/pigtracks.png';
 import timeoff from '@/images/projects/timeoff.png';
 import vuebase from '@/images/projects/vuebase.png';
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: 'pigtracks',
     title: 'Pig Tracks',

@@ -11,3 +11,14 @@ export type SkillCategory = {
   categoryName: string;
   skills: Skill[];
 };
+
+export type Project = {
+  id: string;
+  title: string;
+  href: string;
+  alt: string;
+  description: string;
+  src: ImageMetadata;
+  technologies: Skill[];
+  lastUpdated?: string;
+};
