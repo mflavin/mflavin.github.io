@@ -1,98 +1,50 @@
 ---
 import { Image } from "astro:assets";
-
-import AwsSvg from "public/images/aws.svg";
-import JavascriptSvg from "public/images/javascript.svg";
-import TypescriptSvg from "public/images/typescript.svg";
-import VueSvg from "public/images/vue.svg";
-import GithubSvg from "public/images/github.svg";
-import LinkedinSvg from "public/images/linkedin.svg";
-
-// Images
-import profileImage from "@/images/profileImage.png";
-
-const svgsList = [
-  {
-    name: "Vue",
-    svg: VueSvg,
-  },
-  {
-    name: "JavaScript",
-    svg: JavascriptSvg,
-  },
-  {
-    name: "TypeScript",
-    svg: TypescriptSvg,
-  },
-  {
-    name: "AWS",
-    svg: AwsSvg,
-  },
-];
+import profileImage from "@/images/profile_image.png";
 ---
 
-<section class="flex md:flex-row md:justify-between">
-  <section>
-    <h3
-      class="header text-2xl bg-gradient-to-br from-primary to-primary/65 to-65% bg-clip-text text-transparent"
-    >
-      mflavin
-    </h3>
-    <div class="text-base text-default/75 max-w-xl">
-      Experienced Web Developer | Specialized in
-      {
-        svgsList.map((item, index) => (
-          <div class="inline-flex items-baseline">
-            <item.svg height="12" width="12" />
-            <span class="ml-0.5 text-default">
-              {index !== svgsList.length - 1 ? (
-                <span>{item.name},&nbsp;</span>
-              ) : (
-                <span>{item.name}</span>
-              )}
-            </span>
-          </div>
-        ))
-      }
-      | Passionate about Building Scalable Applications.
+<div>
+  <div class="flex items-center gap-x-3">
+    <div>
+      <Image
+        alt="mflavin"
+        loading="eager"
+        fetchpriority="high"
+        width="64"
+        height="64"
+        class="rounded-full"
+        src={profileImage}
+      />
     </div>
 
     <div>
+      <h1 class="text-lg font-medium text-foreground">mflavin</h1>
+      <p class="text-sm text-muted-foreground">Full Stack Web Developer</p>
+    </div>
+  </div>
+
+  <p class="mt-8 text-sm text-muted-foreground text-pretty">
+    I'm a passionate full stack web developer with a focus on building
+    accessible, performant, and user-friendly web applications. I love exploring
+    new technologies and trying out new ideas in my projects.
+  </p>
+
+  <div class="mt-5 flex items-center gap-x-2">
+    <span class="text-sm text-muted-foreground">
+      Check out my
       <a
+        class="text-primary hover:underline"
         title="More about me"
-        class="btn btn-primary mt-2 w-full no-underline sm:w-40"
         aria-label="More about me"
-        type="button"
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/mflavin"
       >
-        <GithubSvg class="btn-svg size-5" />
-        <span>More about me</span>
-      </a>
-
-      <a
-        title="Connect with me"
-        class="btn btn-secondary mt-2 w-full no-underline sm:w-40"
-        aria-label="Connect with me"
-        type="button"
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.linkedin.com/in/mflavin/"
+        GitHub profile</a
       >
-        <LinkedinSvg class="btn-svg size-5" />
-        <span>Connect with me</span>
-      </a>
-    </div>
-  </section>
-
-  <Image
-    alt="mflavin"
-    loading="eager"
-    fetchpriority="high"
-    width="160"
-    height="160"
-    class="aspect-square order-[-1] md:order-1 h-fit max-w-28 rounded-full object-cover object-center sm:float-right sm:max-w-36 md:max-w-40"
-    src={profileImage}
-  />
-</section>
+      <span class="text-muted-foreground">
+        for more projects and contributions.
+      </span>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,363 @@
+/* #region CSS Reset Start */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* #endregion CSS Reset End */
+
+/*#region Base Styles Start */
+:root {
+  --primary-color: #f9f9f9;
+  --secondary-color: #e0e0f0;
+  --accent-color: #4338ca;
+  --text-color: #333;
+  --paragraph-color: #555;
+  --bg-color: #eee;
+  --fill-color: black;
+  --filter: invert(100%);
+}
+
+:root.dark {
+  --primary-color: #444;
+  --secondary-color: #333;
+  --accent-color: #a5b4fc;
+  --text-color: #f9f9f9;
+  --paragraph-color: #ddd;
+  --bg-color: #333;
+  --fill-color: white;
+  --filter: invert(0%);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+}
+
+h2,
+h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  color: var(--paragraph-color);
+  font-size: 0.875em;
+  line-height: 1.5;
+  margin-block: 0.625em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25em;
+  margin: 1.25em auto;
+  max-width: 60em;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 60em;
+  width: 100%;
+}
+
+@media (min-width: 865px) {
+  .card {
+    max-width: 20em !important;
+  }
+
+  .card-container {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1249px) {
+  .container,
+  .card-container {
+    max-width: 80em;
+  }
+
+  .container {
+    padding: 0.625em;
+  }
+}
+
+/* #endregion Base Styles End */
+
+/*#region Card Styles Start */
+.card,
+.profile-card {
+  background-color: var(--primary-color);
+  border: 0.125em solid transparent;
+  border-radius: 0.625em;
+  box-shadow: 0 0.625em 1.25em rgba(0, 0, 0, 0.1);
+  padding: 1.25em;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.card {
+  min-height: 175px;
+  width: 20em;
+  margin: 0.625em;
+}
+
+.card:hover {
+  border-color: var(--accent-color);
+  transform: scale(1.01);
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20em;
+  text-align: start;
+  margin: 1.25em;
+}
+
+.profile-image {
+  width: 7.5em;
+  height: 7.5em;
+  border-radius: 50%;
+  margin: 0 0 1.25em;
+}
+
+.profile-content {
+  flex: 1;
+  font-family: sans-serif;
+}
+
+@media (min-width: 48em) {
+  .card,
+  .profile-card {
+    width: 31.25em;
+  }
+
+  .profile-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .profile-image {
+    margin-right: 1.25em;
+  }
+}
+
+.card-link {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-indent: -9999px;
+  top: 0;
+  width: 100%;
+}
+
+.title {
+  margin-top: 0.3125em;
+  margin-bottom: 1em;
+}
+
+.svg {
+  height: 4.6875em;
+  width: 4.6875em;
+}
+
+@media (min-width: 48em) {
+  .svg {
+    height: 7.8125em;
+    width: 7.8125em;
+  }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-inline: 0;
+  margin-block: 0.625em;
+  padding: 0;
+}
+
+.skills-list li {
+  margin: 0.3125em;
+}
+
+.badge {
+  background-color: var(--secondary-color);
+  border-radius: 0.3125em;
+  padding: 0.3125em 0.625em;
+  font-size: 0.75em;
+  color: var(--text-color);
+}
+
+/* #endregion Card Styles End */
+
+/* #region Dark Mode Styles Start */
+#darkModeToggle {
+  cursor: pointer;
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+  margin-bottom: 1.25em;
+}
+
+#darkModeToggle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+#moon,
+:root.dark #sun {
+  opacity: 0;
+}
+
+#sun,
+:root.dark #moon {
+  opacity: 1;
+}
+
+/* #endregion Dark Mode Styles End */

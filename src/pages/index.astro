@@ -6,22 +6,24 @@ import "@/styles/main.css";
 import Layout from "@/layouts/Layout.astro";
 
 // Components
+import EducationSection from "@components/EducationSection.astro";
 import ProfileSection from "@components/ProfileSection.astro";
 import ProjectsSection from "@components/ProjectsSection.astro";
 import SkillsSection from "@components/SkillsSection.astro";
+import WorkExperienceSection from "@components/WorkExperienceSection.astro";
 ---
 
 <Layout
   title="mflavin portfolio"
   description="Experienced Web Developer | Specialized in Vue, JavaScript, TypeScript, and AWS | Passionate about Building Scalable Applications."
 >
-  <main class="px-4 sm:px-6 lg:px-8 py-12 pt-28 z-0">
-    <div class="mx-auto max-w-limit flex flex-col gap-12">
-      <ProfileSection />
+  <ProfileSection />
 
-      <SkillsSection />
+  <ProjectsSection />
 
-      <ProjectsSection />
-    </div>
-  </main>
+  <SkillsSection />
+
+  <WorkExperienceSection />
+
+  <EducationSection />
 </Layout>

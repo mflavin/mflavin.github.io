@@ -1,0 +1,28 @@
+---
+import type { Skill } from "@types";
+
+interface Props {
+  class?: string;
+  skills: Skill[];
+  size?: number;
+}
+
+const { class: className, skills, size = 12 } = Astro.props;
+---
+
+<ul
+  class="inline-flex flex-wrap gap-y-1 gap-x-1"
+  class:list={[className ? className : ""]}
+>
+  {
+    skills.map((skill, index) => (
+      <li
+        class="inline-flex items-center justify-end text-sm text-foreground me-1 last:me-0"
+        class:list={[index !== skills.length - 1 ? 'after:content-[","]' : ""]}
+      >
+        <span>{<skill.icon height={size} width={size} />}</span>
+        <span class="ml-1">{skill.name}</span>
+      </li>
+    ))
+  }
+</ul>

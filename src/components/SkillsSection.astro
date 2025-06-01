@@ -1,8 +1,25 @@
 ---
-import SkillsSvgList from "@/components/SkillsSvgList.astro";
+import { groupedSkills } from "@data/skills";
+import SkillsList from "@/components/SkillsList.astro";
 ---
 
-<section>
-  <h3 class="header">Skills</h3>
-  <SkillsSvgList />
-</section>
+<div>
+  <h2 class="mb-5 font-medium text-foreground">Skills</h2>
+
+  <div class="space-y-3">
+    {
+      groupedSkills.map((groupedSkill) => (
+        <dl class="flex flex-col sm:flex-row items-start gap-x-4 gap-y-1">
+          <dt class="w-48 flex-shrink-0">
+            <span class="block text-sm text-muted-foreground">
+              {groupedSkill.categoryName}:
+            </span>
+          </dt>
+          <dd class="flex-1">
+            <SkillsList skills={groupedSkill.skills} />
+          </dd>
+        </dl>
+      ))
+    }
+  </div>
+</div>
