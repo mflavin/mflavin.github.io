@@ -2,14 +2,18 @@
 import type { Skill } from "@types";
 
 interface Props {
+  class?: string;
   skills: Skill[];
   size?: number;
 }
 
-const { skills, size = 12 } = Astro.props;
+const { class: className, skills, size = 12 } = Astro.props;
 ---
 
-<ul class="inline-flex flex-wrap gap-y-1 gap-x-1">
+<ul
+  class="inline-flex flex-wrap gap-y-1 gap-x-1"
+  class:list={[className ? className : ""]}
+>
   {
     skills.map((skill, index) => (
       <li

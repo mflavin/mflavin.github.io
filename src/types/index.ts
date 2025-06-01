@@ -13,12 +13,13 @@ export type SkillCategory = {
 };
 
 export type Project = {
-  id: string;
-  title: string;
-  href: string;
   alt: string;
   description: string;
+  features: string[];
+  href: string;
+  id: string;
+  lastUpdated: string;
   src: ImageMetadata;
   technologies: Skill[];
-  lastUpdated?: string;
+  title: string;
 };

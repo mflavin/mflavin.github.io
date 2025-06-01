@@ -33,7 +33,7 @@ if (!selectedProject) {
     style={`view-transition-name: ${projectId};`}
   >
     <a
-      class="self-start text-muted-foreground hover:text-foreground group"
+      class="self-start text-muted-foreground hover:text-foreground group pe-4 py-2"
       title="Back to projects"
       aria-label="Back to projects"
       href="/"
@@ -52,35 +52,27 @@ if (!selectedProject) {
       {selectedProject.description}
     </p>
 
-    <div class="border border-border rounded-lg shadow-lg overflow-hidden">
-      <div class="flex items-center h-8 px-4 bg-muted border-b border-border">
-        <span class="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
-        <span class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
-        <span class="w-3 h-3 rounded-full bg-green-500"></span>
-      </div>
-
-      <Image
-        class="w-full h-96 object-cover object-top"
-        src={selectedProject.src}
-        alt={selectedProject.alt}
-        loading="lazy"
-        fetchpriority="high"
-        width={1130}
-        height={700}
-        decoding="async"
-        format="webp"
-      />
-    </div>
+    <Image
+      class="w-full h-96 object-cover object-top"
+      src={selectedProject.src}
+      alt={selectedProject.alt}
+      loading="lazy"
+      fetchpriority="high"
+      width={1130}
+      height={700}
+      decoding="async"
+      format="webp"
+    />
 
     <!-- Leave features as optional for now  -->
     {
       selectedProject.features && (
         <div class="mt-4">
-          <h2 class="text-lg font-medium text-foreground mb-3">Key Features</h2>
-          <ul class="text-left text-foreground space-y-2.5">
+          <h2 class="font-medium text-foreground mb-3">Key Features</h2>
+          <ul class="text-left text-foreground space-y-4">
             {selectedProject.features.map((feature) => (
-              <li class="flex items-start gap-3">
-                <Check class="text-green-500 size-5 mt-1" />
+              <li class="flex items-start gap-3 text-sm">
+                <Check class="text-green-500 size-3 min-w-3 min-h-3 mt-1" />
                 <span>{feature}</span>
               </li>
             ))}
@@ -113,8 +105,12 @@ if (!selectedProject) {
     </div>
 
     <div class="mt-4">
-      <h2 class="text-lg font-medium text-foreground mb-3">Built With</h2>
-      <SkillsList skills={selectedProject.technologies} size={20} />
+      <h2 class="font-medium text-foreground mb-3">Built With</h2>
+      <SkillsList
+        class:list="gap-y-4"
+        skills={selectedProject.technologies}
+        size={20}
+      />
     </div>
 
     <p class="text-sm text-muted-foreground mt-2">
