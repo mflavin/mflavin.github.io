@@ -61,14 +61,7 @@ export const projects = [
     description:
       'HR App that allows you join meetings, send messages, track employees, time attendance, and much more!',
     src: hr,
-    technologies: [
-      vue,
-      typescript,
-      primevue,
-      tailwindcss,
-      chartjs,
-      vueI18n,
-    ],
+    technologies: [vue, typescript, primevue, tailwindcss, chartjs, vueI18n],
     lastUpdated: 'October 2024',
   },
   {

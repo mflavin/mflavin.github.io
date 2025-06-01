@@ -150,7 +150,11 @@
 }
 
 @layer components {
-  .footer-btn {
-    @apply text-muted-foreground hover:text-accent-foreground border-input hover:bg-input/50 relative flex size-7 items-center justify-center rounded-full border shadow-xs;
+  .btn {
+    @apply text-foreground border-border hover:bg-foreground/10 inline-flex min-h-12 cursor-pointer items-center justify-center rounded-lg border px-6 py-2 shadow-sm;
+  }
+
+  .btn-rounded {
+    @apply size-7 min-h-7 rounded-full p-0;
   }
 }
