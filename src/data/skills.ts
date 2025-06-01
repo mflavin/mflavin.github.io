@@ -7,7 +7,7 @@ import AwsSvg from 'public/images/aws.svg';
 import ChartJsSvg from 'public/images/chartjs.svg';
 import CssSvg from 'public/images/css.svg';
 import CypressSvg from 'public/images/cypress.svg';
-import DaisyUISvg from 'public/images/daisyui.svg';
+import DaisyUISvg from 'public/images/daisyUI.svg';
 import DjangoSvg from 'public/images/django.svg';
 import FigmaSvg from 'public/images/figma.svg';
 import FirebaseSvg from 'public/images/firebase.svg';
