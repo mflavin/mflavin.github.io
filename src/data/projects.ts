@@ -12,6 +12,8 @@ import {
   supabase,
   i18n,
   daisyUI,
+  shadcn,
+  unovis,
 } from '@data/skills';
 
 import bank from '@/images/projects/bank.png';
@@ -20,9 +22,26 @@ import hr from '@/images/projects/hr.png';
 import nuxt3 from '@/images/projects/nuxt3.png';
 import pigtracks from '@/images/projects/pigtracks.png';
 import timeoff from '@/images/projects/timeoff.png';
+import untitledBudget from '@/images/projects/untitled_budget.png';
 import vuebase from '@/images/projects/vuebase.png';
 
 export const projects: Project[] = [
+  {
+    alt: 'Untitled Budget',
+    description:
+      'An envelope budgeting app to track your financial goals and expenses.',
+    features: [
+      'Create and manage budgets with goal, spent, and funded amounts.',
+      'Track transactions and categorize expenses for better insights.',
+      'Visualize financial data with interactive charts and analytics.',
+    ],
+    href: 'https://untitled-budget.netlify.app/',
+    id: 'untitledBudget',
+    lastUpdated: 'May 2025',
+    src: untitledBudget,
+    technologies: [vue, typescript, tailwindcss, shadcn, unovis, firebase],
+    title: 'Untitled Budget',
+  },
   {
     alt: 'Pig Tracks',
     description:
