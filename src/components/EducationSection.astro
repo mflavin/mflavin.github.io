@@ -4,28 +4,28 @@ import { education } from "@data/education";
 ---
 
 <div>
-  <h2 class='mb-5 font-medium text-foreground'>Education</h2>
+  <h2 class="mb-5 font-medium text-foreground">Education</h2>
 
-  <div class='flex flex-col gap-3'>
+  <div class="flex flex-col gap-3">
     {
       education.map((edu) => (
-        <div class='p-4 border border-input rounded-lg'>
-          <div class='mb-3'>
+        <div class="p-4 border border-input rounded-lg">
+          <div class="mb-3">
             <Image
               alt={edu.institution}
               src={edu.logo}
-              width='40'
-              height='40'
+              width="40"
+              height="40"
             />
           </div>
 
-          <h3 class='mb-1 text-xs text-muted-foreground'>
+          <h3 class="mb-1 text-xs text-muted-foreground">
             {edu.startYear} - {edu.endYear}
           </h3>
 
-          <p class='font-semibold text-sm text-foreground'>{edu.degree}</p>
+          <p class="font-semibold text-sm text-foreground">{edu.degree}</p>
 
-          <p class='mt-1 text-sm text-muted-foreground'>{edu.institution}</p>
+          <p class="mt-1 text-sm text-muted-foreground">{edu.institution}</p>
         </div>
       ))
     }

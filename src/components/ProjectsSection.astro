@@ -5,33 +5,33 @@ import { projects } from "@/data/projects.js";
 ---
 
 <div>
-  <h2 class='mb-5 font-medium text-foreground'>Projects</h2>
+  <h2 class="mb-5 font-medium text-foreground">Projects</h2>
 
-  <div class='grid grid-cols-2 sm:grid-cols-3 gap-2'>
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
     {
       projects.map((project) => (
         <a
-          class='group block relative overflow-hidden rounded-lg'
+          class="group block relative overflow-hidden rounded-lg"
           href={project.id}
-          rel='noopener noreferrer'
+          rel="noopener noreferrer"
           title={project.title}
           transition:name={project.id}
         >
           <Image
-            class='w-full size-40 object-cover rounded-lg object-top'
+            class="w-full size-40 object-cover rounded-lg object-top"
             src={project.src}
             alt={project.alt}
-            loading='lazy'
-            fetchpriority='low'
-            width='720'
-            height='160'
-            decoding='async'
-            format='webp'
+            loading="lazy"
+            fetchpriority="low"
+            width="720"
+            height="160"
+            decoding="async"
+            format="webp"
           />
-          <div class='absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition'>
-            <div class='flex items-center gap-x-1 py-1 px-2 bg-background border rounded-lg border-input text-foreground'>
-              <Eye class='size-4' />
-              <span class='text-xs'>View</span>
+          <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+            <div class="flex items-center gap-x-1 py-1 px-2 bg-background border rounded-lg border-input text-foreground">
+              <Eye class="size-4" />
+              <span class="text-xs">View</span>
             </div>
           </div>
         </a>

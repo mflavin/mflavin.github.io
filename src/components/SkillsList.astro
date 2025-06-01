@@ -7,21 +7,21 @@ interface Props {
   textClass?: string;
 }
 
-const { skills, size = 12, textClass = 'text-sm' } = Astro.props;
+const { skills, size = 12, textClass = "text-sm" } = Astro.props;
 ---
 
-<ul class='inline-flex flex-wrap gap-y-1 gap-x-1'>
+<ul class="inline-flex flex-wrap gap-y-1 gap-x-1">
   {
     skills.map((skill, index) => (
       <li
-        class='inline-flex items-center text-foreground me-1 last:me-0'
+        class="inline-flex items-center text-foreground me-1 last:me-0"
         class:list={[
           textClass,
-          index !== skills.length - 1 ? 'after:content-[","]' : ""
+          index !== skills.length - 1 ? 'after:content-[","]' : "",
         ]}
       >
         <span>{<skill.icon height={size} width={size} />}</span>
-        <span class='ml-1'>{skill.name}</span>
+        <span class="ml-1">{skill.name}</span>
       </li>
     ))
   }

@@ -10,13 +10,13 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang='en' class='dark'>
+<html lang="en" class="dark">
   <head>
     <Head title={title} description={description} />
   </head>
-  <body class='max-w-2xl w-full mx-auto'>
+  <body class="max-w-2xl w-full mx-auto">
     <main
-      class='pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-10 sm:gap-y-14'
+      class="pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-10 sm:gap-y-14"
     >
       <slot />
     </main>

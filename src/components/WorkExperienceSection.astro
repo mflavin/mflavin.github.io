@@ -4,30 +4,30 @@ import { workExperience } from "@/data/workExperience";
 ---
 
 <div>
-  <h2 class='mb-5 font-medium text-foreground'>Work experience</h2>
+  <h2 class="mb-5 font-medium text-foreground">Work experience</h2>
 
   <div>
     {
       workExperience.map((job) => (
-        <div class='group relative flex gap-x-5'>
-          <div class='relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-muted-foreground'>
-            <div class='relative z-10 size-10 flex justify-center items-center'>
-              <Image alt={job.company} src={job.logo} width='40' height='40' />
+        <div class="group relative flex gap-x-5">
+          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-muted-foreground">
+            <div class="relative z-10 size-10 flex justify-center items-center">
+              <Image alt={job.company} src={job.logo} width="40" height="40" />
             </div>
           </div>
 
-          <div class='grow pb-8 group-last:pb-0'>
-            <h3 class='mb-1 text-xs text-muted-foreground'>{job.duration}</h3>
+          <div class="grow pb-8 group-last:pb-0">
+            <h3 class="mb-1 text-xs text-muted-foreground">{job.duration}</h3>
 
-            <p class='font-semibold text-sm textforeground'>
+            <p class="font-semibold text-sm textforeground">
               {job.company} - {job.position}
             </p>
 
-            <p class='mt-1 text-sm text-muted-foreground'>{job.description}</p>
+            <p class="mt-1 text-sm text-muted-foreground">{job.description}</p>
 
-            <ul class='list-disc ms-6 mt-3 space-y-1.5'>
+            <ul class="list-disc ms-6 mt-3 space-y-1.5">
               {job.responsibilities.map((responsibility) => (
-                <li class='text-sm text-muted-foreground'>{responsibility}</li>
+                <li class="text-sm text-muted-foreground">{responsibility}</li>
               ))}
             </ul>
           </div>
