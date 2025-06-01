@@ -3,19 +3,24 @@ import type { Skill } from "@types";
 
 interface Props {
   skills: Skill[];
+  size?: number;
+  textClass?: string;
 }
 
-const { skills } = Astro.props;
+const { skills, size = 12, textClass = 'text-sm' } = Astro.props;
 ---
 
 <ul class='inline-flex flex-wrap gap-y-1 gap-x-1'>
   {
     skills.map((skill, index) => (
       <li
-        class='inline-flex items-center text-sm text-foreground me-1 last:me-0'
-        class:list={index !== skills.length - 1 ? 'after:content-[","]' : ""}
+        class='inline-flex items-center text-foreground me-1 last:me-0'
+        class:list={[
+          textClass,
+          index !== skills.length - 1 ? 'after:content-[","]' : ""
+        ]}
       >
-        <span>{<skill.icon height='12' width='12' />}</span>
+        <span>{<skill.icon height={size} width={size} />}</span>
         <span class='ml-1'>{skill.name}</span>
       </li>
     ))

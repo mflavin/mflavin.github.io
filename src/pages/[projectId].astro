@@ -3,7 +3,7 @@
 import "@/styles/main.css";
 
 import { Image } from "astro:assets";
-import { ArrowLeftFromLine } from "@lucide/astro";
+import { ArrowLeftFromLine, Check, CodeIcon, PlayIcon } from "@lucide/astro";
 import { projects } from "@/data/projects.js";
 
 import Layout from "@/layouts/Layout.astro";
@@ -29,46 +29,100 @@ if (!selectedProject) {
   description={`Details about the project: ${selectedProject.title}`}
 >
   <div
-    class='flex flex-col gap-y-5'
+    class='flex flex-col gap-y-6'
     style={`view-transition-name: ${projectId};`}
   >
     <a
-      class='footer-btn'
+      class='self-start text-muted-foreground hover:text-foreground group'
       title='Back to projects'
       aria-label='Back to projects'
-      type='button'
-      rel='noopener noreferrer'
       href='/'
     >
-      <span class='sr-only'>Back to projects</span>
-      <ArrowLeftFromLine class='size-4' />
+      <ArrowLeftFromLine
+        class='size-5 inline-block mr-1 transition-transform group-hover:-translate-x-0.5'
+      />
+      <span class='text-sm'>Back to projects</span>
     </a>
 
-    <h1 class='text-lg font-medium text-foreground'>
+    <h1 class='text-4xl font-medium text-foreground text-center'>
       {selectedProject.title}
     </h1>
 
-    <Image
-      class='w-full object-cover rounded-lg'
-      src={selectedProject.src}
-      alt={selectedProject.alt}
-      loading='lazy'
-      fetchpriority='high'
-      width='1130'
-      height='1100'
-      decoding='async'
-      format='webp'
-    />
-
-    <p class='text-sm text-muted-foreground'>
+    <p class='text-base text-muted-foreground text-center'>
       {selectedProject.description}
     </p>
 
-    <SkillsList skills={selectedProject.technologies} />
+    <div class='border border-border rounded-lg shadow-lg overflow-hidden'>
+      <div class='flex items-center h-8 px-4 bg-muted border-b border-border'>
+        <span class='w-3 h-3 rounded-full bg-red-500 mr-2'></span>
+        <span class='w-3 h-3 rounded-full bg-yellow-500 mr-2'></span>
+        <span class='w-3 h-3 rounded-full bg-green-500'></span>
+      </div>
 
-    <p class='text-xs text-muted-foreground'>
-      Last Updated:
-      {selectedProject.lastUpdated}
+      <Image
+        class='w-full h-auto object-cover'
+        src={selectedProject.src}
+        alt={selectedProject.alt}
+        loading='lazy'
+        fetchpriority='high'
+        width={1130}
+        height={700}
+        decoding='async'
+        format='webp'
+      />
+    </div>
+
+    <!-- Leave features as optional for now  -->
+    {
+      selectedProject.features && (
+        <div class='mt-4'>
+          <h2 class='text-xl font-medium text-foreground mb-3'>Key Features</h2>
+          <ul class='text-left text-foreground space-y-2.5'>
+            {selectedProject.features.map((feature) => (
+              <li class='flex items-start gap-3'>
+                <Check class='text-green-500 size-5 mt-1' />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+
+    <div class='flex mt-4 flex-col gap-4 sm:flex-row'>
+      <a
+        href={selectedProject.href}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='btn w-full bg-primary text-primary-foreground hover:bg-primary/90'
+        type='button'
+      >
+        <PlayIcon class='size-4 me-2' />
+        Live Demo
+      </a>
+      <a
+        href={selectedProject.href}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='btn w-full'
+        type='button'
+      >
+        <CodeIcon class='size-4 me-2' />
+        View Code
+      </a>
+    </div>
+
+    <div class='mt-4'>
+      <h2 class='text-xl font-medium text-foreground mb-3'>Built With</h2>
+      <SkillsList
+        skills={selectedProject.technologies}
+        size={20}
+        textClass='text-base'
+      />
+    </div>
+
+    <p class='text-sm text-muted-foreground mt-2 self-center sm:self-end'>
+      Last Updated: {selectedProject.lastUpdated}
     </p>
   </div>
 </Layout>
