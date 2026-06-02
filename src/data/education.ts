@@ -1,6 +1,7 @@
+import type { Education } from '@/types';
 import illinoisTechLogo from '@/images/illinois_tech_logo.jpg';
 
-export const education = [
+export const education: Education[] = [
   {
     logo: illinoisTechLogo,
     degree: "Bachelor's degree, Software Development",

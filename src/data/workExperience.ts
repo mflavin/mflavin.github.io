@@ -1,7 +1,8 @@
+import type { WorkExperience } from '@/types';
 import continentalLogo from '@/images/continental_logo.jpg';
 import qsrsoftLogo from '@/images/qsrsoft_logo.jpg';
 
-export const workExperience = [
+export const workExperience: WorkExperience[] = [
   {
     logo: qsrsoftLogo,
     company: 'QSRSoft',

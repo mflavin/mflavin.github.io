@@ -92,16 +92,18 @@ if (!selectedProject) {
         <PlayIcon class="size-4 me-2" />
         Live Demo
       </a>
-      <a
-        href={selectedProject.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn w-full"
-        type="button"
-      >
-        <CodeIcon class="size-4 me-2" />
-        View Code
-      </a>
+      {selectedProject.github && (
+        <a
+          href={selectedProject.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn w-full"
+          type="button"
+        >
+          <CodeIcon class="size-4 me-2" />
+          View Code
+        </a>
+      )}
     </div>
 
     <div class="mt-4">
