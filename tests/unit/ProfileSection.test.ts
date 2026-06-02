@@ -1,6 +1,6 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { describe, expect, test } from 'vitest';
-import ProfileSection from '../src/components/ProfileSection.astro';
+import ProfileSection from '../../src/components/ProfileSection.astro';
 
 describe('Profile Section', () => {
   test('should render the profile section', async () => {

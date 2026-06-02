@@ -1,6 +1,6 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { describe, expect, test } from 'vitest';
-import AppNav from '../src/components/AppNav.astro';
+import AppNav from '../../src/components/AppNav.astro';
 
 describe('Theme Selector', () => {
   test('should render the theme selector', async () => {

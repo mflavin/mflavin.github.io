@@ -1,6 +1,6 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { describe, expect, test } from 'vitest';
-import SkillsSvgList from '../src/components/SkillsSvgList.astro';
+import SkillsSvgList from '../../src/components/SkillsSvgList.astro';
 
 describe('Skills Svg List', () => {
   test('should render the skills svg list', async () => {
