@@ -5,6 +5,9 @@ import "@/styles/main.css";
 // Layout
 import Layout from "@/layouts/Layout.astro";
 
+// Data
+import { siteConfig } from "@/data/siteConfig";
+
 // Components
 import EducationSection from "@components/EducationSection.astro";
 import ProfileSection from "@components/ProfileSection.astro";
@@ -13,10 +16,7 @@ import SkillsSection from "@components/SkillsSection.astro";
 import WorkExperienceSection from "@components/WorkExperienceSection.astro";
 ---
 
-<Layout
-  title="mflavin portfolio"
-  description="Experienced Web Developer | Specialized in Vue, JavaScript, TypeScript, and AWS | Passionate about Building Scalable Applications."
->
+<Layout title={siteConfig.title} description={siteConfig.description}>
   <ProfileSection />
 
   <ProjectsSection />

@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { siteConfig } from "@/data/siteConfig";
 import profileImage from "@/images/profile_image.png";
 ---
 
@@ -38,7 +39,7 @@ import profileImage from "@/images/profile_image.png";
         aria-label="More about me"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/mflavin"
+        href={siteConfig.social.github}
       >
         GitHub profile</a
       >

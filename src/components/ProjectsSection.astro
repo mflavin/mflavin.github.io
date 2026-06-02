@@ -7,7 +7,7 @@ import { projects } from "@/data/projects.js";
 <div>
   <h2 class="mb-5 text-lg font-semibold tracking-tight text-foreground">Projects</h2>
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
     {
       projects.map((project) => (
         <a
@@ -18,21 +18,19 @@ import { projects } from "@/data/projects.js";
           transition:name={project.id}
         >
           <Image
-            class="w-full size-40 object-cover rounded-lg object-top"
+            class="w-full aspect-[4/3] object-cover rounded-lg object-top"
             src={project.src}
             alt={project.alt}
             loading="lazy"
             fetchpriority="low"
             width="720"
-            height="160"
+            height="540"
             decoding="async"
             format="webp"
           />
-          <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
-            <div class="flex items-center gap-x-1 py-1 px-2 bg-background border rounded-lg border-input text-foreground">
-              <Eye class="size-4" />
-              <span class="text-xs">View</span>
-            </div>
+          <div class="mt-2 flex items-center justify-between">
+            <span class="text-sm font-medium text-foreground truncate">{project.title}</span>
+            <Eye class="size-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition shrink-0" />
           </div>
         </a>
       ))
