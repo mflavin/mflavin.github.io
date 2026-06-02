@@ -107,7 +107,7 @@ export const projects: Project[] = [
     id: 'hr',
     lastUpdated: 'October 2024',
     src: hr,
-    technologies: [vue, typescript, primevue, tailwindcss, chartjs, i18n],
+    technologies: [vue, typescript, tailwindcss, primevue, chartjs, i18n],
     title: 'HR App',
   },
   {
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     id: 'bank',
     lastUpdated: 'September 2024',
     src: bank,
-    technologies: [vue, typescript, primevue, tailwindcss, chartjs],
+    technologies: [vue, typescript, tailwindcss, primevue, chartjs],
     title: 'Banking App',
   },
   {
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     id: 'vuebase',
     lastUpdated: 'February 2024',
     src: vuebase,
-    technologies: [vue, javascript, daisyUI, tailwindcss, firebase],
+    technologies: [vue, javascript, tailwindcss, daisyUI, firebase],
     title: 'Notes App (Vue Version)',
   },
 ];
