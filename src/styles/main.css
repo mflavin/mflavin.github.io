@@ -29,6 +29,7 @@
 
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
+  --brand: oklch(0.6 0.118 184.704); /* teal-600 */
   --radius: 0.5rem;
 
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.02);
@@ -73,6 +74,7 @@
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
+  --brand: oklch(0.777 0.152 181.912); /* teal-400 */
   --radius: 0.5rem;
 
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.02);
@@ -119,6 +121,7 @@
 
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-brand: var(--brand);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -175,5 +178,13 @@
 
   .btn-rounded {
     @apply size-7 min-h-7 rounded-full p-0;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-x-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground;
+  }
+
+  .pill-brand {
+    @apply border-brand/25 bg-brand/10 text-brand;
   }
 }
