@@ -152,7 +152,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary rounded-sm;
+    @apply outline-primary rounded-sm outline-2 outline-offset-2;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -181,7 +181,7 @@
   }
 
   .pill {
-    @apply inline-flex items-center gap-x-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground whitespace-nowrap;
+    @apply border-border bg-secondary text-secondary-foreground inline-flex items-center gap-x-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium whitespace-nowrap;
   }
 
   .pill-brand {

@@ -19,6 +19,7 @@
 ### Task 1: Add teal brand token and pill component classes
 
 **Files:**
+
 - Modify: `src/styles/main.css`
 - Modify: `.gitignore` (already changed, just commit it)
 
@@ -27,13 +28,13 @@
 In `src/styles/main.css`, inside the `:root { ... }` block (after `--input: oklch(0.92 0.004 286.32);`, before `--radius`), add:
 
 ```css
-  --brand: oklch(0.6 0.118 184.704); /* teal-600 */
+--brand: oklch(0.6 0.118 184.704); /* teal-600 */
 ```
 
 Inside the `:root.dark { ... }` block (after `--input: oklch(1 0 0 / 15%);`, before `--radius`), add:
 
 ```css
-  --brand: oklch(0.777 0.152 181.912); /* teal-400 */
+--brand: oklch(0.777 0.152 181.912); /* teal-400 */
 ```
 
 - [ ] **Step 2: Expose the token to Tailwind**
@@ -41,7 +42,7 @@ Inside the `:root.dark { ... }` block (after `--input: oklch(1 0 0 / 15%);`, bef
 In the `@theme inline { ... }` block, after `--color-input: var(--input);`, add:
 
 ```css
-  --color-brand: var(--brand);
+--color-brand: var(--brand);
 ```
 
 - [ ] **Step 3: Add pill component classes**
@@ -49,13 +50,13 @@ In the `@theme inline { ... }` block, after `--color-input: var(--input);`, add:
 In the `@layer components { ... }` block, after the `.btn-rounded` rule, add:
 
 ```css
-  .pill {
-    @apply inline-flex items-center gap-x-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground;
-  }
+.pill {
+  @apply border-border bg-secondary text-secondary-foreground inline-flex items-center gap-x-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium;
+}
 
-  .pill-brand {
-    @apply border-brand/25 bg-brand/10 text-brand;
-  }
+.pill-brand {
+  @apply border-brand/25 bg-brand/10 text-brand;
+}
 ```
 
 - [ ] **Step 4: Verify build**
@@ -75,6 +76,7 @@ git commit -m "Add teal brand token and pill component classes"
 ### Task 2: Create SectionHeader component
 
 **Files:**
+
 - Create: `src/components/SectionHeader.astro`
 
 - [ ] **Step 1: Create the component**
@@ -115,6 +117,7 @@ git commit -m "Add SectionHeader component with teal kicker"
 ### Task 3: Widen layout and increase section rhythm
 
 **Files:**
+
 - Modify: `src/layouts/Layout.astro:19-31`
 
 - [ ] **Step 1: Update body width and main spacing**
@@ -122,31 +125,33 @@ git commit -m "Add SectionHeader component with teal kicker"
 In `src/layouts/Layout.astro`, change:
 
 ```astro
-  <body class="max-w-3xl w-full mx-auto antialiased">
+<body class="max-w-3xl w-full mx-auto antialiased"></body>
 ```
 
 to:
 
 ```astro
-  <body class="max-w-4xl w-full mx-auto antialiased">
+<body class="max-w-4xl w-full mx-auto antialiased"></body>
 ```
 
 and change:
 
 ```astro
-    <main
-      id="main-content"
-      class="pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-10 sm:gap-y-14"
-    >
+<main
+  id="main-content"
+  class="pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-10 sm:gap-y-14"
+>
+</main>
 ```
 
 to:
 
 ```astro
-    <main
-      id="main-content"
-      class="pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-16 sm:gap-y-20"
-    >
+<main
+  id="main-content"
+  class="pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 flex flex-col gap-y-16 sm:gap-y-20"
+>
+</main>
 ```
 
 - [ ] **Step 2: Verify build**
@@ -166,6 +171,7 @@ git commit -m "Widen layout to max-w-4xl and increase section spacing"
 ### Task 4: Restyle ProfileSection
 
 **Files:**
+
 - Modify: `src/components/ProfileSection.astro` (full rewrite of template)
 
 - [ ] **Step 1: Rewrite the component**
@@ -174,11 +180,11 @@ Replace the entire contents of `src/components/ProfileSection.astro` with:
 
 ```astro
 ---
-import { Image } from "astro:assets";
-import { Mail } from "@lucide/astro";
-import { siteConfig } from "@/data/siteConfig";
-import profileImage from "@/images/profile_image.png";
-import GithubSvg from "public/images/github.svg";
+import { Image } from 'astro:assets';
+import { Mail } from '@lucide/astro';
+import { siteConfig } from '@/data/siteConfig';
+import profileImage from '@/images/profile_image.png';
+import GithubSvg from 'public/images/github.svg';
 ---
 
 <div>
@@ -257,6 +263,7 @@ git commit -m "Restyle profile: larger avatar with teal ring, teal title, icon l
 ### Task 5: Convert skills to pill badges
 
 **Files:**
+
 - Modify: `src/components/SkillsList.astro` (full rewrite)
 - Modify: `src/components/SkillsSection.astro` (full rewrite)
 
@@ -266,28 +273,33 @@ Replace the entire contents of `src/components/SkillsList.astro` with:
 
 ```astro
 ---
-import type { Skill } from "@types";
+import type { Skill } from '@types';
 
 interface Props {
   class?: string;
   skills: Skill[];
   size?: number;
-  variant?: "neutral" | "brand";
+  variant?: 'neutral' | 'brand';
 }
 
-const { class: className, skills, size = 14, variant = "neutral" } = Astro.props;
+const {
+  class: className,
+  skills,
+  size = 14,
+  variant = 'neutral',
+} = Astro.props;
 ---
 
 <ul
   class="flex flex-wrap gap-1.5"
-  class:list={[className ? className : ""]}
+  class:list={[className ? className : '']}
   aria-label="List of skills"
 >
   {
     skills.map((skill) => (
       <li
         class="pill"
-        class:list={[variant === "brand" ? "pill-brand" : ""]}
+        class:list={[variant === 'brand' ? 'pill-brand' : '']}
         aria-label={skill.name}
       >
         <skill.icon height={size} width={size} />
@@ -306,9 +318,9 @@ Replace the entire contents of `src/components/SkillsSection.astro` with:
 
 ```astro
 ---
-import { groupedSkills } from "@data/skills";
-import SkillsList from "@/components/SkillsList.astro";
-import SectionHeader from "@/components/SectionHeader.astro";
+import { groupedSkills } from '@data/skills';
+import SkillsList from '@/components/SkillsList.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 ---
 
 <div>
@@ -346,6 +358,7 @@ git commit -m "Convert skills to pill badges with uppercase category labels"
 ### Task 6: Convert projects to detail cards
 
 **Files:**
+
 - Modify: `src/components/ProjectsSection.astro` (full rewrite)
 
 - [ ] **Step 1: Rewrite ProjectsSection**
@@ -354,10 +367,10 @@ Replace the entire contents of `src/components/ProjectsSection.astro` with:
 
 ```astro
 ---
-import { Image } from "astro:assets";
-import { ArrowRight } from "@lucide/astro";
-import { projects } from "@/data/projects.js";
-import SectionHeader from "@/components/SectionHeader.astro";
+import { Image } from 'astro:assets';
+import { ArrowRight } from '@lucide/astro';
+import { projects } from '@/data/projects.js';
+import SectionHeader from '@/components/SectionHeader.astro';
 ---
 
 <div>
@@ -391,7 +404,10 @@ import SectionHeader from "@/components/SectionHeader.astro";
               <ArrowRight class="size-4 shrink-0 text-brand opacity-0 -translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0" />
             </div>
             <p class="text-sm text-muted-foreground">{project.description}</p>
-            <ul class="mt-1 flex flex-wrap gap-1.5" aria-label="Technologies used">
+            <ul
+              class="mt-1 flex flex-wrap gap-1.5"
+              aria-label="Technologies used"
+            >
               {project.technologies.map((tech) => (
                 <li class="pill pill-brand">{tech.name}</li>
               ))}
@@ -423,6 +439,7 @@ git commit -m "Convert projects to 2-column detail cards with blurb and tech tag
 ### Task 7: Refine work experience timeline
 
 **Files:**
+
 - Modify: `src/components/WorkExperienceSection.astro` (full rewrite)
 
 - [ ] **Step 1: Rewrite WorkExperienceSection**
@@ -431,9 +448,9 @@ Replace the entire contents of `src/components/WorkExperienceSection.astro` with
 
 ```astro
 ---
-import { Image } from "astro:assets";
-import { workExperience } from "@/data/workExperience";
-import SectionHeader from "@/components/SectionHeader.astro";
+import { Image } from 'astro:assets';
+import { workExperience } from '@/data/workExperience';
+import SectionHeader from '@/components/SectionHeader.astro';
 ---
 
 <div>
@@ -494,6 +511,7 @@ git commit -m "Refine work experience timeline: bordered logo squares, teal comp
 ### Task 8: Restyle education to match the timeline
 
 **Files:**
+
 - Modify: `src/components/EducationSection.astro` (full rewrite)
 
 - [ ] **Step 1: Rewrite EducationSection**
@@ -502,9 +520,9 @@ Replace the entire contents of `src/components/EducationSection.astro` with:
 
 ```astro
 ---
-import { Image } from "astro:assets";
-import { education } from "@data/education";
-import SectionHeader from "@/components/SectionHeader.astro";
+import { Image } from 'astro:assets';
+import { education } from '@data/education';
+import SectionHeader from '@/components/SectionHeader.astro';
 ---
 
 <div>
@@ -560,6 +578,7 @@ git commit -m "Restyle education to match work experience timeline"
 ### Task 9: Restyle footer and project detail pages
 
 **Files:**
+
 - Modify: `src/components/Footer.astro:9` and social link classes
 - Modify: `src/pages/[projectId].astro` (template section)
 
@@ -569,24 +588,26 @@ In `src/components/Footer.astro`, change:
 
 ```astro
 <footer class="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-14">
+</footer>
 ```
 
 to:
 
 ```astro
 <footer class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
+</footer>
 ```
 
 Then add teal hover to each of the three social links (Email, LinkedIn, GitHub) by changing each occurrence of:
 
 ```astro
-          class="btn btn-rounded"
+class="btn btn-rounded"
 ```
 
 to:
 
 ```astro
-          class="btn btn-rounded hover:border-brand/50 hover:text-brand"
+class="btn btn-rounded hover:border-brand/50 hover:text-brand"
 ```
 
 (Three occurrences — use replace-all. The `DarkModeToggle` is untouched.)
@@ -665,22 +686,28 @@ In `src/pages/[projectId].astro`, replace the template (everything from `<Layout
         <PlayIcon class="size-4 me-2" />
         Live Demo
       </a>
-      {selectedProject.github && (
-        <a
-          href={selectedProject.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn w-full hover:border-brand/50 hover:text-brand"
-        >
-          <CodeIcon class="size-4 me-2" />
-          View Code
-        </a>
-      )}
+      {
+        selectedProject.github && (
+          <a
+            href={selectedProject.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn w-full hover:border-brand/50 hover:text-brand"
+          >
+            <CodeIcon class="size-4 me-2" />
+            View Code
+          </a>
+        )
+      }
     </div>
 
     <div class="mt-6">
       <SectionHeader title="Built With" />
-      <SkillsList skills={selectedProject.technologies} variant="brand" size={16} />
+      <SkillsList
+        skills={selectedProject.technologies}
+        variant="brand"
+        size={16}
+      />
     </div>
 
     <p class="text-sm text-muted-foreground mt-2">
@@ -717,6 +744,7 @@ git commit -m "Restyle footer and project detail pages with teal accents"
 The existing Playwright tests were already stale before this redesign (wrong title expectation, selectors that never matched). Update them to match the new UI, then run the full verification.
 
 **Files:**
+
 - Modify: `tests/e2e/ProfileSection.test.ts` (full rewrite)
 
 - [ ] **Step 1: Rewrite the e2e tests**
@@ -788,6 +816,7 @@ Expected: build succeeds; prettier normalizes any formatting drift in edited fil
 - [ ] **Step 4: Manual visual QA (with the user)**
 
 With `npm run dev` running, check:
+
 - Dark and light modes (toggle in footer)
 - Mobile viewport: project grid collapses to 1 column, profile wraps cleanly
 - Keyboard tab order and visible focus rings

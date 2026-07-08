@@ -8,7 +8,12 @@ interface Props {
   variant?: "neutral" | "brand";
 }
 
-const { class: className, skills, size = 14, variant = "neutral" } = Astro.props;
+const {
+  class: className,
+  skills,
+  size = 14,
+  variant = "neutral",
+} = Astro.props;
 ---
 
 <ul
