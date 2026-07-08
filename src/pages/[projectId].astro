@@ -8,6 +8,7 @@ import { projects } from "@/data/projects.js";
 
 import Layout from "@/layouts/Layout.astro";
 import SkillsList from "@/components/SkillsList.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -33,7 +34,7 @@ if (!selectedProject) {
     style={`view-transition-name: ${projectId};`}
   >
     <a
-      class="self-start text-muted-foreground hover:text-foreground group pe-4 py-2"
+      class="self-start text-muted-foreground hover:text-brand group pe-4 py-2"
       title="Back to projects"
       aria-label="Back to projects"
       href="/"
@@ -44,7 +45,9 @@ if (!selectedProject) {
       <span class="text-sm">Back to projects</span>
     </a>
 
-    <h1 class="text-2xl font-medium text-foreground text-center mt-2">
+    <h1
+      class="text-3xl font-semibold tracking-tight text-foreground text-center mt-2"
+    >
       {selectedProject.title}
     </h1>
 
@@ -53,7 +56,7 @@ if (!selectedProject) {
     </p>
 
     <Image
-      class="w-full object-cover object-top"
+      class="w-full object-cover object-top rounded-xl border border-border"
       src={selectedProject.src}
       alt={selectedProject.alt}
       loading="eager"
@@ -67,12 +70,12 @@ if (!selectedProject) {
     <!-- Leave features as optional for now  -->
     {
       selectedProject.features && (
-        <div class="mt-4">
-          <h2 class="font-medium text-foreground mb-3">Key Features</h2>
+        <div class="mt-6">
+          <SectionHeader title="Key Features" />
           <ul class="text-left text-foreground space-y-4">
             {selectedProject.features.map((feature) => (
               <li class="flex items-start gap-3 text-sm">
-                <Check class="text-green-500 size-3 min-w-3 min-h-3 mt-1" />
+                <Check class="text-brand size-3 min-w-3 min-h-3 mt-1" />
                 <span>{feature}</span>
               </li>
             ))}
@@ -86,8 +89,7 @@ if (!selectedProject) {
         href={selectedProject.href}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn w-full bg-primary text-primary-foreground hover:bg-primary/90"
-        type="button"
+        class="btn w-full border-brand/40 text-brand hover:bg-brand/10"
       >
         <PlayIcon class="size-4 me-2" />
         Live Demo
@@ -97,8 +99,7 @@ if (!selectedProject) {
           href={selectedProject.github}
           target="_blank"
           rel="noopener noreferrer"
-          class="btn w-full"
-          type="button"
+          class="btn w-full hover:border-brand/50 hover:text-brand"
         >
           <CodeIcon class="size-4 me-2" />
           View Code
@@ -106,13 +107,9 @@ if (!selectedProject) {
       )}
     </div>
 
-    <div class="mt-4">
-      <h2 class="font-medium text-foreground mb-3">Built With</h2>
-      <SkillsList
-        class:list="gap-y-4"
-        skills={selectedProject.technologies}
-        size={20}
-      />
+    <div class="mt-6">
+      <SectionHeader title="Built With" />
+      <SkillsList skills={selectedProject.technologies} variant="brand" size={16} />
     </div>
 
     <p class="text-sm text-muted-foreground mt-2">
