@@ -5,23 +5,26 @@ interface Props {
   class?: string;
   skills: Skill[];
   size?: number;
+  variant?: "neutral" | "brand";
 }
 
-const { class: className, skills, size = 12 } = Astro.props;
+const { class: className, skills, size = 14, variant = "neutral" } = Astro.props;
 ---
 
 <ul
-  class="inline-flex flex-wrap gap-y-1 gap-x-1"
+  class="flex flex-wrap gap-1.5"
   class:list={[className ? className : ""]}
+  aria-label="List of skills"
 >
   {
-    skills.map((skill, index) => (
+    skills.map((skill) => (
       <li
-        class="inline-flex items-center justify-end text-sm text-foreground me-1 last:me-0"
-        class:list={[index !== skills.length - 1 ? 'after:content-[","]' : ""]}
+        class="pill"
+        class:list={[variant === "brand" ? "pill-brand" : ""]}
+        aria-label={skill.name}
       >
-        <span>{<skill.icon height={size} width={size} />}</span>
-        <span class="ml-1">{skill.name}</span>
+        <skill.icon height={size} width={size} />
+        <span>{skill.name}</span>
       </li>
     ))
   }
