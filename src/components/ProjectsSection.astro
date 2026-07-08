@@ -1,36 +1,46 @@
 ---
 import { Image } from "astro:assets";
-import { Eye } from "@lucide/astro";
+import { ArrowRight } from "@lucide/astro";
 import { projects } from "@/data/projects.js";
+import SectionHeader from "@/components/SectionHeader.astro";
 ---
 
 <div>
-  <h2 class="mb-5 text-lg font-semibold tracking-tight text-foreground">Projects</h2>
+  <SectionHeader title="Projects" />
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     {
       projects.map((project) => (
         <a
-          class="group block relative overflow-hidden rounded-lg"
+          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition duration-200 hover:-translate-y-0.5 hover:border-brand/50 hover:shadow-md"
           href={project.id}
-          rel="noopener noreferrer"
           title={project.title}
           transition:name={project.id}
         >
           <Image
-            class="w-full aspect-[4/3] object-cover rounded-lg object-top"
+            class="w-full aspect-video object-cover object-top border-b border-border"
             src={project.src}
             alt={project.alt}
             loading="lazy"
             fetchpriority="low"
             width="720"
-            height="540"
+            height="405"
             decoding="async"
             format="webp"
           />
-          <div class="mt-2 flex items-center justify-between">
-            <span class="text-sm font-medium text-foreground truncate">{project.title}</span>
-            <Eye class="size-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition shrink-0" />
+          <div class="flex flex-col gap-y-2 p-4">
+            <div class="flex items-center justify-between gap-x-2">
+              <h3 class="text-sm font-semibold text-card-foreground truncate">
+                {project.title}
+              </h3>
+              <ArrowRight class="size-4 shrink-0 text-brand opacity-0 -translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0" />
+            </div>
+            <p class="text-sm text-muted-foreground">{project.description}</p>
+            <ul class="mt-1 flex flex-wrap gap-1.5" aria-label="Technologies used">
+              {project.technologies.map((tech) => (
+                <li class="pill pill-brand">{tech.name}</li>
+              ))}
+            </ul>
           </div>
         </a>
       ))
