@@ -1,31 +1,36 @@
 ---
 import { Image } from "astro:assets";
 import { workExperience } from "@/data/workExperience";
+import SectionHeader from "@/components/SectionHeader.astro";
 ---
 
 <div>
-  <h2 class="mb-5 text-lg font-semibold tracking-tight text-foreground">Work Experience</h2>
+  <SectionHeader title="Work Experience" />
 
   <div>
     {
       workExperience.map((job) => (
         <div class="group relative flex gap-x-5">
-          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-muted-foreground">
-            <div class="relative z-10 size-10 flex justify-center items-center">
+          <div class="relative group-last:after:hidden after:absolute after:top-12 after:bottom-2 after:start-5 after:w-px after:-translate-x-[0.5px] after:bg-border">
+            <div class="relative z-10 flex size-10 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
               <Image alt={job.company} src={job.logo} width="40" height="40" />
             </div>
           </div>
 
-          <div class="grow pb-8 group-last:pb-0">
-            <h3 class="mb-1 text-xs text-muted-foreground">{job.duration}</h3>
+          <div class="grow pb-10 group-last:pb-0">
+            <h3 class="text-sm font-semibold text-foreground">
+              {job.position}
+            </h3>
 
-            <p class="font-semibold text-sm text-foreground">
-              {job.company} - {job.position}
-            </p>
+            <p class="mt-0.5 text-sm text-brand">{job.company}</p>
 
-            <p class="mt-1 text-sm text-muted-foreground">{job.description}</p>
+            <span class="mt-1.5 inline-block rounded bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
+              {job.duration}
+            </span>
 
-            <ul class="list-disc ms-6 mt-3 space-y-1.5">
+            <p class="mt-3 text-sm text-muted-foreground">{job.description}</p>
+
+            <ul class="list-disc ms-5 mt-3 space-y-1.5">
               {job.responsibilities.map((responsibility) => (
                 <li class="text-sm text-muted-foreground">{responsibility}</li>
               ))}
