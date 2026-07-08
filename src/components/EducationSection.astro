@@ -1,31 +1,36 @@
 ---
 import { Image } from "astro:assets";
 import { education } from "@data/education";
+import SectionHeader from "@/components/SectionHeader.astro";
 ---
 
 <div>
-  <h2 class="mb-5 text-lg font-semibold tracking-tight text-foreground">Education</h2>
+  <SectionHeader title="Education" />
 
-  <div class="flex flex-col gap-3">
+  <div>
     {
       education.map((edu) => (
-        <div class="p-4 border border-input rounded-lg">
-          <div class="mb-3">
-            <Image
-              alt={edu.institution}
-              src={edu.logo}
-              width="40"
-              height="40"
-            />
+        <div class="group relative flex gap-x-5">
+          <div class="relative group-last:after:hidden after:absolute after:top-12 after:bottom-2 after:start-5 after:w-px after:-translate-x-[0.5px] after:bg-border">
+            <div class="relative z-10 flex size-10 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
+              <Image
+                alt={edu.institution}
+                src={edu.logo}
+                width="40"
+                height="40"
+              />
+            </div>
           </div>
 
-          <h3 class="mb-1 text-xs text-muted-foreground">
-            {edu.startYear} - {edu.endYear}
-          </h3>
+          <div class="grow pb-10 group-last:pb-0">
+            <h3 class="text-sm font-semibold text-foreground">{edu.degree}</h3>
 
-          <p class="font-semibold text-sm text-foreground">{edu.degree}</p>
+            <p class="mt-0.5 text-sm text-brand">{edu.institution}</p>
 
-          <p class="mt-1 text-sm text-muted-foreground">{edu.institution}</p>
+            <span class="mt-1.5 inline-block rounded bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
+              {edu.startYear} - {edu.endYear}
+            </span>
+          </div>
         </div>
       ))
     }
