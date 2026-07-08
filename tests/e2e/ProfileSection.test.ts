@@ -24,7 +24,9 @@ test('has linkedin profile link', async ({ page }) => {
 
 test('has profile image', async ({ page }) => {
   await page.goto('http://localhost:4321/');
-  await expect(page.locator('img[alt="mflavin"]')).toBeVisible();
+  await expect(
+    page.locator('img[alt="Matt Flavin profile photo"]'),
+  ).toBeVisible();
 });
 
 test('has skills list', async ({ page }) => {
