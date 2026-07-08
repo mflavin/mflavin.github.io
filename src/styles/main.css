@@ -29,7 +29,7 @@
 
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
-  --brand: oklch(0.6 0.118 184.704); /* teal-600 */
+  --brand: oklch(0.511 0.096 186.391); /* teal-700 */
   --radius: 0.5rem;
 
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.02);
@@ -181,7 +181,7 @@
   }
 
   .pill {
-    @apply inline-flex items-center gap-x-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground;
+    @apply inline-flex items-center gap-x-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground whitespace-nowrap;
   }
 
   .pill-brand {
